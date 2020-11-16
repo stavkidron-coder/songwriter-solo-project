@@ -5,7 +5,22 @@ import LogOutButton from '../LogOutButton/LogOutButton';
 import './Nav.css';
 import mapStoreToProps from '../../redux/mapStoreToProps';
 
-const Nav = (props) => {
+import {
+  Collapse,
+  Navbar,
+  NavbarToggler,
+  NavbarBrand,
+  Nav,
+  NavItem,
+  NavLink,
+  UncontrolledDropdown,
+  DropdownToggle,
+  DropdownMenu,
+  DropdownItem,
+  NavbarText
+} from 'reactstrap';
+
+const NavBar = (props) => {
   let loginLinkData = {
     path: '/login',
     text: 'Login / Register',
@@ -17,33 +32,42 @@ const Nav = (props) => {
   }
 
   return (
-    <div className="nav">
-      <Link to="/home">
-        <h2 className="nav-title">Prime Solo Project</h2>
-      </Link>
-      <div className="nav-right">
-        <Link className="nav-link" to={loginLinkData.path}>
-          {/* Show this link if they are logged in or not,
-          but call this link 'Home' if they are logged in,
-          and call this link 'Login / Register' if they are not */}
-          {loginLinkData.text}
-        </Link>
+    <Navbar className="nav">
+      <NavbarBrand href="/home">
+        <h2 className="nav-title">SONGWRITER</h2>
+      </NavbarBrand>
+      
+      <Nav className="nav-right">
+        <NavItem>
+          <NavLink className="nav-link" href={loginLinkData.path}>
+            {/* Show this link if they are logged in or not,
+            but call this link 'Home' if they are logged in,
+            and call this link 'Login / Register' if they are not */}
+            {loginLinkData.text}
+          </NavLink>
+        </NavItem>
+        
         {/* Show the link to the info page and the logout button if the user is logged in */}
         {props.store.user.id && (
           <>
-            <Link className="nav-link" to="/info">
-              Info Page
-            </Link>
-            <LogOutButton className="nav-link" />
+          <NavItem>
+            <NavLink className="nav-link" href="/info">
+                Info Page
+            </NavLink>
+              <LogOutButton className="nav-link" />
+          </NavItem>   
           </>
         )}
         {/* Always show this link since the about page is not protected */}
-        <Link className="nav-link" to="/about">
-          About
-        </Link>
-      </div>
-    </div>
+        <NavItem>
+          <NavLink className="nav-link" to="/about">
+            About
+          </NavLink>
+        </NavItem>
+        
+      </Nav>
+    </Navbar>
   );
 };
 
-export default connect(mapStoreToProps)(Nav);
+export default connect(mapStoreToProps)(NavBar);

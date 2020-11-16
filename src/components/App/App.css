@@ -1,4 +1,4 @@
-html,
+/* html,
 body,
 #react-root {
   height: 100%;
@@ -12,20 +12,20 @@ body {
 img {
   display: inline-block;
   max-width: 100%;
-}
+} */
 
 /* --------------------------------------------------------------------------------
 Container
 -------------------------------------------------------------------------------- */
-
+/* 
 .container {
   padding: 20px;
-}
+} */
 
 /* --------------------------------------------------------------------------------
 Button
 -------------------------------------------------------------------------------- */
-
+/* 
 .btn {
   display: inline-block;
   padding: 10px 20px;
@@ -57,10 +57,10 @@ Button
 .btn:hover {
   background-color: #008183;
   text-decoration: none;
-}
+} */
 
 /* This line makes the "Register" and "Login" buttons look like links */
-.btn_asLink {
+/* .btn_asLink {
   padding: 0;
   border-width: 0;
   border-bottom: 1px solid #444;
@@ -74,7 +74,7 @@ Button
   background-color: transparent;
   border-color: #008183;
   color: #008183;
-}
+} */
 
 /* --------------------------------------------------------------------------------
 Alert
@@ -103,10 +103,14 @@ Form Treatment
   margin: 0 auto 20px;
   background-color: #efefef;
   border-radius: 3px;
-  box-shadow: 0 1px 2px rgb(0, 0, 0, 0.4);
+  /* box-shadow: 0 1px 2px rgb(0, 0, 0, 0.4); */
 }
 
-input {
+/* input {
   margin: 5px;
   margin-bottom: 10px;
+} */
+
+.registerJumbotron {
+  height: 100vh;
 }
