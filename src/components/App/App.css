@@ -81,12 +81,13 @@ Alert
 -------------------------------------------------------------------------------- */
 
 .alert {
+  text-align: center;
   box-sizing: border-box;
   padding: 15px 10px;
   margin: 15px 0;
   border: 2px solid #e01616;
   background-color: #efefef;
-  border-radius: 3px;
+  border-radius: 5px;
   color: #e01616;
   font-size: 0.8rem;
 }

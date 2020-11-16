@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import mapStoreToProps from '../../redux/mapStoreToProps';
-import {Container, Button, Jumbotron} from 'reactstrap';
+import {Container, Jumbotron} from 'reactstrap';
 import './RegisterPage.css';
 
 // CUSTOM COMPONENTS

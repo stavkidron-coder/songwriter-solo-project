@@ -14,19 +14,34 @@ class RegisterForm extends Component {
     admin: false
   };
 
+
+
   registerUser = (event) => {
     event.preventDefault();
-
-    this.props.dispatch({
-      type: 'REGISTER',
-      payload: {
-        username: this.state.username,
-        password: this.state.password,
-        first_name: this.state.first_name,
-        last_name: this.state.last_name,
-        admin: this.state.admin
-      },
-    });
+    // conditional requiring all inputs to be filled in
+    if(this.state.username === '' || this.state.password === '' || this.state.first_name === '' || this.state.last_name === ''){
+        this.props.dispatch({type: 'REGISTRATION_INPUT_ERROR'});
+    }
+    else {
+      this.props.dispatch({
+        type: 'REGISTER',
+        payload: {
+          username: this.state.username,
+          password: this.state.password,
+          first_name: this.state.first_name,
+          last_name: this.state.last_name,
+          admin: this.state.admin
+        },
+      });
+      // empty out state
+      this.setState({
+        username: '',
+        password: '',
+        first_name: '',
+        last_name: '',
+        admin: false
+      });
+    }
   }; // end registerUser
 
   handleInputChangeFor = (propertyName) => (event) => {
@@ -99,6 +114,8 @@ class RegisterForm extends Component {
                 />
               </Label>
             </div>
+
+            <br/>
 
             <div>
               <Button color="success" onClick={this.registerUser}>Register</Button>
