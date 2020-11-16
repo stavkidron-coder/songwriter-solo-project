@@ -1,5 +1,7 @@
-/* footer {
-  margin-top: 80px;
-  padding: 20px;
-  text-align: center;
-} */
+.footer {
+  margin: 0;
+}
+
+.navbarBrand {
+  color: black;
+}

@@ -1,0 +1,19 @@
+.registerJumbotron {
+    height: 86.4vh;
+    margin: 0;
+    border-radius: 0;
+    background-image: url('../../Images/instRoom.jpg');
+    background-size: cover;
+}
+
+.formPanel {
+    box-sizing: border-box;
+    width: 400px;
+    max-width: 100%;
+    padding: 25px;
+    margin: 0 auto 20px;
+    border-radius: 3px;
+    background-color: rgba(0, 0, 0, 0.81) !important;
+    color: white;
+}
+

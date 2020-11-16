@@ -32,8 +32,8 @@ const NavBar = (props) => {
   }
 
   return (
-    <Navbar className="nav">
-      <NavbarBrand href="/home">
+    <Navbar color="light" className="nav">
+      <NavbarBrand href="/home" className="navbarBrand">
         <h2 className="nav-title">SONGWRITER</h2>
       </NavbarBrand>
       
@@ -60,7 +60,7 @@ const NavBar = (props) => {
         )}
         {/* Always show this link since the about page is not protected */}
         <NavItem>
-          <NavLink className="nav-link" to="/about">
+          <NavLink className="nav-link" href="/about">
             About
           </NavLink>
         </NavItem>

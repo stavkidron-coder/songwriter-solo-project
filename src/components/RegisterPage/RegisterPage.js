@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import mapStoreToProps from '../../redux/mapStoreToProps';
 import {Container, Button, Jumbotron} from 'reactstrap';
+import './RegisterPage.css';
 
 // CUSTOM COMPONENTS
 import RegisterForm from '../RegisterForm/RegisterForm';
@@ -17,17 +18,6 @@ class RegisterPage extends Component {
       <Jumbotron className="registerJumbotron">
         <Container>
           <RegisterForm />
-
-          <center>
-            <Button
-              color="link"
-              onClick={() => {
-                this.props.history.push('/login');
-              }}
-            >
-              Login
-            </Button>
-          </center>
 
         </Container>
       </Jumbotron>
