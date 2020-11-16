@@ -17,6 +17,7 @@ class RegisterPage extends Component {
     return (
       <Jumbotron className="registerJumbotron">
         <Container>
+          
           <RegisterForm />
 
         </Container>

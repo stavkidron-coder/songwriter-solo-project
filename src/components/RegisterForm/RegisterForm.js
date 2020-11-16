@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import mapStoreToProps from '../../redux/mapStoreToProps';
 import '../RegisterPage/RegisterPage.css';
@@ -140,4 +141,4 @@ class RegisterForm extends Component {
   }
 }
 
-export default connect(mapStoreToProps)(RegisterForm);
+export default withRouter(connect(mapStoreToProps)(RegisterForm));
