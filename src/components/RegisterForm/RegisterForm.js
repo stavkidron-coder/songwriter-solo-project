@@ -6,6 +6,9 @@ class RegisterForm extends Component {
   state = {
     username: '',
     password: '',
+    first_name: '',
+    last_name: '',
+    admin: false
   };
 
   registerUser = (event) => {
@@ -16,6 +19,9 @@ class RegisterForm extends Component {
       payload: {
         username: this.state.username,
         password: this.state.password,
+        first_name: this.state.first_name,
+        last_name: this.state.last_name,
+        admin: this.state.admin
       },
     });
   }; // end registerUser
@@ -36,6 +42,29 @@ class RegisterForm extends Component {
           </h3>
         )}
         <div>
+
+        <label htmlFor="firstName">
+            First Name:
+            <input
+              type="text"
+              name="firstName"
+              value={this.state.first_name}
+              required
+              onChange={this.handleInputChangeFor('first_name')}
+            />
+          </label>
+
+          <label htmlFor="firstName">
+            Last Name:
+            <input
+              type="text"
+              name="lastName"
+              value={this.state.first_name}
+              required
+              onChange={this.handleInputChangeFor('last_name')}
+            />
+          </label>
+
           <label htmlFor="username">
             Username:
             <input
