@@ -22,6 +22,7 @@ class LoginForm extends Component {
           password: this.state.password,
         },
       });
+      this.props.history.push('/home');
     } else {
       this.props.dispatch({ type: 'LOGIN_INPUT_ERROR' });
     }
@@ -82,7 +83,8 @@ class LoginForm extends Component {
             <h5>New user?</h5>
             <Button
               className="registerBtn"
-              color="primary"
+              size="small"
+              color="link"
               onClick={() => {
                 this.props.history.push('/registration');
               }}

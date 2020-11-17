@@ -4,6 +4,7 @@
     border-radius: 0;
     background-image: url('../../Images/instRoom.jpg');
     background-size: cover;
+    background-position: center;
 }
 
 .formPanel {

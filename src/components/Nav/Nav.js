@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import LogOutButton from '../LogOutButton/LogOutButton';
 import './Nav.css';
 import mapStoreToProps from '../../redux/mapStoreToProps';
+import Logo from '../../Images/logo.png';
 
 import {
   Navbar,
@@ -19,14 +20,14 @@ const NavBar = (props) => {
   };
 
   if (props.store.user.id != null) {
-    loginLinkData.path = '/user';
+    loginLinkData.path = '/home';
     loginLinkData.text = 'Home';
   }
 
   return (
     <Navbar color="light" className="nav">
       <NavbarBrand href="/home" className="navbarBrand">
-        <h2 className="nav-title">SONGWRITER</h2>
+        <img src={Logo} className="logo" alt="logo"/>
       </NavbarBrand>
       
       <Nav className="nav-right">
@@ -42,12 +43,17 @@ const NavBar = (props) => {
         {/* Show the link to the info page and the logout button if the user is logged in */}
         {props.store.user.id && (
           <>
+          
           <NavItem>
-            <NavLink className="nav-link" href="/info">
-                Info Page
+            <NavLink className="nav-link" href="/in-the-works">
+                In-The-Works
             </NavLink>
-              <LogOutButton className="nav-link" />
-          </NavItem>   
+          </NavItem>
+
+          <NavItem>
+            <LogOutButton className="nav-link" />
+          </NavItem>
+
           </>
         )}
       </Nav>

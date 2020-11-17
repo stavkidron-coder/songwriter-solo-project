@@ -116,8 +116,6 @@ class RegisterForm extends Component {
               </Label>
             </div>
 
-            <br/>
-
             <div>
               <Button color="success" onClick={this.registerUser}>Register</Button>
             </div>
@@ -127,7 +125,7 @@ class RegisterForm extends Component {
           <center>
             <h5>Already have an account?</h5>
             <Button
-              color="primary"
+              color="link"
               onClick={() => {
                 this.props.history.push('/login');
               }}
