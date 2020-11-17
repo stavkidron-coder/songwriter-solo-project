@@ -127,6 +127,7 @@ class RegisterForm extends Component {
           <center>
             <h5>Already have an account?</h5>
             <Button
+              color="primary"
               onClick={() => {
                 this.props.history.push('/login');
               }}
