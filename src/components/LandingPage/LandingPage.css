@@ -78,3 +78,21 @@ Grid
   flex-basis: 100%;
   max-width: 100%;
 } */
+
+.landingDescription {
+  margin: auto;
+  padding: 75px;
+  height: 524px;
+  /* border: 1px solid black; */
+  border-radius: 3px;
+  background-color: rgba(230, 230, 230, 0.81) !important;
+  color: black;
+}
+
+.landingJumbotron {
+  height: 86.4vh;
+  margin: 0;
+  background-image: url('../../Images/guitar.jpg');
+  background-size: cover;
+  border-radius: 0; 
+}

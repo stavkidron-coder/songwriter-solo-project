@@ -50,13 +50,6 @@ const NavBar = (props) => {
           </NavItem>   
           </>
         )}
-        {/* Always show this link since the about page is not protected */}
-        <NavItem>
-          <NavLink className="nav-link" href="/about">
-            About
-          </NavLink>
-        </NavItem>
-        
       </Nav>
     </Navbar>
   );
