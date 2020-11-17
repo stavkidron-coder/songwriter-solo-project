@@ -4,6 +4,7 @@ import LogOutButton from '../LogOutButton/LogOutButton';
 import './Nav.css';
 import mapStoreToProps from '../../redux/mapStoreToProps';
 import Logo from '../../Images/logo.png';
+import { Link } from 'react-router-dom';
 
 import {
   Navbar,
@@ -45,9 +46,9 @@ const NavBar = (props) => {
           <>
           
           <NavItem>
-            <NavLink className="nav-link" href="/in-the-works">
+              <Link className="nav-link" to="/in-the-works">
                 In-The-Works
-            </NavLink>
+              </Link>
           </NavItem>
 
           <NavItem>
