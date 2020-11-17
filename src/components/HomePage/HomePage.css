@@ -1,0 +1,26 @@
+.homeJumbotron {
+    margin: 0;
+    /* height: 86.4vh; */
+    height: 50vh;
+    background-image: url('../../Images/piano.jpg');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    border-radius: 0;
+}
+
+.leftJumbotron {
+    border: 1px solid black;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.81);
+}
+
+.rightJumbotron {
+    border: 1px solid black;
+    padding: 20px;
+    margin: auto;
+}
+
+.homeHr {
+    background-color: white;
+}
