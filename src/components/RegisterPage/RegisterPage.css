@@ -11,9 +11,9 @@
     width: 400px;
     max-width: 100%;
     padding: 25px;
-    margin: 0 auto 20px;
+    margin: 20px 20px;
     border-radius: 3px;
-    background-color: rgba(0, 0, 0, 0.81) !important;
+    background-color: rgba(0, 0, 0, 0.899) !important;
     color: white;
 }
 
