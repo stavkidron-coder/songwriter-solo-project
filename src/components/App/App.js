@@ -20,6 +20,7 @@ import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
 import InTheWorks from '../InTheWorks/InTheWorks';
 import AddEditSongPage from '../Add-EditSongPage/Add-EditSongPage';
+import CompletedPage from '../CompletedPage/CompletedPage';
 
 import './App.css';
 
@@ -108,9 +109,17 @@ class App extends Component {
               // authRedirect="/home"
             />
 
+            <ProtectedRoute
+              // logged in shows In-The-Works page else shows LoginPage
+              exact
+              path="/completed"
+              component={CompletedPage}
+              // authRedirect="/home"
+            />
+
             {/* If none of the other routes matched, we will show a 404. */}
             <Route render={() => <h1>404</h1>} />
-            
+
           </Switch>
 
           <Footer />

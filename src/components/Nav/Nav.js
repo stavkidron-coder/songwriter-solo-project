@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import LogOutButton from '../LogOutButton/LogOutButton';
 import './Nav.css';
@@ -11,10 +11,19 @@ import {
   NavbarBrand,
   Nav,
   NavItem,
-  NavLink
+  NavLink,
+  Dropdown,
+  DropdownToggle,
+  DropdownMenu,
+  DropdownItem
 } from 'reactstrap';
 
 const NavBar = (props) => {
+
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+
+  const toggle = () => setDropdownOpen(prevState => !prevState);
+
   let loginLinkData = {
     path: '/login',
     text: 'Login / Register',
@@ -44,12 +53,38 @@ const NavBar = (props) => {
         {/* Show the link to the info page and the logout button if the user is logged in */}
         {props.store.user.id && (
           <>
-          
-          <NavItem>
-              <Link className="nav-link" to="/in-the-works">
-                In-The-Works
+          <Dropdown isOpen={dropdownOpen} toggle={toggle}>
+            
+            <DropdownToggle caret>
+              My Songs
+            </DropdownToggle>
+
+            <DropdownMenu>
+
+              <DropdownItem>
+                <Link className="nav-link" to="/in-the-works">
+                  In-The-Works
+                </Link>
+              </DropdownItem>
+
+              <DropdownItem>
+                <Link className="nav-link" to="/completed">
+                Completed
               </Link>
-          </NavItem>
+              </DropdownItem>
+
+              <DropdownItem divider/>
+
+              <DropdownItem>
+                <Link className="nav-link" to="/edit-song">
+                New Song
+              </Link>
+              </DropdownItem>
+
+            </DropdownMenu>
+          </Dropdown>
+
+          
 
           <NavItem>
             <LogOutButton className="nav-link" />

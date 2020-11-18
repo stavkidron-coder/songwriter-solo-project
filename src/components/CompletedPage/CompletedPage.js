@@ -6,7 +6,7 @@ import mapStoreToProps from '../../redux/mapStoreToProps';
 // value setup. When making a new component be sure to replace
 // the component name TemplateClass with the name for the new
 // component.
-class InTheWorks extends Component {
+class Completed extends Component {
 
   render() {
     return (
@@ -17,4 +17,4 @@ class InTheWorks extends Component {
   }
 }
 
-export default connect(mapStoreToProps)(InTheWorks);
+export default connect(mapStoreToProps)(Completed);
