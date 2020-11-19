@@ -1,0 +1,41 @@
+.addEditPageJumbotron {
+    border-radius: 0;
+}
+
+.textArea {
+    width: 100% !important;
+    height: 100% !important;
+}
+
+.r1c1 {
+    width: 100% !important;
+    height: 310px !important;
+}
+
+.r1c2 {
+    width: 100% !important;
+    height: 310px !important;
+}
+
+.r2c1 {
+    width: 100% !important;
+    height: 200px !important;
+    margin-top: 50px;
+    margin-bottom: 40px;
+}
+
+.songStructure {
+    border: 1px solid rgb(206,212,218);
+    border-radius: 3px;
+    overflow-y:auto;
+    height: 310px;
+}
+
+.addSectionBtn {
+    float: right;
+    margin-top: 10px;
+}
+
+.btnRow Button{
+    margin-left: 10px;
+}
