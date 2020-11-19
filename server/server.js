@@ -5,6 +5,7 @@ require('dotenv').config();
 const app = express();
 const bodyParser = require('body-parser');
 const sessionMiddleware = require('./modules/session-middleware');
+const songsRouter = require('./routes/songs.router');
 
 const passport = require('./strategies/user.strategy');
 
@@ -24,6 +25,7 @@ app.use(passport.session());
 
 /* Routes */
 app.use('/api/user', userRouter);
+app.use('/songs', songsRouter);
 
 // Serve static files
 app.use(express.static('build'));
