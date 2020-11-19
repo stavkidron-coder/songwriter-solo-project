@@ -10,8 +10,7 @@ import {Jumbotron,
         Form,
         FormGroup,
         Label,
-        Input,
-        FormText}
+        Input}
     from 'reactstrap';
 
 // Basic class component structure for React with default state
@@ -46,6 +45,7 @@ class AddEditSongPage extends Component {
                 <Form>
                     <FormGroup>
                         <Row>
+
                             <Col xs="4" className="r1c1">
                                 <Label for="title">*Song Title:</Label>
                                 <Input id="title"/>
@@ -71,36 +71,41 @@ class AddEditSongPage extends Component {
                             <Col xs="4" className="r1c3">
                                 <Label for="chords">Chords/Song Structure:</Label>
                                 <div className="songStructure" id="chords">
-                                    {/* This is where the chords for each section will go */}
-                                    
+                                    {/* This is where the chords for each section will go */}   
                                 </div>
                                 <Button color="success" size="sm" className="addSectionBtn">Add Section</Button>
                             </Col>
+
                         </Row>
 
                         <Row>
+
                             <Col xs="4" className="r2c1">
                                 <Label for="instruments">Instruments:</Label>
                                 <Input id="instruments" type="textarea" className="textArea"/>
                             </Col>
+
                             <Col xs="4" className="r2c1">
                                 <Label for="refSongs">Reference Songs:</Label>
                                 <Input id="refSongs" type="textarea" className="textArea"/>
                             </Col>
+
                             <Col xs="4" className="r2c1">
                                 <Label for="notes">Other Notes:</Label>
                                 <Input id="notes" type="textarea" className="textArea"/>
                             </Col>
-                        </Row>
 
-                        <Row className="btnRow">
-                            <Button color="success">Mark as "In-The-Works"</Button>
-                            <Button color="success">Mark as "Completed"</Button>
-                            <Button color="danger">Delete Song</Button>
                         </Row>
                         
                     </FormGroup>
                 </Form>
+
+                <div className="btnRow">
+                    <Button color="success">Mark as "In-The-Works"</Button>
+                    <Button color="success">Mark as "Completed"</Button>
+                    <Button color="danger">Delete Song</Button>
+                </div>
+
             </Container>
         </div>
     );
