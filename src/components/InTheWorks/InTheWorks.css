@@ -8,4 +8,7 @@
 
 .itwListItem {
     margin: 10px 0;
+    border: 1px solid rgb(206,212,218);
+    border-radius: 5px;
+    padding: 10px;
 }
