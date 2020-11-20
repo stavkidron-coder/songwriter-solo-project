@@ -6,6 +6,7 @@ const app = express();
 const bodyParser = require('body-parser');
 const sessionMiddleware = require('./modules/session-middleware');
 const songsRouter = require('./routes/songs.router');
+const sectionRouter = require('./routes/Sections.router');
 
 const passport = require('./strategies/user.strategy');
 
@@ -26,6 +27,7 @@ app.use(passport.session());
 /* Routes */
 app.use('/api/user', userRouter);
 app.use('/songs', songsRouter);
+app.use('/sections', sectionRouter);
 
 // Serve static files
 app.use(express.static('build'));

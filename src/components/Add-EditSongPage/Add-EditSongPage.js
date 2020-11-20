@@ -19,9 +19,27 @@ import {Jumbotron,
 // the component name TemplateClass with the name for the new
 // component.
 class AddEditSongPage extends Component {
+
+    componentDidMount() {
+        // post a new blank song to DB
+        // returns id
+    }
+
+    componentDidUpdate(props, state) {
+        if(props.store.REDUCER_NAME_THAT_HOLDS_NEW_SONG_ID !== state.song.newSongId){
+            this.setState({
+                song: {
+                    ...this.state.song,
+                    newSongId: props.store.REDUCER_NAME_THAT_HOLDS_NEW_SONG_ID
+                }
+            });
+        }
+    }
+
   state = {
     song: {
-        title: "",
+        newSongId: 0,
+        title: "New Song",
         key: "",
         tempo: 0,
         timeSig: "",
@@ -89,12 +107,13 @@ saveBtn = () => {
                 <Container>
                     <Row>
                         <Col xs="6">
-                            <h2>Edit Song</h2>
+                            <h2>New Song</h2>
                             <hr/>
                             <p>
                                 Enter in the information for your song! When you're done,
-                                you can decide if your song is complete or still "in-the-works"
-                                by choosing the corresponding buttons at the bottom of the form.
+                                you can decide if your song is complete by checking the
+                                completed box at the bottom of the page. If you don't want
+                                your
                             </p>
                         </Col>
                     </Row>
@@ -146,7 +165,7 @@ saveBtn = () => {
                                 />
                             </Col>
 
-                            <SectionModal/>
+                            <SectionModal songId={this.state.newSongId}/>
 
                         </Row>
 
