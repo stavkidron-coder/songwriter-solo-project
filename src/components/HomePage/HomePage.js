@@ -9,6 +9,7 @@ class HomePage extends Component {
 
   newSongBtn = () => {
     console.log('newSongBtn clicked');
+    this.props.dispatch({type: 'ADD_SONG'});
     this.props.history.push('/edit-song');
   }
 

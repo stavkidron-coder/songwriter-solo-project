@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux'
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Col, Label, FormGroup, Form, Input } from 'reactstrap';
+import './SectionModal.css';
+import SectionItem from './SectionItem/SectionItem';
 
-const SectionModal = (props) => {
-
-    let sectionObject = {
+const SectionModal = (props) => {  
+  
+  let sectionObject = {
         section: "",
         chords: ""
     }
@@ -19,13 +21,18 @@ const SectionModal = (props) => {
         else {
             return;
         }
-        // console.log('sectionObject:', sectionObject);  
+        console.log('sectionObject:', sectionObject); 
         return sectionObject;
     }
 
     const submitBtn = () => {
         console.log('sectionObject to submit', sectionObject);
-        
+        // props.dispatch({type: "ADD_SECTION", payload: sectionObject});
+        // sectionArray.push(sectionObject);
+        // console.log('sectionArray', sectionArray);
+        let newArray = [...secArray, sectionObject];
+        pushSection(newArray);
+        props.dispatch({type: 'ADD_SECTION', payload: {sectionObject: sectionObject, songId: props.songId}});
         // toggles modal window
         setModal(!modal);
     }
@@ -38,14 +45,22 @@ const SectionModal = (props) => {
 
   const toggle = () => setModal(!modal);
 
+  const [secArray, pushSection] = useState([]);
+
   return (
     
     <Col xs="4" className="r1c3">
     <Label for="chords">Chords/Song Structure:</Label>
         <div className="songStructure" id="chords">
-            {/* This is where the chords for each section will go */}   
+            {/* This is where the chords for each section will go */}
+            {secArray.map((section) => {
+              return(
+                <SectionItem songSection={section} key={section.section}/>
+              )
+            })}   
         </div>
       <Button color="success" onClick={toggle}>Add Section</Button>
+      
       <Modal isOpen={modal} toggle={toggle} className={className}>
         <ModalHeader toggle={toggle}>Add a section</ModalHeader>
         <ModalBody>
