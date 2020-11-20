@@ -40,3 +40,17 @@
     margin-right: 10px;
     margin-bottom: 10px;
 }
+
+#completedStatus {
+    margin-left: 10px;
+    margin-top: 7px;
+}
+
+.completeSong {
+    border: 1px solid rgb(206,212,218);
+    border-radius: 5px;
+    width: 170px;
+    padding: 7px;
+    justify-content: center;
+    margin-bottom: 10px;
+}

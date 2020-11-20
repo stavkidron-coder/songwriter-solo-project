@@ -30,7 +30,7 @@ class AddEditSongPage extends Component {
         instruments: "",
         references: "",
         notes: "",
-        is_complete: false
+        is_complete: "false"
     }  
   };
 
@@ -44,23 +44,43 @@ class AddEditSongPage extends Component {
         });
   }
 
-  inTheWorksBtn = () => {
+  checkboxToggle = () => {
+    if (document.getElementById('completedStatus').checked) 
+  {
       this.setState({
-          song:
-            {is_complete: false}
-        })
-      console.log('payload', this.state.song);
-      this.props.dispatch({type: 'ADD_SONG', payload: this.state.song})
+          song: {
+              ...this.state.song,
+              is_complete: document.getElementById('completedStatus').value = "true"
+          }
+      });
+  }
+    console.log('completed status:', this.state.song.is_complete);
   }
 
-  completedBtn = () => {
-      this.setState({
-          song:
-            {is_complete: true}
-        })
-    //   console.log('payload', this.state.song);
-      this.props.dispatch({type: 'ADD_SONG', payload: this.state.song})
-  }
+//   inTheWorksBtn = () => {
+//       this.setState({
+//           song:
+//             {is_complete: false}
+//         })
+//       console.log('payload', this.state.song);
+//       this.props.dispatch({type: 'ADD_SONG', payload: this.state.song})
+//   }
+
+//   completedBtn = () => {
+//       this.setState({
+//           song:
+//             {
+//                 is_complete: true
+//             }
+//         })
+//     //   console.log('payload', this.state.song);
+//       this.props.dispatch({type: 'ADD_SONG', payload: this.state.song})
+//   }
+
+saveBtn = () => {
+    console.log('song', this.state.song);
+    this.props.dispatch({type: 'ADD_SONG', payload: this.state.song});
+}
 
   render() {
     return (
@@ -168,9 +188,18 @@ class AddEditSongPage extends Component {
                 </Form>
 
                 <div className="btnRow">
-                    <Button color="success" onClick={this.inTheWorksBtn}>Mark as "In-The-Works"</Button>
-                    <Button color="success">Mark as "Completed"</Button>
-                    <Button color="danger">Delete Song</Button>
+                    <Row>
+                        <Col>
+                            <div className="completeSong">
+                                <Label for="completedStatus">Complete song</Label>
+                                <Input type="checkbox" id="completedStatus" name="completeStatus" onClick={this.checkboxToggle}/>
+                            </div>
+                            <Button color="success" onClick={this.saveBtn}>Save</Button>
+                            <Button color="danger">Delete Song</Button>
+                        </Col>
+                        
+                    </Row>
+                    
                 </div>
 
             </Container>
