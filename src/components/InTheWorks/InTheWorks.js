@@ -15,7 +15,7 @@ class InTheWorks extends Component {
   }
 
   getSongs = () => {
-    this.props.dispatch({type: 'GET_SONGS'});
+    this.props.dispatch({type: 'GET_ITW_SONGS'});
   }
 
   render() {
@@ -32,7 +32,7 @@ class InTheWorks extends Component {
         <Container>
           
             {/* {JSON.stringify(this.props.store.songs)} */}
-            {this.props.store.songs.map((song) => {
+            {this.props.store.itwSongs.map((song) => {
               return(
                 <div key={song.id} className="itwListItem">
                   <Row>

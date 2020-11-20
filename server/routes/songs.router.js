@@ -5,10 +5,23 @@ const router = express.Router();
 /**
  * GET route template
  */
-router.get('/', (req, res) => {
+router.get('/in-the-works', (req, res) => {
     // console.log('GET req.body', req.user.id);
     const userId = req.user.id;
     const queryText = `SELECT * FROM "songs" WHERE "completed_status" = FALSE AND "user_id" = $1;`;
+    pool.query(queryText, [userId]).then((result) => {
+        console.log('result.rows', result.rows);
+        res.send(result.rows);
+    }).catch((error) => {
+        console.log('ERROR in GET', error);
+        res.sendStatus(500);
+    });
+});
+
+router.get('/completed', (req, res) => {
+    // console.log('GET req.body', req.user.id);
+    const userId = req.user.id;
+    const queryText = `SELECT * FROM "songs" WHERE "completed_status" = TRUE AND "user_id" = $1;`;
     pool.query(queryText, [userId]).then((result) => {
         console.log('result.rows', result.rows);
         res.send(result.rows);

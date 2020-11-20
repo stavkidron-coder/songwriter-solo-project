@@ -53,6 +53,15 @@ class AddEditSongPage extends Component {
       this.props.dispatch({type: 'ADD_SONG', payload: this.state.song})
   }
 
+  completedBtn = () => {
+      this.setState({
+          song:
+            {is_complete: true}
+        })
+    //   console.log('payload', this.state.song);
+      this.props.dispatch({type: 'ADD_SONG', payload: this.state.song})
+  }
+
   render() {
     return (
         <div>
