@@ -23,9 +23,13 @@ class AddEditSongPage extends Component {
     componentDidMount() {
         // post a new blank song to DB
         // returns id
+        this.props.dispatch({type: 'GET_SONG_ID', payload: this.props.match.params.id});
+        console.log('RETURNING SONG ID', this.props.store.songIdReducer);
     }
 
     componentDidUpdate(props, state) {
+        // console.log('RETURNING SONG ID', props.store.songIdReducer.id);
+        
         if(props.store.REDUCER_NAME_THAT_HOLDS_NEW_SONG_ID !== state.song.newSongId){
             this.setState({
                 song: {

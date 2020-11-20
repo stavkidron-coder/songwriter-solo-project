@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { put, takeLatest } from 'redux-saga/effects';
+import { put, takeEvery, takeLatest } from 'redux-saga/effects';
 
 function* getInTheWorksSongs() {
     try {
@@ -27,17 +27,32 @@ function* postSong(action){
     console.log('post saga action.payload', action.payload);
     
     try {
-        yield axios.post('/songs', action.payload);
+        const songResponse = yield axios.post('/songs');
+        console.log('songResponse', songResponse);
+        yield action.payload.nav.props.history.push(`/edit-song/${songResponse.data.id}`);
     }
     catch (error) {
         console.log('ERROR in post song saga', error);
     }
 }
 
+function* getSongId(action) {
+    try {
+        const songIdResponse = yield axios.get(`/songs/${action.payload}`);
+        console.log('songIdResponse', songIdResponse.data);
+        yield put({type: 'SET_SONG_ID', payload: songIdResponse.data});
+    }
+    catch (error) {
+        console.log('ERROR FETCHING COMPLETED', error);
+    }
+    
+}
+
 function* songsSaga() {
     yield takeLatest('GET_ITW_SONGS', getInTheWorksSongs);
     yield takeLatest('GET_COMPLETED_SONGS', getCompletedSongs);
     yield takeLatest('ADD_SONG', postSong)
+    yield takeEvery('GET_SONG_ID', getSongId)
   }
 
 export default songsSaga;

@@ -31,6 +31,17 @@ router.get('/completed', (req, res) => {
     });
 });
 
+router.get('/:id', (req, res) => {
+    const songId = Number(req.params.id);
+    const queryText = `SELECT * FROM "songs" WHERE "songs"."id" = ${songId};`;
+    pool.query(queryText).then((result) => {
+        res.send(result.rows);
+    }).catch((error) => {
+        console.log('ERROR in specific id GET', error);
+        res.sendStatus(500);
+    });
+})
+
 router.post('/', (req, res) => {
     const user_id = req.user.id;
     const title = req.body.title;
@@ -44,11 +55,12 @@ router.post('/', (req, res) => {
     const completed_status = req.body.is_complete;
 
     const queryText = `INSERT INTO "songs" ("user_id", "title", "key", "tempo", "time_signature", "lyrics", "instruments", "reference_songs", "notes", "completed_status")
-                        VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9, $10);`;    
+                        VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING id;`; 
 
     pool.query(queryText, [user_id, title, key, tempo, time_signature, lyrics, instruments, reference_songs, notes, completed_status])
     .then((result) => {
-        res.sendStatus(201);    
+        console.log('result', result.rows[0]);
+        res.send(result.rows[0] );
     }).catch((error) => {
         console.log('ERROR in POST router', error);
         res.sendStatus(500);

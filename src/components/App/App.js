@@ -96,7 +96,7 @@ class App extends Component {
               // - if logged in, redirects to "/edit-song"
               // - else shows LandingPage at "/home"
               exact
-              path="/edit-song"
+              path="/edit-song/:id"
               component={AddEditSongPage}
               // authRedirect="/home"
             />

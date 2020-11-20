@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-// import { withRouter } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import mapStoreToProps from '../../redux/mapStoreToProps';
 import {Jumbotron, Container, Row, Col, Button} from 'reactstrap';
 import './HomePage.css';
@@ -9,8 +9,8 @@ class HomePage extends Component {
 
   newSongBtn = () => {
     console.log('newSongBtn clicked');
-    this.props.dispatch({type: 'ADD_SONG'});
-    this.props.history.push('/edit-song');
+    this.props.dispatch({type: 'ADD_SONG', payload: {nav:this}});
+    // this.props.history.push('/edit-song');
   }
 
   render() {
@@ -50,4 +50,4 @@ class HomePage extends Component {
 }
 
 // this allows us to use <App /> in index.js
-export default connect(mapStoreToProps)(HomePage);
+export default withRouter(connect(mapStoreToProps)(HomePage));
