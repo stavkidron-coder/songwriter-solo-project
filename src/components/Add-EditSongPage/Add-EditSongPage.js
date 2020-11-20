@@ -20,34 +20,37 @@ import {Jumbotron,
 // component.
 class AddEditSongPage extends Component {
   state = {
-    newSong: {
+    song: {
         title: "",
         key: "",
         tempo: 0,
         timeSig: "",
         lyrics: "",
         chords: "",
-        section: "",
         instruments: "",
         references: "",
-        notes: ""
+        notes: "",
+        is_complete: false
     }  
   };
 
   // redirects all inputed info to the correct key
   handleChange = (event, typeParam) => {
         this.setState({
-            newSong: {
-                ...this.state.newSong,
+            song: {
+                ...this.state.song,
                 [typeParam]: event.target.value
             }
         });
   }
 
-  sectionModal = () => {
-    return(
-        <SectionModal/>
-    )
+  inTheWorksBtn = () => {
+      this.setState({
+          song:
+            {is_complete: false}
+        })
+      console.log('payload', this.state.song);
+      this.props.dispatch({type: 'ADD_SONG', payload: this.state.song})
   }
 
   render() {
@@ -92,6 +95,7 @@ class AddEditSongPage extends Component {
                                 <Label for="tempo">Tempo:</Label>
                                 <Input
                                     id="tempo"
+                                    type="number"
                                     onChange={(event) => this.handleChange(event, 'tempo')}     
                                 />
                                 <br/>
@@ -155,7 +159,7 @@ class AddEditSongPage extends Component {
                 </Form>
 
                 <div className="btnRow">
-                    <Button color="success">Mark as "In-The-Works"</Button>
+                    <Button color="success" onClick={this.inTheWorksBtn}>Mark as "In-The-Works"</Button>
                     <Button color="success">Mark as "Completed"</Button>
                     <Button color="danger">Delete Song</Button>
                 </div>

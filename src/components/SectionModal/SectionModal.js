@@ -1,11 +1,6 @@
 import React, { useState } from 'react';
+import { connect } from 'react-redux'
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Col, Label, FormGroup, Form, Input } from 'reactstrap';
-
-let section = "";
-
-
-
-// this.props.dispatch
 
 const SectionModal = (props) => {
 
@@ -24,17 +19,15 @@ const SectionModal = (props) => {
         else {
             return;
         }
-        console.log('sectionObject:', sectionObject);
-        
+        // console.log('sectionObject:', sectionObject);  
         return sectionObject;
     }
 
-    const submitBtn = (action) => {
+    const submitBtn = () => {
         console.log('sectionObject to submit', sectionObject);
-        section = sectionObject;
-        console.log('section', section);
-        section = "";
-        console.log('cleared section', section);
+        
+        // toggles modal window
+        setModal(!modal);
     }
 
   const {
@@ -46,7 +39,7 @@ const SectionModal = (props) => {
   const toggle = () => setModal(!modal);
 
   return (
-      <>
+    
     <Col xs="4" className="r1c3">
     <Label for="chords">Chords/Song Structure:</Label>
         <div className="songStructure" id="chords">
@@ -54,7 +47,7 @@ const SectionModal = (props) => {
         </div>
       <Button color="success" onClick={toggle}>Add Section</Button>
       <Modal isOpen={modal} toggle={toggle} className={className}>
-        <ModalHeader toggle={toggle}>Modal title</ModalHeader>
+        <ModalHeader toggle={toggle}>Add a section</ModalHeader>
         <ModalBody>
           Add a song section and it's corresponding chords.
           <br/>
@@ -77,10 +70,12 @@ const SectionModal = (props) => {
       </Modal>
     </Col>
 
-</>
-
 
   );
 }
 
-export default SectionModal;
+const mapReduxStateToProps = reduxState => ({
+    reduxState
+});
+
+export default connect(mapReduxStateToProps)(SectionModal);
