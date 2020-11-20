@@ -41,11 +41,11 @@ class InTheWorks extends Component {
                       <p>{song.date}</p>
                     </Col>
                     <Col xs="4" className="buttonCol">
-                      <Button color="primary" size="sm" className="itwBtns">
+                      <Button color="primary" className="itwBtns">
                         Edit Song
                       </Button>
                       <br/>
-                      <Button color="primary" size="sm" className="itwBtns">
+                      <Button color="primary" className="itwBtns">
                         View Song
                       </Button>
                     </Col>
