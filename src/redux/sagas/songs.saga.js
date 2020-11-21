@@ -44,15 +44,39 @@ function* getSongId(action) {
     }
     catch (error) {
         console.log('ERROR FETCHING COMPLETED', error);
+    }   
+}
+
+function* updateSong(action) {
+    try {
+        const updateSongResponse = yield axios.put(`/songs/update/${action.payload.songId}`, action.payload);
+        console.log('updateSongResponse:', updateSongResponse.data);
+        yield put({type: 'GET_SONG_BY_ID', payload: action.payload.songId});
     }
-    
+    catch(error) {
+        console.log('ERROR inUPDATE saga', error);
+    }
+}
+
+function* getSongDataById(action) {
+    try {
+        const getSongResponse = yield axios.get(`/songs/${action.payload}`);
+        console.log('getResponseById', getSongResponse.data);
+        yield put({type: 'SET_SONG', payload: getSongResponse.data});
+        
+    }
+    catch (error) {
+        console.log('ERROR in getSongById saga', error);
+    }
 }
 
 function* songsSaga() {
     yield takeLatest('GET_ITW_SONGS', getInTheWorksSongs);
     yield takeLatest('GET_COMPLETED_SONGS', getCompletedSongs);
-    yield takeLatest('ADD_SONG', postSong)
-    yield takeEvery('GET_SONG_ID', getSongId)
+    yield takeLatest('ADD_SONG', postSong);
+    yield takeEvery('GET_SONG_ID', getSongId);
+    yield takeEvery('UPDATE_SONG', updateSong);
+    yield takeEvery('GET_SONG_BY_ID', getSongDataById);
   }
 
 export default songsSaga;

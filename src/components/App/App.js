@@ -21,6 +21,7 @@ import RegisterPage from '../RegisterPage/RegisterPage';
 import InTheWorks from '../InTheWorks/InTheWorks';
 import AddEditSongPage from '../Add-EditSongPage/Add-EditSongPage';
 import CompletedPage from '../CompletedPage/CompletedPage';
+import ViewSongPage from '../ViewSong/ViewSong';
 
 import './App.css';
 
@@ -114,6 +115,14 @@ class App extends Component {
               exact
               path="/completed"
               component={CompletedPage}
+              // authRedirect="/home"
+            />
+
+            <ProtectedRoute
+              // logged in shows In-The-Works page else shows LoginPage
+              exact
+              path="/view-song"
+              component={ViewSongPage}
               // authRedirect="/home"
             />
 

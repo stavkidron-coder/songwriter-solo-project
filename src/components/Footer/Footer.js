@@ -7,18 +7,20 @@ import {Navbar, Nav, NavItem, NavbarBrand} from 'reactstrap';
 // It doesn't dispatch any redux actions or display any part of redux state
 // or even care what the redux state is, so it doesn't need 'connect()'
 
-const Footer = () => 
-    <Navbar color="light" className="footer">
-        <NavbarBrand href='/home' className="navbarBrand">
-            <h4 className="nav-title">SONGWRITER</h4>
-        </NavbarBrand>
+const Footer = () =>
+    <div className = "footerContainer">
+        <Navbar color="light" className="footer">
+            <NavbarBrand href='/home' className="navbarBrand">
+                <h4 className="nav-title">SONGWRITER</h4>
+            </NavbarBrand>
 
-        <Nav>
-            <NavItem className="copyright">
-                <p>&copy; Stav Kidron</p>
-            </NavItem>
-        </Nav>
+            <Nav>
+                <NavItem className="copyright">
+                    <p>&copy; Stav Kidron</p>
+                </NavItem>
+            </Nav>
 
-    </Navbar>;
+        </Navbar>
+    </div>
 
 export default Footer;
