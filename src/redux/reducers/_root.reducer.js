@@ -4,6 +4,7 @@ import user from './user.reducer';
 import itwSongs from './itwSongs.reducer.js';
 import completedSongs from './completedSongsReducer';
 import songIdReducer from './SongId.reducer';
+import songsReducer from './songs.reducer';
 
 // rootReducer is the primary reducer for our entire project
 // It bundles up all of the other reducers so our project can use them.
@@ -16,7 +17,8 @@ const rootReducer = combineReducers({
   user, // will have an id and username if someone is logged in
   itwSongs,
   completedSongs,
-  songIdReducer
+  songIdReducer,
+  songsReducer
 });
 
 export default rootReducer;

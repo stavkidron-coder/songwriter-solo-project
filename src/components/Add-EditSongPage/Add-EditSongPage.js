@@ -24,7 +24,15 @@ class AddEditSongPage extends Component {
         // post a new blank song to DB
         // returns id
         this.props.dispatch({type: 'GET_SONG_ID', payload: this.props.match.params.id});
-        console.log('RETURNING SONG ID', this.props.store.songIdReducer);
+        this.props.dispatch({type: 'GET_SONG_BY_ID', payload: this.props.match.params.id});
+        
+        // console.log('RETURNING SONG ID', this.props.store.songIdReducer);
+    }
+
+    componentDidUpdate() {
+        if(this.state.song.songId !== this.props.store.songsReducer.songId){
+            this.setState({song: this.props.store.songsReducer})
+        }
     }
 
     // componentDidUpdate(props, state) {
@@ -42,7 +50,7 @@ class AddEditSongPage extends Component {
 
   state = {
     song: {
-        newSongId: 0,
+        songId: 0,
         title: "New Song",
         key: "",
         tempo: 0,
@@ -80,8 +88,11 @@ class AddEditSongPage extends Component {
   }
 
 saveBtn = () => {
-    console.log('song', this.state.song);
-    this.props.dispatch({type: 'ADD_SONG', payload: this.state.song});
+    let song = {...this.state.song, songId: this.props.match.params.id}
+    console.log('song', song);
+    console.log(this.props.match.params.id);
+    
+    this.props.dispatch({type: 'UPDATE_SONG', payload: song});
 }
 
   render() {
@@ -112,6 +123,7 @@ saveBtn = () => {
                             <Col xs="4" className="r1c1">
                                 <Label for="title">*Song Title:</Label>
                                 <Input
+                                    value={this.state.song.title}
                                     id="title"
                                     onChange={(event) => this.handleChange(event, 'title')}    
                                 />
@@ -149,7 +161,7 @@ saveBtn = () => {
                                 />
                             </Col>
 
-                            <SectionModal songId={this.state.newSongId}/>
+                            <SectionModal songId={this.state.songId}/>
 
                         </Row>
 

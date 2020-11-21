@@ -18,6 +18,11 @@ class InTheWorks extends Component {
     this.props.dispatch({type: 'GET_ITW_SONGS'});
   }
 
+  viewSongBtn = () => {
+    console.log('viewSong Btn clicked');
+    this.props.history.push('/view-song');
+  }
+
   render() {
     return (
       <div>
@@ -45,7 +50,11 @@ class InTheWorks extends Component {
                         Edit Song
                       </Button>
                       <br/>
-                      <Button color="primary" className="itwBtns">
+                      <Button
+                        color="primary"
+                        className="itwBtns"
+                        onClick={this.viewSongBtn}
+                      >
                         View Song
                       </Button>
                     </Col>
