@@ -27,18 +27,18 @@ class AddEditSongPage extends Component {
         console.log('RETURNING SONG ID', this.props.store.songIdReducer);
     }
 
-    componentDidUpdate(props, state) {
-        // console.log('RETURNING SONG ID', props.store.songIdReducer.id);
+    // componentDidUpdate(props, state) {
+    //     // console.log('RETURNING SONG ID', props.store.songIdReducer.id);
         
-        if(props.store.REDUCER_NAME_THAT_HOLDS_NEW_SONG_ID !== state.song.newSongId){
-            this.setState({
-                song: {
-                    ...this.state.song,
-                    newSongId: props.store.REDUCER_NAME_THAT_HOLDS_NEW_SONG_ID
-                }
-            });
-        }
-    }
+    //     if(props.store.REDUCER_NAME_THAT_HOLDS_NEW_SONG_ID !== state.song.newSongId){
+    //         this.setState({
+    //             song: {
+    //                 ...this.state.song,
+    //                 newSongId: props.store.REDUCER_NAME_THAT_HOLDS_NEW_SONG_ID
+    //             }
+    //         });
+    //     }
+    // }
 
   state = {
     song: {
@@ -78,26 +78,6 @@ class AddEditSongPage extends Component {
   }
     console.log('completed status:', this.state.song.is_complete);
   }
-
-//   inTheWorksBtn = () => {
-//       this.setState({
-//           song:
-//             {is_complete: false}
-//         })
-//       console.log('payload', this.state.song);
-//       this.props.dispatch({type: 'ADD_SONG', payload: this.state.song})
-//   }
-
-//   completedBtn = () => {
-//       this.setState({
-//           song:
-//             {
-//                 is_complete: true
-//             }
-//         })
-//     //   console.log('payload', this.state.song);
-//       this.props.dispatch({type: 'ADD_SONG', payload: this.state.song})
-//   }
 
 saveBtn = () => {
     console.log('song', this.state.song);

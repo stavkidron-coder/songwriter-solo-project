@@ -4,7 +4,7 @@ import LogOutButton from '../LogOutButton/LogOutButton';
 import './Nav.css';
 import mapStoreToProps from '../../redux/mapStoreToProps';
 import Logo from '../../Images/logo.png';
-import { Link } from 'react-router-dom';
+import DropDown from './DropDown/DropDown';
 
 import {
   Navbar,
@@ -13,9 +13,6 @@ import {
   NavItem,
   NavLink,
   Dropdown,
-  DropdownToggle,
-  DropdownMenu,
-  DropdownItem
 } from 'reactstrap';
 
 const NavBar = (props) => {
@@ -53,43 +50,13 @@ const NavBar = (props) => {
         {/* Show the link to the info page and the logout button if the user is logged in */}
         {props.store.user.id && (
           <>
-          <Dropdown isOpen={dropdownOpen} toggle={toggle}>
-            
-            <DropdownToggle caret>
-              My Songs
-            </DropdownToggle>
+            <Dropdown isOpen={dropdownOpen} toggle={toggle}>
+                <DropDown/> {/* dropdown items in DropDown component */}
+            </Dropdown>
 
-            <DropdownMenu>
-
-              <DropdownItem>
-                <Link className="nav-link" to="/in-the-works">
-                  In-The-Works
-                </Link>
-              </DropdownItem>
-
-              <DropdownItem>
-                <Link className="nav-link" to="/completed">
-                Completed
-              </Link>
-              </DropdownItem>
-
-              <DropdownItem divider/>
-
-              <DropdownItem>
-                <Link className="nav-link" to="/edit-song">
-                New Song
-              </Link>
-              </DropdownItem>
-
-            </DropdownMenu>
-          </Dropdown>
-
-          
-
-          <NavItem>
-            <LogOutButton className="nav-link" />
-          </NavItem>
-
+            <NavItem>
+              <LogOutButton className="nav-link" />
+            </NavItem>
           </>
         )}
       </Nav>
