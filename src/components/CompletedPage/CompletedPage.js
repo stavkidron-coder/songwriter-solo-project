@@ -18,6 +18,12 @@ class Completed extends Component {
     this.props.dispatch({type: 'GET_COMPLETED_SONGS'});
   }
 
+  editSongBtn = (event) => {
+    console.log('edit song button clicked', event.target.id);
+    const songId = event.target.id
+    this.props.history.push(`/edit-song/${songId}`);
+  }
+
   render() {
     return (
       <div>
@@ -39,9 +45,15 @@ class Completed extends Component {
                     <Col xs="8">
                       <h3>{song.title}</h3>
                       <p>{song.date}</p>
+                      {/* {JSON.stringify(song)} */}
                     </Col>
                     <Col xs="4" className="buttonCol">
-                      <Button color="primary" className="completedBtns">
+                      <Button
+                        color="primary"
+                        className="completedBtns"
+                        id={song.id}
+                        onClick={this.editSongBtn}  
+                      >
                         Edit Song
                       </Button>
                       <br/>

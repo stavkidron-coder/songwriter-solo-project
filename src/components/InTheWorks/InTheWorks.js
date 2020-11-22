@@ -12,15 +12,23 @@ class InTheWorks extends Component {
 
   componentDidMount = () => {
     this.getSongs();
+     
   }
 
   getSongs = () => {
     this.props.dispatch({type: 'GET_ITW_SONGS'});
+    
   }
 
   viewSongBtn = () => {
     console.log('viewSong Btn clicked');
     this.props.history.push('/view-song');
+  }
+
+  editSongBtn = (event) => {
+    console.log('edit song button clicked', event.target.id);
+    const songId = event.target.id
+    this.props.history.push(`/edit-song/${songId}`);
   }
 
   render() {
@@ -46,7 +54,12 @@ class InTheWorks extends Component {
                       <p>{song.date}</p>
                     </Col>
                     <Col xs="4" className="buttonCol">
-                      <Button color="primary" className="itwBtns">
+                      <Button
+                        color="primary"
+                        className="itwBtns"
+                        id={song.id}
+                        onClick={this.editSongBtn}
+                      >
                         Edit Song
                       </Button>
                       <br/>
