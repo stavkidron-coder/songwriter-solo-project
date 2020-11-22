@@ -4,6 +4,15 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import mapStoreToProps from '../../../redux/mapStoreToProps';
 import {DropdownItem, DropdownToggle, DropdownMenu} from 'reactstrap';
+import '../Nav.css';
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faMusic, faEdit, faCheckSquare, faPlus } from '@fortawesome/free-solid-svg-icons'
+
+const musicIcon = <FontAwesomeIcon icon={faMusic}/>
+const editIcon = <FontAwesomeIcon icon={faEdit}/>
+const checkIcon = <FontAwesomeIcon icon={faCheckSquare}/>
+const plusIcon = <FontAwesomeIcon icon={faPlus}/>
 
 class Dropdown extends Component {
 
@@ -17,30 +26,28 @@ class Dropdown extends Component {
         
         return(
             <>
-                <DropdownToggle caret>
-                    My Songs
+                <DropdownToggle className="mySongsBtn">
+                    My Songs {musicIcon}
                 </DropdownToggle>
 
                 <DropdownMenu>
 
-                    <DropdownItem className="nav-link">
+                    <DropdownItem>
                         <Link className="nav-link" to="/in-the-works">
-                        In-The-Works
+                        {editIcon} In-The-Works
                         </Link>
                     </DropdownItem>
 
                     <DropdownItem>
                         <Link className="nav-link" to="/completed">
-                        Completed
+                        {checkIcon} Completed
                     </Link>
                     </DropdownItem>
 
                     <DropdownItem divider/>
 
                     <DropdownItem className="nav-link" onClick={this.newSongBtn}>
-                        {/* <Link className="nav-link" to="/edit-song"> */}
-                        New Song
-                    {/* </Link> */}
+                      {plusIcon}  New Song
                     </DropdownItem>
 
                 </DropdownMenu>

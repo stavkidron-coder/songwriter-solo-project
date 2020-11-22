@@ -46,13 +46,27 @@
 
 .nav-link {
   color: black;
+  text-align: left;
 }
 
 .nav-link:hover {
-  color: #606060;
+  color: rgb(160,118,177);
 }
 
 .logo {
   height: 50px;
+}
+
+.mySongsBtn {
+    color: #fff;
+    background-color: rgb(160,118,177);
+    background-color: cutom-color;
+    border-color: rgb(160,118,177);
+    border-color: cutom-cor;
+}
+
+.mySongsBtn:hover {
+  background-color: rgb(143, 110, 157);
+  border-color: rgb(143, 110, 157);
 }
 

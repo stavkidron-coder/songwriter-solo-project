@@ -4,6 +4,10 @@ import { withRouter } from 'react-router-dom';
 import mapStoreToProps from '../../redux/mapStoreToProps';
 import {Jumbotron, Container, Row, Col, Button} from 'reactstrap';
 import './HomePage.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPlus } from '@fortawesome/free-solid-svg-icons'
+
+const plusIcon = <FontAwesomeIcon icon={faPlus}/>
 
 class HomePage extends Component {
 
@@ -33,9 +37,9 @@ class HomePage extends Component {
               </p>
 
               <Button
-                color="success"
+                id="addSongBtn"
                 onClick={this.newSongBtn}>
-                  New Song
+                  New Song {plusIcon}
               </Button>
 
               {/* <p>Your ID is: {this.props.store.user.id}</p> */}
