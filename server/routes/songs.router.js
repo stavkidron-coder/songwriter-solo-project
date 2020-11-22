@@ -44,22 +44,22 @@ router.get('/:id', (req, res) => {
 
 router.post('/', (req, res) => {
     const user_id = req.user.id;
-    const title = "";
+    const title = "New Song";
     const key = "";
-    const tempo = 0;
+    const tempo = 120;
     const time_signature = "";
     const lyrics = "";
     const instruments = "";
     const reference_songs = "";
     const notes = "";
-    const completed_status = false;
+    const completed_status = "FALSE";
 
     const queryText = `INSERT INTO "songs" ("user_id", "title", "key", "tempo", "time_signature", "lyrics", "instruments", "reference_songs", "notes", "completed_status")
                         VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING id;`; 
 
     pool.query(queryText, [user_id, title, key, tempo, time_signature, lyrics, instruments, reference_songs, notes, completed_status])
     .then((result) => {
-        console.log('result', result.rows[0]);
+        // console.log('result', result.rows[0]);
         res.send(result.rows[0] );
     }).catch((error) => {
         console.log('ERROR in POST router', error);

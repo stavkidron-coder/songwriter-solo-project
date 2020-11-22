@@ -54,13 +54,13 @@ class AddEditSongPage extends Component {
         title: "New Song",
         key: "",
         tempo: 0,
-        timeSig: "",
+        time_signature: "",
         lyrics: "",
         chords: "",
         instruments: "",
         references: "",
         notes: "",
-        is_complete: "false"
+        is_complete: false
     }  
   };
 
@@ -102,7 +102,8 @@ saveBtn = () => {
                 <Container>
                     <Row>
                         <Col xs="6">
-                            <h2>New Song</h2>
+                            {/* {JSON.stringify(this.state.song.title)} */}
+                            <h2>{this.state.song.title}</h2>
                             <hr/>
                             <p>
                                 Enter in the information for your song! When you're done,
@@ -131,13 +132,15 @@ saveBtn = () => {
 
                                 <Label for="key">Key:</Label>
                                 <Input
+                                    value={this.state.song.key}
                                     id="key"
                                     onChange={(event) => this.handleChange(event, 'key')}     
                                 />
                                 <br/>
 
-                                <Label for="tempo">Tempo:</Label>
+                                <Label for="tempo">Tempo (BPM):</Label>
                                 <Input
+                                    value={this.state.song.tempo}
                                     id="tempo"
                                     type="number"
                                     onChange={(event) => this.handleChange(event, 'tempo')}     
@@ -146,14 +149,17 @@ saveBtn = () => {
 
                                 <Label for="time-sig">Time Signature:</Label>
                                 <Input
+                                    type="text"
+                                    value={this.props.match.params.time_signature}
                                     id="time-sig"
-                                    onChange={(event) => this.handleChange(event, 'timeSig')}    
+                                    onChange={(event) => this.handleChange(event, 'time_signature')}
                                 />
                             </Col>
 
                             <Col xs="4" className="r1c2">
                                 <Label for="lyrics">Lyrics:</Label>
                                 <Input
+                                    value={this.state.song.lyrics}
                                     id="lyrics"
                                     type="textarea"
                                     className="textArea"
