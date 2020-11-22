@@ -5,15 +5,14 @@ import './Nav.css';
 import mapStoreToProps from '../../redux/mapStoreToProps';
 import Logo from '../../Images/logo.png';
 import DropDown from './DropDown/DropDown';
+import { Navbar, NavbarBrand, Nav, NavItem, NavLink, Dropdown } from 'reactstrap';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHome } from '@fortawesome/free-solid-svg-icons'
 
-import {
-  Navbar,
-  NavbarBrand,
-  Nav,
-  NavItem,
-  NavLink,
-  Dropdown,
-} from 'reactstrap';
+const homeIcon = <FontAwesomeIcon icon={faHome}/>
+
+
+
 
 const NavBar = (props) => {
 
@@ -43,7 +42,7 @@ const NavBar = (props) => {
             {/* Show this link if they are logged in or not,
             but call this link 'Home' if they are logged in,
             and call this link 'Login / Register' if they are not */}
-            {loginLinkData.text}
+            {loginLinkData.text} {homeIcon}
           </NavLink>
         </NavItem>
         
@@ -55,7 +54,7 @@ const NavBar = (props) => {
             </Dropdown>
 
             <NavItem>
-              <LogOutButton className="nav-link" />
+              <LogOutButton className="nav-link"/>
             </NavItem>
           </>
         )}

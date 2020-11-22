@@ -24,3 +24,19 @@
 .homeHr {
     background-color: white;
 }
+
+#addSongBtn {
+    color: #fff;
+    background-color: rgb(160,118,177);
+    background-color: cutom-color;
+    border-color: rgb(160,118,177);
+    border-color: cutom-cor;
+}
+
+#addSongBtn:hover {
+    color: #fff;
+    background-color: rgb(143, 93, 162);
+    background-color: cutom-color;
+    border-color: rgb(143, 93, 162);
+    border-color: cutom-cor;
+}
