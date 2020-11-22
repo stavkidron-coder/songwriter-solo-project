@@ -60,7 +60,7 @@ class AddEditSongPage extends Component {
         instruments: "",
         references: "",
         notes: "",
-        is_complete: false
+        is_complete: "FALSE"
     }  
   };
 
@@ -80,7 +80,7 @@ class AddEditSongPage extends Component {
       this.setState({
           song: {
               ...this.state.song,
-              is_complete: document.getElementById('completedStatus').value = "true"
+              is_complete: document.getElementById('completedStatus').value = "TRUE"
           }
       });
   }
