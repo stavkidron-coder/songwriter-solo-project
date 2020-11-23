@@ -5,8 +5,20 @@ const router = express.Router();
 /**
  * GET route template
  */
-router.get('/', (req, res) => {
+router.get(`/:songId`, (req, res) => {
   // GET route code here
+  const song_id = Number(req.params.songId);
+  const queryText = `SELECT * FROM "section" WHERE "section"."song_id" = $1;`;
+  console.log('songId from SECTIONS GET', song_id);
+  
+
+  pool.query(queryText, [song_id])
+    .then((result) => {
+      res.send(result.rows)
+    }).catch((error) => {
+      console.log('ERROR in GET SECTIONS', error);
+      res.sendStatus(500);
+    });
 });
 
 /**

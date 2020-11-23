@@ -5,6 +5,7 @@ import itwSongs from './itwSongs.reducer.js';
 import completedSongs from './completedSongsReducer';
 import songIdReducer from './SongId.reducer';
 import songsReducer from './songs.reducer';
+import sectionsReducer from './sections.reducer';
 
 // rootReducer is the primary reducer for our entire project
 // It bundles up all of the other reducers so our project can use them.
@@ -18,7 +19,8 @@ const rootReducer = combineReducers({
   itwSongs,
   completedSongs,
   songIdReducer,
-  songsReducer
+  songsReducer,
+  sectionsReducer
 });
 
 export default rootReducer;

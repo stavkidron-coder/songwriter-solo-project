@@ -57,7 +57,7 @@ const SectionModal = (props) => {
             {/* This is where the chords for each section will go */}
             {secArray.map((section) => {
               return(
-                <SectionItem songSection={section} key={section.section}/>
+                <SectionItem songSection={section} key={section.id}/>
               )
             })}   
         </div>

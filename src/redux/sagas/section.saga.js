@@ -13,8 +13,21 @@ function* postSection(action) {
     }
 }
 
+function* getSections(action) {
+    console.log('section object in GET saga', action.payload);
+    
+    try {
+        const sectionsResponse = yield axios.get(`/sections/${action.payload}`);
+        yield put({type: 'SET_SECTIONS', payload: sectionsResponse.data});
+    }
+    catch (error) {
+        console.log('ERROR in sections get saga', error);
+    }
+}
+
 function* sectionSaga() {
     yield takeEvery('ADD_SECTION', postSection);
+    yield takeEvery('GET_SECTIONS_BY_ID', getSections);
   }
 
   export default sectionSaga;

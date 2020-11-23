@@ -59,9 +59,12 @@ function* updateSong(action) {
 }
 
 function* getSongDataById(action) {
+    console.log('SONGS action:', action.payload);
+    
     try {
         const getSongResponse = yield axios.get(`/songs/${action.payload}`);
         console.log('getResponseById', getSongResponse.data);
+        yield put({type: 'GET_SECTIONS_BY_ID', payload: action.payload});
         yield put({type: 'SET_SONG', payload: getSongResponse.data});
         
     }
