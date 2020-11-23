@@ -73,6 +73,18 @@ function* getSongDataById(action) {
     }
 }
 
+function* getRecentSongs(action) {
+    console.log('getRecentSongs action', action);
+    
+    try{
+        const recentResponse = yield axios.get(`/songs/recent/${action.payload}`);
+        yield put({type: 'SET_RECENT', payload: recentResponse.data});
+    }
+    catch (error) {
+        console.log('ERROR in getRecentSongs saga', error);
+    }
+}
+
 function* songsSaga() {
     yield takeLatest('GET_ITW_SONGS', getInTheWorksSongs);
     yield takeLatest('GET_COMPLETED_SONGS', getCompletedSongs);
@@ -80,6 +92,7 @@ function* songsSaga() {
     yield takeEvery('GET_SONG_ID', getSongId);
     yield takeEvery('UPDATE_SONG', updateSong);
     yield takeEvery('GET_SONG_BY_ID', getSongDataById);
+    yield takeEvery('GET_RECENT_SONGS', getRecentSongs);
   }
 
 export default songsSaga;

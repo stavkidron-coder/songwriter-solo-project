@@ -3,15 +3,23 @@ import React, {Component} from 'react';
 class SectionItem extends Component {
 
     componentDidMount() {
-        // this.props.dispatch({type: 'GET_SECTIONS_BY_ID'});
+        this.stringifyData();
+    }
+
+    stringifyData = () => {
+        console.log('section item existing sections', this.props.existingSections.reduxState.sectionsReducer);
+        
     }
     
     render() {
         return(
+            <>
+            {/* {JSON.stringify(this.props.existingSections)} */}
             <div className="sectionCard">
                 <p>{this.props.songSection.section}</p>
                 <p>{this.props.songSection.chords}</p>
             </div>
+            </>
         )
     }
 }

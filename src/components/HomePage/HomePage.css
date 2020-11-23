@@ -1,3 +1,10 @@
+.homeBody {
+    /* background-color: rgb(249, 249, 249); */
+    background-image: url('../../Images/guitar.jpg');
+    background-size: cover;
+    padding: 10px;
+}
+
 .homeJumbotron {
     margin: 0;
     /* height: 86.4vh; */
@@ -39,4 +46,45 @@
     background-color: cutom-color;
     border-color: rgb(143, 93, 162);
     border-color: cutom-cor;
+}
+
+.homeButtonCol {
+    text-align: right;
+}
+
+.homeBtns {
+    margin-bottom: 5px;
+}
+
+.homeListItem {
+    margin: 10px 0;
+    border: 1px solid rgb(206,212,218);
+    border-radius: 5px;
+    padding: 10px;
+    background-color: rgb(249, 249, 249);
+    
+    -moz-transition: all .2s ease-in;
+    -o-transition: all .2s ease-in;
+    -webkit-transition: all .2s ease-in;
+    transition: all .2s ease-in
+}
+
+.homeListItem:hover {
+    color: white;
+    margin: 10px 0;
+    border: 1px solid rgb(179, 179, 179);
+    border-radius: 5px;
+    padding: 10px;
+    background-color: rgb(84, 84, 84);
+    /* background-image: linear-gradient(to right, rgb(234, 219, 255) , rgb(250, 250, 250)); */
+}
+
+.recentHeader {
+    color: white;
+    /* text-align: center; */
+    padding: 30px;
+    /* margin-top: 10px; */
+    /* border: 1px solid rgb(206,212,218); */
+    /* background-image: linear-gradient(to right, rgb(226, 209, 250) , rgb(205, 129, 252)); */
+    background-color: rgb(160,118,177);
 }

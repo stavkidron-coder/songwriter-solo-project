@@ -2,14 +2,16 @@
 body,
 #react-root {
   height: 100%;
-}
+  background-color: rgb(174, 145, 244);
+} */
 
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  /* font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; */
   margin: 0px;
+  height: 100vh;
 }
 
-img {
+/* img {
   display: inline-block;
   max-width: 100%;
 } */

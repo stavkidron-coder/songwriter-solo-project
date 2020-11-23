@@ -40,7 +40,21 @@ router.get('/:id', (req, res) => {
         console.log('ERROR in specific id GET', error);
         res.sendStatus(500);
     });
-})
+});
+
+// GET 5 most recent songs
+router.get('/recent/:id', (req, res) => {
+    const userId = Number(req.user.id);
+    const queryText = `SELECT * FROM "songs" WHERE "songs"."user_id" = $1 ORDER BY "date" LIMIT 5;`
+
+    pool.query(queryText, [userId])
+        .then((result) => {
+            res.send(result.rows)
+        }).catch((error) => {
+            console.log('ERROR in recent get', error);
+            res.sendStatus(500)
+        });
+});
 
 router.post('/', (req, res) => {
     const user_id = req.user.id;

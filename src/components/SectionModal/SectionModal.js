@@ -57,11 +57,17 @@ const SectionModal = (props) => {
             {/* This is where the chords for each section will go */}
             {secArray.map((section) => {
               return(
-                <SectionItem songSection={section} key={section.id}/>
+                <SectionItem songSection={section} key={section.id} existingSections={props}/>
               )
-            })}   
+            })}
         </div>
-      <Button color="success" onClick={toggle}>Add Section</Button>
+      <Button
+        color="success"
+        onClick={toggle}
+        className="addSectionBtn"
+      >
+        Add Section
+      </Button>
       
       <Modal isOpen={modal} toggle={toggle} className={className}>
         <ModalHeader toggle={toggle}>Add a section</ModalHeader>

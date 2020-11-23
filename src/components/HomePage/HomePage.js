@@ -5,11 +5,18 @@ import mapStoreToProps from '../../redux/mapStoreToProps';
 import {Jumbotron, Container, Row, Col, Button} from 'reactstrap';
 import './HomePage.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPlus } from '@fortawesome/free-solid-svg-icons'
+import { faPlus, faEdit, faEye } from '@fortawesome/free-solid-svg-icons';
 
 const plusIcon = <FontAwesomeIcon icon={faPlus}/>
+const editIcon = <FontAwesomeIcon icon={faEdit}/>
+const eyeIcon = <FontAwesomeIcon icon={faEye}/>
 
 class HomePage extends Component {
+
+  componentDidMount () {
+    this.props.dispatch({type: 'GET_RECENT_SONGS', payload: this.props.store.user.id});
+    
+  }
 
   newSongBtn = () => {
     console.log('newSongBtn clicked');
@@ -17,8 +24,15 @@ class HomePage extends Component {
     // this.props.history.push('/edit-song');
   }
 
+  editSongBtn = (event) => {
+    console.log('edit song button clicked', event.target.id);
+    const songId = event.target.id
+    this.props.history.push(`/edit-song/${songId}`);
+  }
+
   render() {
     return (
+      <>
       <Jumbotron className="homeJumbotron">
         
         <Container>
@@ -49,6 +63,50 @@ class HomePage extends Component {
           
         </Container>
       </Jumbotron>
+      
+      <div className="recentHeader">
+          <Container>
+            <h2>RECENT SONGS</h2>
+          </Container> 
+        </div>
+
+      <div className="homeBody">
+        
+        <Container>
+
+          {this.props.store.recentSongsReducer.map((song) => {
+            return(
+              <div key={song.id} className="homeListItem">
+                <Row>
+                  <Col xs="8">
+                    <h3>{song.title}</h3>
+                    <p>{song.date}</p>
+                  </Col>
+                  <Col xs="4" className="homeButtonCol">
+                    <Button
+                      color="primary"
+                      className="homeBtns"
+                      id={song.id}
+                      onClick={this.editSongBtn}
+                    >
+                      Edit Song {editIcon}
+                    </Button>
+                    <br/>
+                    <Button
+                      color="primary"
+                      className="homeBtns"
+                      onClick={this.viewSongBtn}
+                    >
+                      View Song {eyeIcon}
+                    </Button>
+                  </Col>
+                </Row>      
+              </div>
+            )
+          })}
+        </Container>
+      </div>
+    </>
     );
   }
 }

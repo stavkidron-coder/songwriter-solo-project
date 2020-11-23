@@ -28,8 +28,6 @@
   outline:0;
 } */
 
-
-
 .nav-right {
   float: right;
 }
@@ -42,7 +40,6 @@
 .navbarBrand:hover {
   color: #606060;
 }
-
 
 .nav-link {
   color: black;
