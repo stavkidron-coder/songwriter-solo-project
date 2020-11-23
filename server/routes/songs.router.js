@@ -8,7 +8,7 @@ const router = express.Router();
 router.get('/in-the-works', (req, res) => {
     // console.log('GET req.body', req.user.id);
     const userId = req.user.id;
-    const queryText = `SELECT * FROM "songs" WHERE "completed_status" = FALSE AND "user_id" = $1;`;
+    const queryText = `SELECT * FROM "songs" WHERE "completed_status" = false AND "user_id" = $1;`;
     pool.query(queryText, [userId]).then((result) => {
         console.log('result.rows', result.rows);
         res.send(result.rows);
@@ -21,7 +21,7 @@ router.get('/in-the-works', (req, res) => {
 router.get('/completed', (req, res) => {
     // console.log('GET req.body', req.user.id);
     const userId = req.user.id;
-    const queryText = `SELECT * FROM "songs" WHERE "completed_status" = TRUE AND "user_id" = $1;`;
+    const queryText = `SELECT * FROM "songs" WHERE "completed_status" = true AND "user_id" = $1;`;
     pool.query(queryText, [userId]).then((result) => {
         console.log('result.rows', result.rows);
         res.send(result.rows);
@@ -52,7 +52,7 @@ router.post('/', (req, res) => {
     const instruments = "";
     const reference_songs = "";
     const notes = "";
-    const completed_status = "FALSE";
+    const completed_status = false;
 
     const queryText = `INSERT INTO "songs" ("user_id", "title", "key", "tempo", "time_signature", "lyrics", "instruments", "reference_songs", "notes", "completed_status")
                         VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9, $10) RETURNING id;`; 
@@ -78,7 +78,7 @@ router.put('/update/:id', (req, res) => {
     const instruments = req.body.instruments;
     const reference_songs = req.body.references;
     const notes = req.body.notes;
-    const completed_status = req.body.is_complete;
+    const completed_status = req.body.completed_status;
     console.log("req.body:", req.body);
     
 

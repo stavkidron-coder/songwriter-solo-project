@@ -24,47 +24,38 @@ class AddEditSongPage extends Component {
         // post a new blank song to DB
         // returns id
         this.props.dispatch({type: 'GET_SONG_ID', payload: this.props.match.params.id});
+        // Gets specific song information from DB to display in the text fields
         this.props.dispatch({type: 'GET_SONG_BY_ID', payload: this.props.match.params.id});
         
         // console.log('RETURNING SONG ID', this.props.store.songIdReducer);
     }
 
     componentDidUpdate() {
+        // checks for any changes between the local sate and the reducer.
+        // If there is a change, then the current local state will get updated.
         if(this.state.song.songId !== this.props.store.songsReducer.songId){
             this.setState({song: this.props.store.songsReducer})
         }
     }
 
-    // componentDidUpdate(props, state) {
-    //     // console.log('RETURNING SONG ID', props.store.songIdReducer.id);
-        
-    //     if(props.store.REDUCER_NAME_THAT_HOLDS_NEW_SONG_ID !== state.song.newSongId){
-    //         this.setState({
-    //             song: {
-    //                 ...this.state.song,
-    //                 newSongId: props.store.REDUCER_NAME_THAT_HOLDS_NEW_SONG_ID
-    //             }
-    //         });
-    //     }
-    // }
+    // local state that hold all of the song information
+    state = {
+        song: {
+            songId: 0,
+            title: "New Song",
+            key: "",
+            tempo: 0,
+            time_signature: "",
+            lyrics: "",
+            chords: "",
+            instruments: "",
+            references: "",
+            notes: "",
+            completed_status: false,
+        }
+    };
 
-  state = {
-    song: {
-        songId: 0,
-        title: "New Song",
-        key: "",
-        tempo: 0,
-        time_signature: "",
-        lyrics: "",
-        chords: "",
-        instruments: "",
-        references: "",
-        notes: "",
-        is_complete: "FALSE"
-    }  
-  };
-
-  // redirects all inputed info to the correct key
+  // redirects all inputed info to the correct key value pair in state
   handleChange = (event, typeParam) => {
         this.setState({
             song: {
@@ -74,26 +65,46 @@ class AddEditSongPage extends Component {
         });
   }
 
-  checkboxToggle = () => {
-    if (document.getElementById('completedStatus').checked) 
-  {
-      this.setState({
-          song: {
-              ...this.state.song,
-              is_complete: document.getElementById('completedStatus').value = "TRUE"
-          }
-      });
-  }
-    console.log('completed status:', this.state.song.is_complete);
+//   setCompletedStatus = (completedStatus) => {
+//       if(completedStatus === "TRUE"){
+//           return true;
+//       }
+//       else {
+//           return false;
+//       }
+//   }
+
+  // toggles completed checkbox between true and false
+  completedToggle = () => {
+    console.log('completedStatus:', this.state.song.completed_status);
+    
+    if (this.state.song.completed_status === true) {
+        this.setState({
+            song: {
+                ...this.state.song,
+                completed_status: false
+            }
+        });
+    }
+    else if (this.state.song.completed_status === false) {
+        this.setState({
+            song: {
+                ...this.state.song,
+                completed_status: true
+            }
+        });
+    }
+    // console.log('completed status:', this.state.song);
   }
 
-saveBtn = () => {
-    let song = {...this.state.song, songId: this.props.match.params.id}
-    console.log('song', song);
-    console.log(this.props.match.params.id);
-    
-    this.props.dispatch({type: 'UPDATE_SONG', payload: song});
-}
+    // updates DB with new information for song
+    saveBtn = () => {
+        let song = {...this.state.song, songId: this.props.match.params.id}
+        console.log('song', song);
+        console.log(this.props.match.params.id);
+        
+        this.props.dispatch({type: 'UPDATE_SONG', payload: song});
+    }
 
   render() {
     return (
@@ -150,7 +161,7 @@ saveBtn = () => {
                                 <Label for="time-sig">Time Signature:</Label>
                                 <Input
                                     type="text"
-                                    value={this.props.match.params.time_signature}
+                                    defaultValue={this.state.song.time_signature}
                                     id="time-sig"
                                     onChange={(event) => this.handleChange(event, 'time_signature')}
                                 />
@@ -167,7 +178,7 @@ saveBtn = () => {
                                 />
                             </Col>
 
-                            <SectionModal songId={this.state.songId}/>
+                            <SectionModal songId={this.props.match.params.id}/>
 
                         </Row>
 
@@ -176,6 +187,7 @@ saveBtn = () => {
                             <Col xs="4" className="r2c1">
                                 <Label for="instruments">Instruments:</Label>
                                 <Input
+                                    value={this.state.song.instruments}
                                     id="instruments"
                                     type="textarea"
                                     className="textArea"
@@ -186,6 +198,7 @@ saveBtn = () => {
                             <Col xs="4" className="r2c1">
                                 <Label for="refSongs">Reference Songs:</Label>
                                 <Input
+                                    value={this.state.song.references}
                                     id="refSongs"
                                     type="textarea"
                                     className="textArea"
@@ -196,6 +209,7 @@ saveBtn = () => {
                             <Col xs="4" className="r2c1">
                                 <Label for="notes">Other Notes:</Label>
                                 <Input
+                                    value={this.state.song.notes}
                                     id="notes"
                                     type="textarea"
                                     className="textArea"
@@ -211,10 +225,20 @@ saveBtn = () => {
                 <div className="btnRow">
                     <Row>
                         <Col>
-                            <div className="completeSong">
-                                <Label for="completedStatus">Complete song</Label>
-                                <Input type="checkbox" id="completedStatus" name="completeStatus" onClick={this.checkboxToggle}/>
-                            </div>
+                                {this.state.song.completed_status ?
+                                    <Button onClick={this.completedToggle}>
+                                        Mark song as "In-The- Works"
+                                    </Button>
+                                    :
+                                    <Button onClick={this.completedToggle}>
+                                        Mark song as "Completed"
+                                    </Button>
+                                }
+
+
+                                {/* <Label for="completedStatus">Complete song</Label>
+                                <Input type="checkbox" id="completedStatus" name="completeStatus" defaultChecked={this.state.completed} onClick={this.checkboxToggle}/> */}
+                            
                             <Button color="success" onClick={this.saveBtn}>Save</Button>
                             <Button color="danger">Delete Song</Button>
                         </Col>

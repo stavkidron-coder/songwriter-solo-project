@@ -26,6 +26,8 @@ const SectionModal = (props) => {
     }
 
     const submitBtn = () => {
+        console.log('props:', props);
+        
         console.log('sectionObject to submit', sectionObject);
         // props.dispatch({type: "ADD_SECTION", payload: sectionObject});
         // sectionArray.push(sectionObject);
