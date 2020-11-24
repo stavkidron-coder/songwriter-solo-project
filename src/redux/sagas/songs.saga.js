@@ -96,9 +96,9 @@ function* deleteSong(action) {
 }
 
 function* songsSaga() {
-    yield takeLatest('GET_ITW_SONGS', getInTheWorksSongs);
-    yield takeLatest('GET_COMPLETED_SONGS', getCompletedSongs);
-    yield takeLatest('ADD_SONG', postSong);
+    yield takeEvery('GET_ITW_SONGS', getInTheWorksSongs);
+    yield takeEvery('GET_COMPLETED_SONGS', getCompletedSongs);
+    yield takeEvery('ADD_SONG', postSong);
     yield takeEvery('GET_SONG_ID', getSongId);
     yield takeEvery('UPDATE_SONG', updateSong);
     yield takeEvery('GET_SONG_BY_ID', getSongDataById);

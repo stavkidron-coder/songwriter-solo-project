@@ -3,16 +3,12 @@ import { connect } from 'react-redux';
 import mapStoreToProps from '../../redux/mapStoreToProps';
 import './Add-EditSongPage.css';
 import SectionModal from '../SectionModal/SectionModal';
-import {Jumbotron,
-        Container,
-        Row,
-        Col,
-        Button,
-        Form,
-        FormGroup,
-        Label,
-        Input}
-    from 'reactstrap';
+import {Jumbotron, Container, Row, Col, Button, Form, FormGroup, Label, Input} from 'reactstrap';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTools, faCheckSquare } from '@fortawesome/free-solid-svg-icons';
+    
+    const toolsIcon = <FontAwesomeIcon icon={faTools}/>
+    const checkIcon = <FontAwesomeIcon icon={faCheckSquare}/>
 
 // Basic class component structure for React with default state
 // value setup. When making a new component be sure to replace
@@ -63,16 +59,9 @@ class AddEditSongPage extends Component {
                 [typeParam]: event.target.value
             }
         });
+        console.log(this.state.song.time_signature);
+        
   }
-
-//   setCompletedStatus = (completedStatus) => {
-//       if(completedStatus === "TRUE"){
-//           return true;
-//       }
-//       else {
-//           return false;
-//       }
-//   }
 
   // toggles completed checkbox between true and false
   completedToggle = () => {
@@ -116,6 +105,7 @@ class AddEditSongPage extends Component {
   render() {
     return (
         <div className="addEditBody">
+            {JSON.stringify(this.state)}
             <Jumbotron className="addEditPageJumbotron">
                 <Container>
                     <Row>
@@ -166,9 +156,10 @@ class AddEditSongPage extends Component {
                                 <br/>
 
                                 <Label for="time-sig">Time Signature:</Label>
+                                {/* {JSON.stringify(this.state.song)} */}
                                 <Input
                                     type="text"
-                                    defaultValue={this.state.song.time_signature}
+                                    value={this.state.song.time_signature}
                                     id="time-sig"
                                     onChange={(event) => this.handleChange(event, 'time_signature')}
                                 />
@@ -205,7 +196,7 @@ class AddEditSongPage extends Component {
                             <Col xs="4" className="r2c1">
                                 <Label for="refSongs">Reference Songs:</Label>
                                 <Input
-                                    value={this.state.song.references}
+                                    value={this.state.song.reference_songs}
                                     id="refSongs"
                                     type="textarea"
                                     className="textArea"
@@ -233,12 +224,12 @@ class AddEditSongPage extends Component {
                     <Row>
                         <Col>
                                 {this.state.song.completed_status ?
-                                    <Button onClick={this.completedToggle}>
-                                        Mark song as "In-The- Works"
+                                    <Button color="warning" onClick={this.completedToggle}>
+                                        Mark song as "In-The- Works" {toolsIcon}
                                     </Button>
                                     :
-                                    <Button onClick={this.completedToggle}>
-                                        Mark song as "Completed"
+                                    <Button color="outline-success" onClick={this.completedToggle}>
+                                        Mark song as "Completed" {checkIcon}
                                     </Button>
                                 }
 

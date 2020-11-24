@@ -87,13 +87,13 @@ router.put('/update/:id', (req, res) => {
     const title = req.body.title;
     const key = req.body.key;
     const tempo = Number(req.body.tempo);
-    const time_signature = req.body.timeSig;
+    const time_signature = req.body.time_signature;
     const lyrics = req.body.lyrics;
     const instruments = req.body.instruments;
     const reference_songs = req.body.references;
     const notes = req.body.notes;
     const completed_status = req.body.completed_status;
-    console.log("req.body:", req.body);
+    console.log("time signature in router:", req.body);
     
 
     const queryText = `UPDATE "songs" SET "title" = $1, "key" = $2, "tempo" = $3, "time_signature" = $4, "lyrics"= $5, "instruments" = $6, "reference_songs" = $7, "notes" = $8, "completed_status" = $9
@@ -101,7 +101,7 @@ router.put('/update/:id', (req, res) => {
 
     pool.query(queryText, [title, key, tempo, time_signature, lyrics, instruments, reference_songs, notes, completed_status, songId, user_id])
     .then((result) => {
-        console.log('result', result.rows[0]);
+        console.log('result', result);
         res.send(result.rows[0] );
     }).catch((error) => {
         console.log('ERROR in PUT router', error);

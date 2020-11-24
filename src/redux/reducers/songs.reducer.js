@@ -1,5 +1,5 @@
 const SongsReducer = (state = {songId: 0}, action) => {
-    // console.log('action:', action.payload);
+    console.log('song reducer:', action.payload);
     switch (action.type) {
       case 'SET_SONG':
         console.log('action.payload', action.payload);  
