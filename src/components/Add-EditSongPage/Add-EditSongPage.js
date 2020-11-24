@@ -106,6 +106,13 @@ class AddEditSongPage extends Component {
         this.props.dispatch({type: 'UPDATE_SONG', payload: song});
     }
 
+    deleteBtn = () => {
+        let songId = this.props.match.params.id;
+        console.log('songId for delete', songId);
+        this.props.dispatch({type: 'DELETE_SONG', payload: songId});
+        this.props.history.push('/home');
+    }
+
   render() {
     return (
         <div className="addEditBody">
@@ -240,7 +247,7 @@ class AddEditSongPage extends Component {
                                 <Input type="checkbox" id="completedStatus" name="completeStatus" defaultChecked={this.state.completed} onClick={this.checkboxToggle}/> */}
                             
                             <Button color="success" onClick={this.saveBtn}>Save</Button>
-                            <Button color="danger">Delete Song</Button>
+                            <Button color="danger" onClick={this.deleteBtn}>Delete Song</Button>
                         </Col>
                         
                     </Row>

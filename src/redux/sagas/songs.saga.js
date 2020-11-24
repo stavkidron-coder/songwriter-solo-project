@@ -85,6 +85,16 @@ function* getRecentSongs(action) {
     }
 }
 
+function* deleteSong(action) {
+    try {
+        console.log('delete song saga', action.payload);
+        yield axios.delete(`/songs/delete/${action.payload}`);
+    }
+    catch (error) {
+        console.log('error in delete saga', error); 
+    }
+}
+
 function* songsSaga() {
     yield takeLatest('GET_ITW_SONGS', getInTheWorksSongs);
     yield takeLatest('GET_COMPLETED_SONGS', getCompletedSongs);
@@ -93,6 +103,7 @@ function* songsSaga() {
     yield takeEvery('UPDATE_SONG', updateSong);
     yield takeEvery('GET_SONG_BY_ID', getSongDataById);
     yield takeEvery('GET_RECENT_SONGS', getRecentSongs);
+    yield takeEvery('DELETE_SONG', deleteSong);
   }
 
 export default songsSaga;

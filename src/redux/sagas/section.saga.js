@@ -25,9 +25,20 @@ function* getSections(action) {
     }
 }
 
+function* deleteSection(action) {
+    try {
+        console.log('delete song saga', action.payload);
+        yield axios.delete(`/sections/delete/${action.payload}`);
+    }
+    catch (error) {
+        console.log('error in delete saga', error); 
+    }
+}
+
 function* sectionSaga() {
     yield takeEvery('ADD_SECTION', postSection);
     yield takeEvery('GET_SECTIONS_BY_ID', getSections);
+    yield takeEvery('DELETE_SECTION', deleteSection);
   }
 
   export default sectionSaga;
