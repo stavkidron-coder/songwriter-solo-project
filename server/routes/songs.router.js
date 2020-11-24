@@ -45,7 +45,7 @@ router.get('/:id', (req, res) => {
 // GET 5 most recent songs
 router.get('/recent/:id', (req, res) => {
     const userId = Number(req.user.id);
-    const queryText = `SELECT * FROM "songs" WHERE "songs"."user_id" = $1 ORDER BY "date" LIMIT 5;`
+    const queryText = `SELECT * FROM "songs" WHERE "songs"."user_id" = $1 ORDER BY "date" DESC LIMIT 5;`
 
     pool.query(queryText, [userId])
         .then((result) => {

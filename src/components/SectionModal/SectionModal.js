@@ -53,8 +53,18 @@ const SectionModal = (props) => {
     
     <Col xs="4" className="r1c3">
     <Label for="chords">Chords/Song Structure:</Label>
+    {/* this is where the saved sections get displayed ||||| THey get displayed before getting added */}
         <div className="songStructure" id="chords">
-            {/* This is where the chords for each section will go */}
+            {props.reduxState.sectionsReducer.map((section) => {
+              return(
+                <div className="sectionCard">
+                  <p>{section.name}</p>
+                  <hr/>
+                  <p>{section.chords}</p>
+                </div>
+              )
+            })}
+            {/* This is where the new chords for each section will go */}
             {secArray.map((section) => {
               return(
                 <SectionItem songSection={section} key={section.id} existingSections={props}/>

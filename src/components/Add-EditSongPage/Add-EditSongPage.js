@@ -108,7 +108,7 @@ class AddEditSongPage extends Component {
 
   render() {
     return (
-        <div>
+        <div className="addEditBody">
             <Jumbotron className="addEditPageJumbotron">
                 <Container>
                     <Row>

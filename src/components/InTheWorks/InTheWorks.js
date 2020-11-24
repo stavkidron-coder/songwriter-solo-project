@@ -34,50 +34,55 @@ class InTheWorks extends Component {
   render() {
     return (
       <div>
-        <Jumbotron>
+        <Jumbotron className="itwJumbotron">
           <Container>
-            <Col xs="8">
-              <h1>In-The-Works</h1>
-            </Col>
+            <div className="itwTitle">
+              <h1>"IN-THE-WORKS"</h1>
+              <hr className="itwHr"/>
+              <p>This is where your unfinished songs live</p>
+            </div>
           </Container> 
         </Jumbotron>
 
-        <Container>
+        <div className="itwBody">
+
+          <Container>
+            
+              {/* {JSON.stringify(this.props.store.songs)} */}
+              {this.props.store.itwSongs.map((song) => {
+                return(
+                  <div key={song.id} className="itwListItem">
+                    <Row>
+                      <Col xs="8">
+                        <h3>{song.title}</h3>
+                        <p>{song.date}</p>
+                      </Col>
+                      <Col xs="4" className="buttonCol">
+                        <Button
+                          color="primary"
+                          className="itwBtns"
+                          id={song.id}
+                          onClick={this.editSongBtn}
+                        >
+                          Edit Song
+                        </Button>
+                        <br/>
+                        <Button
+                          color="primary"
+                          className="itwBtns"
+                          onClick={this.viewSongBtn}
+                        >
+                          View Song
+                        </Button>
+                      </Col>
+                    </Row>      
+                  </div>
+                )
+              })}
           
-            {/* {JSON.stringify(this.props.store.songs)} */}
-            {this.props.store.itwSongs.map((song) => {
-              return(
-                <div key={song.id} className="itwListItem">
-                  <Row>
-                    <Col xs="8">
-                      <h3>{song.title}</h3>
-                      <p>{song.date}</p>
-                    </Col>
-                    <Col xs="4" className="buttonCol">
-                      <Button
-                        color="primary"
-                        className="itwBtns"
-                        id={song.id}
-                        onClick={this.editSongBtn}
-                      >
-                        Edit Song
-                      </Button>
-                      <br/>
-                      <Button
-                        color="primary"
-                        className="itwBtns"
-                        onClick={this.viewSongBtn}
-                      >
-                        View Song
-                      </Button>
-                    </Col>
-                  </Row>      
-                </div>
-              )
-            })}
-         
-        </Container>
-        
+          </Container>
+
+        </div>
 
       </div>
     );

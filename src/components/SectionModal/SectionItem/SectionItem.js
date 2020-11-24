@@ -7,8 +7,7 @@ class SectionItem extends Component {
     }
 
     stringifyData = () => {
-        console.log('section item existing sections', this.props.existingSections.reduxState.sectionsReducer);
-        
+        console.log('section item existing sections', this.props.existingSections.reduxState.sectionsReducer);   
     }
     
     render() {
@@ -17,6 +16,7 @@ class SectionItem extends Component {
             {/* {JSON.stringify(this.props.existingSections)} */}
             <div className="sectionCard">
                 <p>{this.props.songSection.section}</p>
+                <hr/>
                 <p>{this.props.songSection.chords}</p>
             </div>
             </>

@@ -27,48 +27,52 @@ class Completed extends Component {
   render() {
     return (
       <div>
-        <Jumbotron>
+        <Jumbotron className="completedJumbotron">
           <Container>
-            <Col xs="8">
+            <div className="completedJumbotronTitle">
               <h1>Completed Songs</h1>
-            </Col>
+              <hr/>
+              <p>This is where your completed songs live</p>
+            </div>
           </Container> 
         </Jumbotron>
 
-        <Container>
-          
-            {/* {JSON.stringify(this.props.store.songs)} */}
-            {this.props.store.completedSongs.map((song) => {
-              return(
-                <div key={song.id} className="completedListItem">
-                  <Row>
-                    <Col xs="8">
-                      <h3>{song.title}</h3>
-                      <p>{song.date}</p>
-                      {/* {JSON.stringify(song)} */}
-                    </Col>
-                    <Col xs="4" className="buttonCol">
-                      <Button
-                        color="primary"
-                        className="completedBtns"
-                        id={song.id}
-                        onClick={this.editSongBtn}  
-                      >
-                        Edit Song
-                      </Button>
-                      <br/>
-                      <Button color="primary" className="completedBtns">
-                        View Song
-                      </Button>
-                    </Col>
-                  </Row>      
-                </div>
-              )
-            })}
-         
-        </Container>
-        
+        <div className="completedBody">
 
+          <Container>
+            
+              {/* {JSON.stringify(this.props.store.songs)} */}
+              {this.props.store.completedSongs.map((song) => {
+                return(
+                  <div key={song.id} className="completedListItem">
+                    <Row>
+                      <Col xs="8">
+                        <h3>{song.title}</h3>
+                        <p>{song.date}</p>
+                        {/* {JSON.stringify(song)} */}
+                      </Col>
+                      <Col xs="4" className="buttonCol">
+                        <Button
+                          color="primary"
+                          className="completedBtns"
+                          id={song.id}
+                          onClick={this.editSongBtn}  
+                        >
+                          Edit Song
+                        </Button>
+                        <br/>
+                        <Button color="primary" className="completedBtns">
+                          View Song
+                        </Button>
+                      </Col>
+                    </Row>      
+                  </div>
+                )
+              })}
+          
+          </Container>
+        </div>
+        
       </div>
     );
   }

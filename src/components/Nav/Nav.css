@@ -4,15 +4,16 @@
     display: inline-block;
     color: #f2f2f2;
     padding-left: 10px;
-}
+} */
 
-.nav {
-  margin: 0 0 30px;
-  background-color: #00acb0;
-  overflow: hidden;
-}
+/* .nav {
+  position:fixed;
+  left:0px;
+  top:0px;
+  width:100%;
+} */
 
-.nav-link {
+/* .nav-link {
   float: left;
   color: #f2f2f2;
   background-color: #00acb0;

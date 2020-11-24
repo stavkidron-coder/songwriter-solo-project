@@ -1,3 +1,7 @@
+.songForm {
+    min-height: 90vh;
+}
+
 .addEditPageJumbotron {
     border-radius: 0;
 }

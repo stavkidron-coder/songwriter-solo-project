@@ -1,9 +1,9 @@
 .footer {
-  margin: 0;
-  position: relative;
-  bottom: 0;
-  width: 100%;
-  border-top: 1px solid rgb(206,212,218); 
+  position:fixed;
+  left:0px;
+  bottom:0px;
+  width:100%;
+  border-top: 1px solid rgb(206,212,218);
 }
 
 .navbarBrand {
