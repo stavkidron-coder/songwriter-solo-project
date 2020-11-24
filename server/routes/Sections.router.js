@@ -44,4 +44,17 @@ router.post('/', (req, res) => {
       });
 });
 
+router.delete('/delete/:id', (req, res) => {
+  const songId = req.params.id;
+  const queryText = `DELETE FROM "section" WHERE "section"."song_id" = $1;`;
+
+  pool.query(queryText, [songId])
+    .then((result) => {
+      res.send(result.rows)
+    }).catch((error) => {
+      console.log('ERROR in delete section router', error);
+      res.sendStatus(500)
+    });
+})
+
 module.exports = router;

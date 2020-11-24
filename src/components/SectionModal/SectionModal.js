@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import { connect } from 'react-redux'
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Col, Label, FormGroup, Form, Input } from 'reactstrap';
 import './SectionModal.css';
-import SectionItem from './SectionItem/SectionItem';
+import NewSectionItem from './SectionItem/NewSectionItem';
+import ExistingSectionItem from './SectionItem/ExistingSectionItem';
 
 const SectionModal = (props) => {  
   
@@ -26,12 +27,7 @@ const SectionModal = (props) => {
     }
 
     const submitBtn = () => {
-        console.log('props:', props);
-        
-        console.log('sectionObject to submit', sectionObject);
-        // props.dispatch({type: "ADD_SECTION", payload: sectionObject});
-        // sectionArray.push(sectionObject);
-        // console.log('sectionArray', sectionArray);
+        // console.log('sectionObject to submit', sectionObject);
         let newArray = [...secArray, sectionObject];
         pushSection(newArray);
         props.dispatch({type: 'ADD_SECTION', payload: {sectionObject: sectionObject, songId: props.songId}});
@@ -53,21 +49,17 @@ const SectionModal = (props) => {
     
     <Col xs="4" className="r1c3">
     <Label for="chords">Chords/Song Structure:</Label>
-    {/* this is where the saved sections get displayed ||||| THey get displayed before getting added */}
+    {/* this is where the saved sections get displayed ||||| They get displayed before getting added */}
         <div className="songStructure" id="chords">
             {props.reduxState.sectionsReducer.map((section) => {
               return(
-                <div className="sectionCard">
-                  <p>{section.name}</p>
-                  <hr/>
-                  <p>{section.chords}</p>
-                </div>
+                <ExistingSectionItem section={section}/>
               )
             })}
             {/* This is where the new chords for each section will go */}
             {secArray.map((section) => {
               return(
-                <SectionItem songSection={section} key={section.id} existingSections={props}/>
+                <NewSectionItem songSection={section} existingSections={props}/>
               )
             })}
         </div>
