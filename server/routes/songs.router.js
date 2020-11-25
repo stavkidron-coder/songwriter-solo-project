@@ -101,7 +101,7 @@ router.put('/update/:id', (req, res) => {
 
     pool.query(queryText, [title, key, tempo, time_signature, lyrics, instruments, reference_songs, notes, completed_status, songId, user_id])
     .then((result) => {
-        console.log('result', result);
+        // console.log('result', result);
         res.send(result.rows[0] );
     }).catch((error) => {
         console.log('ERROR in PUT router', error);
@@ -111,7 +111,7 @@ router.put('/update/:id', (req, res) => {
 
 router.delete('/delete/:id', (req, res) => {
     const songId = Number(req.params.id);
-    const queryText = `DELETE FROM "songs" WHERE "song"."id" = $1;`;
+    const queryText = `DELETE FROM "songs" WHERE "songs"."id" = $1;`;
     pool.query(queryText, [songId])
         .then((result) => {
             res.send(result.rows)

@@ -105,12 +105,10 @@ class AddEditSongPage extends Component {
   render() {
     return (
         <div className="addEditBody">
-            {JSON.stringify(this.state)}
             <Jumbotron className="addEditPageJumbotron">
                 <Container>
                     <Row>
                         <Col xs="6">
-                            {/* {JSON.stringify(this.state.song.title)} */}
                             <h2>{this.state.song.title}</h2>
                             <hr/>
                             <p>

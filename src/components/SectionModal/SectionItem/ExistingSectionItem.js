@@ -7,8 +7,9 @@ class ExistingSectionItem extends Component {
 
     deleteBtn = () => {
         let songId = this.props.section.song_id;
-        console.log('songId for delete section', songId);
-        this.props.dispatch({type: 'DELETE_SECTION', payload: songId});
+        let sectionId = this.props.section.id;
+        console.log('sectionId for delete section', sectionId);
+        this.props.dispatch({type: 'DELETE_SECTION', payload: {songId: songId, sectionId: sectionId}});
     }
     
     render() {

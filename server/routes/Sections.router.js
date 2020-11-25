@@ -46,7 +46,9 @@ router.post('/', (req, res) => {
 
 router.delete('/delete/:id', (req, res) => {
   const songId = req.params.id;
-  const queryText = `DELETE FROM "section" WHERE "section"."song_id" = $1;`;
+  const queryText = `DELETE FROM "section" WHERE "section"."id" = $1;`;
+  console.log('req.params', req.params);
+  
 
   pool.query(queryText, [songId])
     .then((result) => {

@@ -28,7 +28,8 @@ function* getSections(action) {
 function* deleteSection(action) {
     try {
         console.log('delete song saga', action.payload);
-        yield axios.delete(`/sections/delete/${action.payload}`);
+        yield axios.delete(`/sections/delete/${action.payload.sectionId}`);
+        yield put({type: 'GET_SECTIONS_BY_ID', payload: action.payload.songId});
     }
     catch (error) {
         console.log('error in delete saga', error); 

@@ -6,9 +6,10 @@ import {Row, Col, Button} from 'reactstrap';
 class NewSectionItem extends Component {
 
     deleteBtn = () => {
-        let songId = this.props.section.song_id;
-        console.log('songId for delete section', songId);
-        this.props.dispatch({type: 'DELETE_SECTION', payload: songId});
+        // let songId = this.props.store.sectionsReducer.song_id;
+        // let sectionId = this.props.store.sectionsReducer.id;
+        console.log('Reload to delete!');
+        // this.props.dispatch({type: 'DELETE_SECTION', payload: {songId: songId, sectionId: sectionId}});
     }
     
     render() {
