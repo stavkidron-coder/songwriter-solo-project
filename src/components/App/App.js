@@ -121,7 +121,7 @@ class App extends Component {
             <ProtectedRoute
               // logged in shows In-The-Works page else shows LoginPage
               exact
-              path="/view-song"
+              path="/view-song/:id"
               component={ViewSongPage}
               // authRedirect="/home"
             />

@@ -24,6 +24,11 @@ class Completed extends Component {
     this.props.history.push(`/edit-song/${songId}`);
   }
 
+  viewSongBtn = (event) => {
+    const songId = event.target.id
+    this.props.history.push(`/view-song/${songId}`);
+  }
+
   render() {
     return (
       <div>
@@ -61,7 +66,12 @@ class Completed extends Component {
                           Edit Song
                         </Button>
                         <br/>
-                        <Button color="primary" className="completedBtns">
+                        <Button
+                          color="primary"
+                          className="completedBtns"
+                          id={song.id}
+                          onClick={this.viewSongBtn}  
+                        >
                           View Song
                         </Button>
                       </Col>
