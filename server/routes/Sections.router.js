@@ -1,11 +1,12 @@
 const express = require('express');
 const pool = require('../modules/pool');
 const router = express.Router();
+const {rejectUnauthenticated} = require('../modules/authentication-middleware');
 
 /**
  * GET route template
  */
-router.get(`/:songId`, (req, res) => {
+router.get(`/:songId`, rejectUnauthenticated, (req, res) => {
   // GET route code here
   const song_id = Number(req.params.songId);
   const queryText = `SELECT * FROM "section" WHERE "section"."song_id" = $1;`;
@@ -24,7 +25,7 @@ router.get(`/:songId`, (req, res) => {
 /**
  * POST route template
  */
-router.post('/', (req, res) => {
+router.post('/', rejectUnauthenticated, (req, res) => {
   // POST route code here
   // const user_id = Number(req.user.id);
   const song_id = Number(req.body.songId);
@@ -44,7 +45,7 @@ router.post('/', (req, res) => {
       });
 });
 
-router.delete('/delete/:id', (req, res) => {
+router.delete('/delete/:id', rejectUnauthenticated, (req, res) => {
   const songId = req.params.id;
   const queryText = `DELETE FROM "section" WHERE "section"."id" = $1;`;
   console.log('req.params', req.params);

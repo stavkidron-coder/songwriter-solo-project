@@ -1,11 +1,12 @@
 const express = require('express');
 const pool = require('../modules/pool');
 const router = express.Router();
+const {rejectUnauthenticated} = require('../modules/authentication-middleware');
 
 /**
  * GET route template
  */
-router.get('/in-the-works', (req, res) => {
+router.get('/in-the-works', rejectUnauthenticated, (req, res) => {
     // console.log('GET req.body', req.user.id);
     const userId = req.user.id;
     const queryText = `SELECT * FROM "songs" WHERE "completed_status" = false AND "user_id" = $1 ORDER BY "date" DESC;`;
@@ -18,7 +19,7 @@ router.get('/in-the-works', (req, res) => {
     });
 });
 
-router.get('/completed', (req, res) => {
+router.get('/completed', rejectUnauthenticated, (req, res) => {
     // console.log('GET req.body', req.user.id);
     const userId = req.user.id;
     const queryText = `SELECT * FROM "songs" WHERE "completed_status" = true AND "user_id" = $1 ORDER BY "date" DESC;`;
@@ -31,7 +32,7 @@ router.get('/completed', (req, res) => {
     });
 });
 
-router.get('/:id', (req, res) => {
+router.get('/:id', rejectUnauthenticated, (req, res) => {
     const songId = Number(req.params.id);
     const queryText = `SELECT * FROM "songs" WHERE "songs"."id" = ${songId};`;
     pool.query(queryText).then((result) => {
@@ -43,7 +44,7 @@ router.get('/:id', (req, res) => {
 });
 
 // GET 5 most recent songs
-router.get('/recent/:id', (req, res) => {
+router.get('/recent/:id', rejectUnauthenticated, (req, res) => {
     const userId = Number(req.user.id);
     const queryText = `SELECT * FROM "songs" WHERE "songs"."user_id" = $1 ORDER BY "date" DESC LIMIT 5;`
 
@@ -56,7 +57,7 @@ router.get('/recent/:id', (req, res) => {
         });
 });
 
-router.post('/', (req, res) => {
+router.post('/', rejectUnauthenticated, (req, res) => {
     const user_id = req.user.id;
     const title = "New Song";
     const key = "";
@@ -81,7 +82,7 @@ router.post('/', (req, res) => {
     });
 });
 
-router.put('/update/:id', (req, res) => {
+router.put('/update/:id', rejectUnauthenticated, (req, res) => {
     const songId = Number(req.params.id);
     const user_id = Number(req.user.id);
     const title = req.body.title;
@@ -109,7 +110,7 @@ router.put('/update/:id', (req, res) => {
     });
 });
 
-router.delete('/delete/:id', (req, res) => {
+router.delete('/delete/:id', rejectUnauthenticated, (req, res) => {
     const songId = Number(req.params.id);
     const queryText = `DELETE FROM "songs" WHERE "songs"."id" = $1;`;
     pool.query(queryText, [songId])
