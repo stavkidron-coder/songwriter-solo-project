@@ -222,7 +222,7 @@ class AddEditSongPage extends Component {
                                         Mark song as "In-The- Works" {toolsIcon}
                                     </Button>
                                     :
-                                    <Button color="outline-success" onClick={this.completedToggle}>
+                                    <Button color="outline-primary" onClick={this.completedToggle}>
                                         Mark song as "Completed" {checkIcon}
                                     </Button>
                                 }

@@ -1,15 +1,55 @@
-.vsLyricsContainer {
-    border: 1px solid black;
+.viewSongBody {
+    padding: 20px;
+    margin-bottom: 61px;
+    background-color: black;
 }
 
-.vsInstrumentsContainer {
-    border: 1px solid black;
+.viewSongBody h3 {
+    color: white;
 }
 
-.vsNotesContainer {
-    border: 1px solid black;
+.vsHr {
+    background-color: black;
 }
 
-.vsReferencesContainer {
+.viewSongJumbotron {
+    background-image: url('../../Images/concert.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 40vh;
+    border-radius: 0;
+    margin: 0;
+}
+
+.viewSongJumbotronTitle {
+    background-color: rgb(0, 0, 0, 0.9);
+    border-radius: 5px;
+    color: white;
+    padding: 20px;
+}
+
+.vsHeadings {
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+.vsContentBoxes {
     border: 1px solid black;
+    border-radius: 5px;
+    background-color: rgb(45, 45, 45);
+    color: white;
+    padding: 10px;
+}
+
+.vsSectionItem {
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 15px;
+    margin: 5px;
+    background-color: rgb(205, 205, 205);
+    color: black;
+}
+
+.editBtn {
+    margin-top: 10px;
 }
