@@ -91,10 +91,10 @@ router.put('/update/:id', rejectUnauthenticated, (req, res) => {
     const time_signature = req.body.time_signature;
     const lyrics = req.body.lyrics;
     const instruments = req.body.instruments;
-    const reference_songs = req.body.references;
+    const reference_songs = req.body.reference_songs;
     const notes = req.body.notes;
     const completed_status = req.body.completed_status;
-    console.log("time signature in router:", req.body);
+    // console.log("time signature in router:", req.body);
     
 
     const queryText = `UPDATE "songs" SET "title" = $1, "key" = $2, "tempo" = $3, "time_signature" = $4, "lyrics"= $5, "instruments" = $6, "reference_songs" = $7, "notes" = $8, "completed_status" = $9
