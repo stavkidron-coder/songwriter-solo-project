@@ -19,6 +19,7 @@
 
 .leftJumbotron {
     border: 1px solid black;
+    border-radius: 5px;
     padding: 20px;
     background-color: rgba(0, 0, 0, 0.81);
 }

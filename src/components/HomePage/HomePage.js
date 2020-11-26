@@ -30,6 +30,11 @@ class HomePage extends Component {
     this.props.history.push(`/edit-song/${songId}`);
   }
 
+  viewSongBtn = (event) => {
+    const songId = event.target.id
+    this.props.history.push(`/view-song/${songId}`);
+  }
+
   render() {
     return (
       <>
@@ -95,6 +100,7 @@ class HomePage extends Component {
                     <Button
                       color="primary"
                       className="homeBtns"
+                      id={song.id}
                       onClick={this.viewSongBtn}
                     >
                       View Song {eyeIcon}

@@ -10,10 +10,6 @@ import { faTools, faCheckSquare } from '@fortawesome/free-solid-svg-icons';
     const toolsIcon = <FontAwesomeIcon icon={faTools}/>
     const checkIcon = <FontAwesomeIcon icon={faCheckSquare}/>
 
-// Basic class component structure for React with default state
-// value setup. When making a new component be sure to replace
-// the component name TemplateClass with the name for the new
-// component.
 class AddEditSongPage extends Component {
 
     componentDidMount() {
@@ -45,7 +41,7 @@ class AddEditSongPage extends Component {
             lyrics: "",
             chords: "",
             instruments: "",
-            references: "",
+            reference_songs: "",
             notes: "",
             completed_status: false,
         }
@@ -65,7 +61,7 @@ class AddEditSongPage extends Component {
 
   // toggles completed checkbox between true and false
   completedToggle = () => {
-    console.log('completedStatus:', this.state.song.completed_status);
+    // console.log('completedStatus:', this.state.song.completed_status);
     
     if (this.state.song.completed_status === true) {
         this.setState({
@@ -90,7 +86,7 @@ class AddEditSongPage extends Component {
     saveBtn = () => {
         let song = {...this.state.song, songId: this.props.match.params.id}
         console.log('song', song);
-        console.log(this.props.match.params.id);
+        // console.log(this.props.match.params.id);
         
         this.props.dispatch({type: 'UPDATE_SONG', payload: song});
     }
@@ -198,7 +194,7 @@ class AddEditSongPage extends Component {
                                     id="refSongs"
                                     type="textarea"
                                     className="textArea"
-                                    onChange={(event) => this.handleChange(event, 'references')}     
+                                    onChange={(event) => this.handleChange(event, 'reference_songs')}   
                                 />
                             </Col>
 
@@ -226,7 +222,7 @@ class AddEditSongPage extends Component {
                                         Mark song as "In-The- Works" {toolsIcon}
                                     </Button>
                                     :
-                                    <Button color="outline-success" onClick={this.completedToggle}>
+                                    <Button color="outline-primary" onClick={this.completedToggle}>
                                         Mark song as "Completed" {checkIcon}
                                     </Button>
                                 }

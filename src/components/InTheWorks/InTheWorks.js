@@ -20,9 +20,9 @@ class InTheWorks extends Component {
     
   }
 
-  viewSongBtn = () => {
-    console.log('viewSong Btn clicked');
-    this.props.history.push('/view-song');
+  viewSongBtn = (event) => {
+    const songId = event.target.id
+    this.props.history.push(`/view-song/${songId}`);
   }
 
   editSongBtn = (event) => {
@@ -70,6 +70,7 @@ class InTheWorks extends Component {
                         <Button
                           color="primary"
                           className="itwBtns"
+                          id={song.id}
                           onClick={this.viewSongBtn}
                         >
                           View Song
