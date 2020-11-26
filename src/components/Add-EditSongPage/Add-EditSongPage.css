@@ -58,3 +58,9 @@
     justify-content: center;
     margin-bottom: 10px;
 }
+
+.successAlert {
+    border-color: rgb(40,167,69) !important;
+    color: rgb(40,167,69) !important;
+    background-color: white !important;
+}

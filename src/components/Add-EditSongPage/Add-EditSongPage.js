@@ -4,7 +4,7 @@ import mapStoreToProps from '../../redux/mapStoreToProps';
 import './Add-EditSongPage.css';
 import SectionModal from '../SectionModal/SectionModal';
 import DeleteModal from '../DeleteModal/DeleteModal';
-import {Jumbotron, Container, Row, Col, Button, Form, FormGroup, Label, Input} from 'reactstrap';
+import {Jumbotron, Container, Row, Col, Button, Form, FormGroup, Label, Input, Alert} from 'reactstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTools, faCheckSquare } from '@fortawesome/free-solid-svg-icons';
     
@@ -45,7 +45,8 @@ class AddEditSongPage extends Component {
             reference_songs: "",
             notes: "",
             completed_status: false,
-        }
+        },
+        visibility: false
     };
 
   // redirects all inputed info to the correct key value pair in state
@@ -87,17 +88,18 @@ class AddEditSongPage extends Component {
     saveBtn = () => {
         let song = {...this.state.song, songId: this.props.match.params.id}
         console.log('song', song);
-        // console.log(this.props.match.params.id);
-        
+        // console.log(this.props.match.params.id); 
         this.props.dispatch({type: 'UPDATE_SONG', payload: song});
+        this.toggle();
     }
 
-    // deleteBtn = () => {
-    //     let songId = this.props.match.params.id;
-    //     console.log('songId for delete', songId);
-    //     this.props.dispatch({type: 'DELETE_SONG', payload: songId});
-    //     this.props.history.push('/home');
-    // }
+    toggle() {
+        this.setState({   
+            visibility: true
+        },     
+        ()=> {window.setTimeout(()=>{this.setState({visibility:false})},5000)
+        });
+    }
 
   render() {
     return (
@@ -232,6 +234,7 @@ class AddEditSongPage extends Component {
                                 <Input type="checkbox" id="completedStatus" name="completeStatus" defaultChecked={this.state.completed} onClick={this.checkboxToggle}/> */}
                             
                             <Button color="success" onClick={this.saveBtn}>Save</Button>
+                            <Alert className="successAlert" isOpen={this.state.visibility} toggle={this.toggle.bind(this)}>Song successfully saved!</Alert>
                             
                         </Col>
                         <DeleteModal songId={this.props.match.params.id}/>

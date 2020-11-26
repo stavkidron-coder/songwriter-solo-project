@@ -15,6 +15,12 @@ class SongPage extends Component {
         this.props.dispatch({type: 'GET_SONG_BY_ID', payload: this.props.match.params.id});
     }
 
+    editSongBtn = (event) => {
+        console.log('edit song button clicked', event.target.id);
+        const songId = event.target.id
+        this.props.history.push(`/edit-song/${songId}`);
+      }
+
     render() {
         return (
         <>
@@ -25,7 +31,14 @@ class SongPage extends Component {
                             <Col xs="6"> 
                                 <h1>{this.props.store.songsReducer.title}</h1>
                                 <p>Date Created: {this.props.store.songsReducer.date}</p>
-                                <Button className="editBtn" color="outline-primary">Edit Song</Button>
+                                <Button
+                                    className="editBtn"
+                                    color="outline-primary"
+                                    onClick={this.editSongBtn}
+                                    id={this.props.store.songsReducer.id}
+                                >
+                                    Edit Song
+                                </Button>
                             </Col>
                             <Col xs="6">
                                 <p>Key: {this.props.store.songsReducer.key}</p>
