@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import mapStoreToProps from '../../redux/mapStoreToProps';
 import './Add-EditSongPage.css';
 import SectionModal from '../SectionModal/SectionModal';
+import DeleteModal from '../DeleteModal/DeleteModal';
 import {Jumbotron, Container, Row, Col, Button, Form, FormGroup, Label, Input} from 'reactstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTools, faCheckSquare } from '@fortawesome/free-solid-svg-icons';
@@ -91,12 +92,12 @@ class AddEditSongPage extends Component {
         this.props.dispatch({type: 'UPDATE_SONG', payload: song});
     }
 
-    deleteBtn = () => {
-        let songId = this.props.match.params.id;
-        console.log('songId for delete', songId);
-        this.props.dispatch({type: 'DELETE_SONG', payload: songId});
-        this.props.history.push('/home');
-    }
+    // deleteBtn = () => {
+    //     let songId = this.props.match.params.id;
+    //     console.log('songId for delete', songId);
+    //     this.props.dispatch({type: 'DELETE_SONG', payload: songId});
+    //     this.props.history.push('/home');
+    // }
 
   render() {
     return (
@@ -150,7 +151,6 @@ class AddEditSongPage extends Component {
                                 <br/>
 
                                 <Label for="time-sig">Time Signature:</Label>
-                                {/* {JSON.stringify(this.state.song)} */}
                                 <Input
                                     type="text"
                                     value={this.state.song.time_signature}
@@ -232,9 +232,9 @@ class AddEditSongPage extends Component {
                                 <Input type="checkbox" id="completedStatus" name="completeStatus" defaultChecked={this.state.completed} onClick={this.checkboxToggle}/> */}
                             
                             <Button color="success" onClick={this.saveBtn}>Save</Button>
-                            <Button color="danger" onClick={this.deleteBtn}>Delete Song</Button>
+                            
                         </Col>
-                        
+                        <DeleteModal songId={this.props.match.params.id}/>
                     </Row>
                     
                 </div>
