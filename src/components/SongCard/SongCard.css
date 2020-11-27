@@ -1,0 +1,35 @@
+.songCardButtonCol {
+    text-align: right;
+}
+
+.songCardContainer {
+    margin: 10px 0;
+    border: 4px solid rgb(230, 230, 230);
+    border-radius: 5px;
+    padding: 10px;
+    background-color: rgb(230, 230, 230);
+    
+    -moz-transition: all .2s ease-in;
+    -o-transition: all .2s ease-in;
+    -webkit-transition: all .2s ease-in;
+    transition: all .2s ease-in
+}
+
+.songCardContainer:hover {
+    margin: 10px 0;
+    border: 4px solid rgb(160,118,177);
+    border-radius: 5px;
+    padding: 10px;
+    background-color: rgb(255, 255, 255);
+}
+
+.dropdownOptions {
+    background-color: rgb(230, 230, 230);
+    border-color: rgb(230, 230, 230);
+}
+
+.dropdownOptions:hover {
+    color: rgb(160,118,177);
+    background-color: rgb(255, 255, 255);
+    border-color: rgb(160,118,177);
+}

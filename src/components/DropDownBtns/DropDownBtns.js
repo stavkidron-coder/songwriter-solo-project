@@ -28,12 +28,13 @@ const DropDownBtns = (props) => {
 
   return (
     <Dropdown isOpen={dropdownOpen} toggle={toggle}>
-      <DropdownToggle color="light">
+      <DropdownToggle color="light" className="dropdownOptions">
         {dots}
       </DropdownToggle>
 
       <DropdownMenu>
         <DropdownItem
+        className="dropdownOptions"
           id={props.song.id}
           onClick={editSongBtn}>
             {editIcon} Edit Song
@@ -42,6 +43,7 @@ const DropDownBtns = (props) => {
         <DropdownItem divider />
 
         <DropdownItem
+          className="dropdownOptions"
           id={props.song.id}
           onClick={viewSongBtn}>
             {eyeIcon} View Song
