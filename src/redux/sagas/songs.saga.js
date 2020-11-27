@@ -4,7 +4,7 @@ import { put, takeEvery} from 'redux-saga/effects';
 function* getInTheWorksSongs() {
     try {
         const songsResponse = yield axios.get('/songs/in-the-works');
-        console.log('songsResponse:', songsResponse.data);
+        // console.log('songsResponse:', songsResponse.data);
         yield put({type: 'SET_ITW_SONGS', payload: songsResponse.data});
     }
     catch (error) {
@@ -15,7 +15,7 @@ function* getInTheWorksSongs() {
 function* getCompletedSongs() {
     try {
         const songResponse = yield axios.get('/songs/completed');
-        console.log('completedSongsResponse', songResponse.data);
+        // console.log('completedSongsResponse', songResponse.data);
         yield put({type: 'SET_COMPLETED_SONGS', payload: songResponse.data});
     }
     catch (error) {
@@ -28,7 +28,7 @@ function* postSong(action){
     
     try {
         const songResponse = yield axios.post('/songs');
-        console.log('songResponse', songResponse);
+        // console.log('songResponse', songResponse);
         yield action.payload.nav.props.history.push(`/edit-song/${songResponse.data.id}`);
     }
     catch (error) {
@@ -39,7 +39,7 @@ function* postSong(action){
 function* getSongId(action) {
     try {
         const songIdResponse = yield axios.get(`/songs/${action.payload}`);
-        console.log('songIdResponse', songIdResponse.data);
+        // console.log('songIdResponse', songIdResponse.data);
         yield put({type: 'SET_SONG_ID', payload: songIdResponse.data});
     }
     catch (error) {
@@ -49,8 +49,8 @@ function* getSongId(action) {
 
 function* updateSong(action) {
     try {
-        // const updateSongResponse = yield axios.put(`/songs/update/${action.payload.songId}`, action.payload);
-        console.log('updateSongResponse:', action.payload);
+        const updateSongResponse = yield axios.put(`/songs/update/${action.payload.songId}`, action.payload);
+        console.log('updateSongResponse:', updateSongResponse.config.data);
         yield put({type: 'GET_SONG_BY_ID', payload: action.payload.songId});
     }
     catch(error) {
@@ -59,11 +59,11 @@ function* updateSong(action) {
 }
 
 function* getSongDataById(action) {
-    console.log('SONGS action:', action.payload);
+    // console.log('SONGS action:', action.payload);
     
     try {
         const getSongResponse = yield axios.get(`/songs/${action.payload}`);
-        console.log('getResponseById', getSongResponse.data);
+        // console.log('getResponseById', getSongResponse.data);
         yield put({type: 'GET_SECTIONS_BY_ID', payload: action.payload});
         yield put({type: 'SET_SONG', payload: getSongResponse.data});
         
