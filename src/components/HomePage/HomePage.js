@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import mapStoreToProps from '../../redux/mapStoreToProps';
 import DropDownBtns from '../DropDownBtns/DropDownBtns';
+import SongCard from '../SongCard/SongCard';
 import {Jumbotron, Container, Row, Col, Button} from 'reactstrap';
 import './HomePage.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -69,22 +70,10 @@ class HomePage extends Component {
 
           {this.props.store.recentSongsReducer.map((song) => {
             return(
-              <div key={song.id} className="homeListItem">
-                <Row>
-                  <Col xs="8">
-                    <h3>{song.title}</h3>
-                    <p>{song.date}</p>
-                  </Col>
-
-                  <Col xs="4" className="homeButtonCol">
-                    <DropDownBtns song={song}/> 
-                  </Col>
-
-                </Row>
-                     
-              </div>
+              <SongCard song={song}/>
             )
           })}
+          
         </Container>
       </div>
     </>

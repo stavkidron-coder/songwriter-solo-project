@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import mapStoreToProps from '../../redux/mapStoreToProps';
+import SongCard from '../SongCard/SongCard';
 import './InTheWorks.css';
 import {Jumbotron, Container, Col, Row, Button} from 'reactstrap';
 
@@ -20,17 +21,6 @@ class InTheWorks extends Component {
     
   }
 
-  viewSongBtn = (event) => {
-    const songId = event.target.id
-    this.props.history.push(`/view-song/${songId}`);
-  }
-
-  editSongBtn = (event) => {
-    console.log('edit song button clicked', event.target.id);
-    const songId = event.target.id
-    this.props.history.push(`/edit-song/${songId}`);
-  }
-
   render() {
     return (
       <div>
@@ -48,36 +38,9 @@ class InTheWorks extends Component {
 
           <Container>
             
-              {/* {JSON.stringify(this.props.store.songs)} */}
               {this.props.store.itwSongs.map((song) => {
                 return(
-                  <div key={song.id} className="itwListItem">
-                    <Row>
-                      <Col xs="8">
-                        <h3>{song.title}</h3>
-                        <p>{song.date}</p>
-                      </Col>
-                      <Col xs="4" className="buttonCol">
-                        <Button
-                          color="primary"
-                          className="itwBtns"
-                          id={song.id}
-                          onClick={this.editSongBtn}
-                        >
-                          Edit Song
-                        </Button>
-                        <br/>
-                        <Button
-                          color="primary"
-                          className="itwBtns"
-                          id={song.id}
-                          onClick={this.viewSongBtn}
-                        >
-                          View Song
-                        </Button>
-                      </Col>
-                    </Row>      
-                  </div>
+                  <SongCard song={song}/>
                 )
               })}
           
