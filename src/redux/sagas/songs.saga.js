@@ -49,7 +49,7 @@ function* getSongId(action) {
 
 function* updateSong(action) {
     try {
-        const updateSongResponse = yield axios.put(`/songs/update/${action.payload.songId}`, action.payload);
+        // const updateSongResponse = yield axios.put(`/songs/update/${action.payload.songId}`, action.payload);
         console.log('updateSongResponse:', action.payload);
         yield put({type: 'GET_SONG_BY_ID', payload: action.payload.songId});
     }

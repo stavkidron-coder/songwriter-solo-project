@@ -7,6 +7,7 @@ function* postSection(action) {
     try {
         yield axios.post('/sections', action.payload);       
         yield put({type: 'SET_SECTION'});
+        yield put({type: 'GET_SECTIONS_BY_ID', payload: action.payload.songId});
     }
     catch (error) {
         console.log('ERROR SETTING SECTION', error);
