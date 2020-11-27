@@ -2,14 +2,13 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import mapStoreToProps from '../../redux/mapStoreToProps';
+import DropDownBtns from '../DropDownBtns/DropDownBtns';
 import {Jumbotron, Container, Row, Col, Button} from 'reactstrap';
 import './HomePage.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPlus, faEdit, faEye } from '@fortawesome/free-solid-svg-icons';
+import { faPlus } from '@fortawesome/free-solid-svg-icons';
 
 const plusIcon = <FontAwesomeIcon icon={faPlus}/>
-const editIcon = <FontAwesomeIcon icon={faEdit}/>
-const eyeIcon = <FontAwesomeIcon icon={faEye}/>
 
 class HomePage extends Component {
 
@@ -22,17 +21,6 @@ class HomePage extends Component {
     console.log('newSongBtn clicked');
     this.props.dispatch({type: 'ADD_SONG', payload: {nav:this}});
     // this.props.history.push('/edit-song');
-  }
-
-  editSongBtn = (event) => {
-    console.log('edit song button clicked', event.target.id);
-    const songId = event.target.id
-    this.props.history.push(`/edit-song/${songId}`);
-  }
-
-  viewSongBtn = (event) => {
-    const songId = event.target.id
-    this.props.history.push(`/view-song/${songId}`);
   }
 
   render() {
@@ -87,26 +75,13 @@ class HomePage extends Component {
                     <h3>{song.title}</h3>
                     <p>{song.date}</p>
                   </Col>
+
                   <Col xs="4" className="homeButtonCol">
-                    <Button
-                      color="primary"
-                      className="homeBtns"
-                      id={song.id}
-                      onClick={this.editSongBtn}
-                    >
-                      Edit Song {editIcon}
-                    </Button>
-                    <br/>
-                    <Button
-                      color="primary"
-                      className="homeBtns"
-                      id={song.id}
-                      onClick={this.viewSongBtn}
-                    >
-                      View Song {eyeIcon}
-                    </Button>
+                    <DropDownBtns song={song}/> 
                   </Col>
-                </Row>      
+
+                </Row>
+                     
               </div>
             )
           })}

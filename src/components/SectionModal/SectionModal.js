@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { connect } from 'react-redux'
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Col, Label, FormGroup, Form, Input } from 'reactstrap';
 import './SectionModal.css';
-import NewSectionItem from './SectionItem/NewSectionItem';
 import ExistingSectionItem from './SectionItem/ExistingSectionItem';
 
 const SectionModal = (props) => {  
@@ -54,12 +53,6 @@ const SectionModal = (props) => {
             {props.reduxState.sectionsReducer.map((section) => {
               return(
                 <ExistingSectionItem section={section}/>
-              )
-            })}
-            {/* This is where the new chords for each section will go */}
-            {secArray.map((section) => {
-              return(
-                <NewSectionItem songSection={section} existingSections={props}/>
               )
             })}
         </div>
