@@ -63,13 +63,9 @@ class SongPage extends Component {
                         <div className="vsContentBoxes">
                             <p>{this.props.store.songsReducer.instruments}</p>
                         </div>
-
-                        <h3 className="vsHeadings">Reference Songs</h3>
-                        <div className="vsContentBoxes">
-                            <p>{this.props.store.songsReducer.reference_songs}</p>
-                        </div>
                     </Col>
                     <Col xs="6">
+
                         <h3 className="vsHeadings">Sections & Chords</h3>
                         <div className="vsContentBoxes">
                             {this.props.store.sectionsReducer.map((section) => {
@@ -82,17 +78,20 @@ class SongPage extends Component {
                                 })}
                         </div>
 
+                        <h3 className="vsHeadings">Reference Songs</h3>
+                        <div className="vsContentBoxes">
+                            <p>{this.props.store.songsReducer.reference_songs}</p>
+                        </div>
+
                         <h3 className="vsHeadings">Notes</h3>
                         <div className="vsContentBoxes">
                             <p>{this.props.store.songsReducer.notes}</p>
                         </div>
                     </Col>
                     
-                </Row>
-                
+                </Row> 
 
             </Container>
-            
 
         </div>
         </>

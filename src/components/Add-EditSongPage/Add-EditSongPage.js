@@ -115,7 +115,11 @@ class AddEditSongPage extends Component {
                                 you can decide if your song is complete by clicking the
                                 complete song button at the bottom of the page.
                             </p>
-                            <Button onClick={() => this.props.history.push(`/view-song/${this.props.match.params.id}`)}>View Song</Button>
+                            <Button
+                                onClick={() => this.props.history.push(`/view-song/${this.props.match.params.id}`)}
+                                color="outline-primary"
+                            >
+                                View Song</Button>
                         </Col>
                     </Row>
                 </Container>
@@ -128,7 +132,7 @@ class AddEditSongPage extends Component {
                             <Row>
 
                                 <Col xs="4" className="r1c1">
-                                    <Label for="title">*Song Title:</Label>
+                                    <Label for="title"><h4>*Song Title:</h4></Label>
                                     <Input
                                         value={this.state.song.title}
                                         id="title"
@@ -136,7 +140,7 @@ class AddEditSongPage extends Component {
                                     />
                                     <br/>
 
-                                    <Label for="key">Key:</Label>
+                                    <Label for="key"><h4>Key:</h4></Label>
                                     <Input
                                         value={this.state.song.key}
                                         id="key"
@@ -144,7 +148,7 @@ class AddEditSongPage extends Component {
                                     />
                                     <br/>
 
-                                    <Label for="tempo">Tempo (BPM):</Label>
+                                    <Label for="tempo"><h4>Tempo (BPM):</h4></Label>
                                     <Input
                                         value={this.state.song.tempo}
                                         id="tempo"
@@ -153,7 +157,7 @@ class AddEditSongPage extends Component {
                                     />
                                     <br/>
 
-                                    <Label for="time-sig">Time Signature:</Label>
+                                    <Label for="time-sig"><h4>Time Signature:</h4></Label>
                                     <Input
                                         type="text"
                                         value={this.state.song.time_signature}
@@ -163,7 +167,7 @@ class AddEditSongPage extends Component {
                                 </Col>
 
                                 <Col xs="4" className="r1c2">
-                                    <Label for="lyrics">Lyrics:</Label>
+                                    <Label for="lyrics"><h4>Lyrics:</h4></Label>
                                     <Input
                                         value={this.state.song.lyrics}
                                         id="lyrics"
@@ -180,7 +184,7 @@ class AddEditSongPage extends Component {
                             <Row>
 
                                 <Col xs="4" className="r2c1">
-                                    <Label for="instruments">Instruments:</Label>
+                                    <Label for="instruments"><h4>Instruments:</h4></Label>
                                     <Input
                                         value={this.state.song.instruments}
                                         id="instruments"
@@ -191,7 +195,7 @@ class AddEditSongPage extends Component {
                                 </Col>
 
                                 <Col xs="4" className="r2c1">
-                                    <Label for="refSongs">Reference Songs:</Label>
+                                    <Label for="refSongs"><h4>Reference Songs:</h4></Label>
                                     <Input
                                         value={this.state.song.reference_songs}
                                         id="refSongs"
@@ -202,7 +206,7 @@ class AddEditSongPage extends Component {
                                 </Col>
 
                                 <Col xs="4" className="r2c1">
-                                    <Label for="notes">Other Notes:</Label>
+                                    <Label for="notes"><h4>Other Notes:</h4></Label>
                                     <Input
                                         value={this.state.song.notes}
                                         id="notes"
@@ -240,7 +244,7 @@ class AddEditSongPage extends Component {
                                     isOpen={this.state.visibility}
                                     toggle={this.toggle.bind(this)}
                                 >
-                                    <h6>Song successfully saved!</h6>
+                                    <h5>Song successfully saved!</h5>
                                 </Alert>
                                 
                             </Col>

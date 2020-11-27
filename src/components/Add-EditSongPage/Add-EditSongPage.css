@@ -18,8 +18,8 @@
 }
 
 .editPageBody {
-    /* background-color: black;
-    color: white; */
+    background-color: black;
+    color: white;
     padding: 20px;
 }
 
@@ -46,7 +46,7 @@
 }
 
 .songStructure {
-    border: 1px solid rgb(206,212,218);
+    border: 1px solid rgb(136, 136, 136);
     border-radius: 3px;
     overflow-y:auto;
     height: 310px;

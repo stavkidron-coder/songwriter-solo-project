@@ -3,8 +3,14 @@
     padding: 10px;
     border: 1px solid black;
     border-radius: 5px;
+    background-color: rgb(237, 237, 237);
+    color: black;
 }
 
 .addSectionBtn {
     margin-top: 10px;
+}
+
+.songStructure {
+    background-color: rgb(45, 45, 45);
 }
