@@ -75,9 +75,8 @@ class SongPage extends Component {
                             {this.props.store.sectionsReducer.map((section) => {
                                     return(
                                         <div className="vsSectionItem">
-                                            <h5>{section.name}</h5>
-                                            <hr className="vsHr"/>
-                                            <p>{section.chords}</p>
+                                            <h6>{section.name}:</h6>
+                                            <p> {section.chords}</p>
                                         </div> 
                                     )
                                 })}

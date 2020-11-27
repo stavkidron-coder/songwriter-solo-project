@@ -107,142 +107,150 @@ class AddEditSongPage extends Component {
             <Jumbotron className="addEditPageJumbotron">
                 <Container>
                     <Row>
-                        <Col xs="6">
+                        <Col xs="6" className="editJumboText">
                             <h2>{this.state.song.title}</h2>
                             <hr/>
                             <p>
                                 Enter in the information for your song! When you're done,
-                                you can decide if your song is complete by checking the
-                                completed box at the bottom of the page. If you don't want
-                                your
+                                you can decide if your song is complete by clicking the
+                                complete song button at the bottom of the page.
                             </p>
+                            <Button onClick={() => this.props.history.push(`/view-song/${this.props.match.params.id}`)}>View Song</Button>
                         </Col>
                     </Row>
                 </Container>
             </Jumbotron>
 
-            <Container className="songForm">
-                <Form>
-                    <FormGroup>
+            <div className="editPageBody">
+                <Container className="songForm">
+                    <Form>
+                        <FormGroup>
+                            <Row>
+
+                                <Col xs="4" className="r1c1">
+                                    <Label for="title">*Song Title:</Label>
+                                    <Input
+                                        value={this.state.song.title}
+                                        id="title"
+                                        onChange={(event) => this.handleChange(event, 'title')}    
+                                    />
+                                    <br/>
+
+                                    <Label for="key">Key:</Label>
+                                    <Input
+                                        value={this.state.song.key}
+                                        id="key"
+                                        onChange={(event) => this.handleChange(event, 'key')}     
+                                    />
+                                    <br/>
+
+                                    <Label for="tempo">Tempo (BPM):</Label>
+                                    <Input
+                                        value={this.state.song.tempo}
+                                        id="tempo"
+                                        type="number"
+                                        onChange={(event) => this.handleChange(event, 'tempo')}     
+                                    />
+                                    <br/>
+
+                                    <Label for="time-sig">Time Signature:</Label>
+                                    <Input
+                                        type="text"
+                                        value={this.state.song.time_signature}
+                                        id="time-sig"
+                                        onChange={(event) => this.handleChange(event, 'time_signature')}
+                                    />
+                                </Col>
+
+                                <Col xs="4" className="r1c2">
+                                    <Label for="lyrics">Lyrics:</Label>
+                                    <Input
+                                        value={this.state.song.lyrics}
+                                        id="lyrics"
+                                        type="textarea"
+                                        className="textArea"
+                                        onChange={(event) => this.handleChange(event, 'lyrics')}     
+                                    />
+                                </Col>
+
+                                <SectionModal songId={this.props.match.params.id}/>
+
+                            </Row>
+
+                            <Row>
+
+                                <Col xs="4" className="r2c1">
+                                    <Label for="instruments">Instruments:</Label>
+                                    <Input
+                                        value={this.state.song.instruments}
+                                        id="instruments"
+                                        type="textarea"
+                                        className="textArea"
+                                        onChange={(event) => this.handleChange(event, 'instruments')}     
+                                    />
+                                </Col>
+
+                                <Col xs="4" className="r2c1">
+                                    <Label for="refSongs">Reference Songs:</Label>
+                                    <Input
+                                        value={this.state.song.reference_songs}
+                                        id="refSongs"
+                                        type="textarea"
+                                        className="textArea"
+                                        onChange={(event) => this.handleChange(event, 'reference_songs')}   
+                                    />
+                                </Col>
+
+                                <Col xs="4" className="r2c1">
+                                    <Label for="notes">Other Notes:</Label>
+                                    <Input
+                                        value={this.state.song.notes}
+                                        id="notes"
+                                        type="textarea"
+                                        className="textArea"
+                                        onChange={(event) => this.handleChange(event, 'notes')}     
+                                    />
+                                </Col>
+
+                            </Row>
+                            
+                        </FormGroup>
+                    </Form>
+
+                    <div className="btnRow">
                         <Row>
+                            <Col>
+                                    {this.state.song.completed_status ?
+                                        <Button color="warning" onClick={this.completedToggle}>
+                                            Mark song as "In-The- Works" {toolsIcon}
+                                        </Button>
+                                        :
+                                        <Button color="outline-primary" onClick={this.completedToggle}>
+                                            Mark song as "Completed" {checkIcon}
+                                        </Button>
+                                    }
 
-                            <Col xs="4" className="r1c1">
-                                <Label for="title">*Song Title:</Label>
-                                <Input
-                                    value={this.state.song.title}
-                                    id="title"
-                                    onChange={(event) => this.handleChange(event, 'title')}    
-                                />
-                                <br/>
 
-                                <Label for="key">Key:</Label>
-                                <Input
-                                    value={this.state.song.key}
-                                    id="key"
-                                    onChange={(event) => this.handleChange(event, 'key')}     
-                                />
-                                <br/>
-
-                                <Label for="tempo">Tempo (BPM):</Label>
-                                <Input
-                                    value={this.state.song.tempo}
-                                    id="tempo"
-                                    type="number"
-                                    onChange={(event) => this.handleChange(event, 'tempo')}     
-                                />
-                                <br/>
-
-                                <Label for="time-sig">Time Signature:</Label>
-                                <Input
-                                    type="text"
-                                    value={this.state.song.time_signature}
-                                    id="time-sig"
-                                    onChange={(event) => this.handleChange(event, 'time_signature')}
-                                />
+                                    {/* <Label for="completedStatus">Complete song</Label>
+                                    <Input type="checkbox" id="completedStatus" name="completeStatus" defaultChecked={this.state.completed} onClick={this.checkboxToggle}/> */}
+                                
+                                <Button color="success" onClick={this.saveBtn}>Save</Button>
+                                <Alert
+                                    className="successAlert"
+                                    isOpen={this.state.visibility}
+                                    toggle={this.toggle.bind(this)}
+                                >
+                                    <h6>Song successfully saved!</h6>
+                                </Alert>
+                                
                             </Col>
-
-                            <Col xs="4" className="r1c2">
-                                <Label for="lyrics">Lyrics:</Label>
-                                <Input
-                                    value={this.state.song.lyrics}
-                                    id="lyrics"
-                                    type="textarea"
-                                    className="textArea"
-                                    onChange={(event) => this.handleChange(event, 'lyrics')}     
-                                />
-                            </Col>
-
-                            <SectionModal songId={this.props.match.params.id}/>
-
-                        </Row>
-
-                        <Row>
-
-                            <Col xs="4" className="r2c1">
-                                <Label for="instruments">Instruments:</Label>
-                                <Input
-                                    value={this.state.song.instruments}
-                                    id="instruments"
-                                    type="textarea"
-                                    className="textArea"
-                                    onChange={(event) => this.handleChange(event, 'instruments')}     
-                                />
-                            </Col>
-
-                            <Col xs="4" className="r2c1">
-                                <Label for="refSongs">Reference Songs:</Label>
-                                <Input
-                                    value={this.state.song.reference_songs}
-                                    id="refSongs"
-                                    type="textarea"
-                                    className="textArea"
-                                    onChange={(event) => this.handleChange(event, 'reference_songs')}   
-                                />
-                            </Col>
-
-                            <Col xs="4" className="r2c1">
-                                <Label for="notes">Other Notes:</Label>
-                                <Input
-                                    value={this.state.song.notes}
-                                    id="notes"
-                                    type="textarea"
-                                    className="textArea"
-                                    onChange={(event) => this.handleChange(event, 'notes')}     
-                                />
-                            </Col>
-
+                            <DeleteModal songId={this.props.match.params.id}/>
                         </Row>
                         
-                    </FormGroup>
-                </Form>
+                    </div>
 
-                <div className="btnRow">
-                    <Row>
-                        <Col>
-                                {this.state.song.completed_status ?
-                                    <Button color="warning" onClick={this.completedToggle}>
-                                        Mark song as "In-The- Works" {toolsIcon}
-                                    </Button>
-                                    :
-                                    <Button color="outline-primary" onClick={this.completedToggle}>
-                                        Mark song as "Completed" {checkIcon}
-                                    </Button>
-                                }
-
-
-                                {/* <Label for="completedStatus">Complete song</Label>
-                                <Input type="checkbox" id="completedStatus" name="completeStatus" defaultChecked={this.state.completed} onClick={this.checkboxToggle}/> */}
-                            
-                            <Button color="success" onClick={this.saveBtn}>Save</Button>
-                            <Alert className="successAlert" isOpen={this.state.visibility} toggle={this.toggle.bind(this)}>Song successfully saved!</Alert>
-                            
-                        </Col>
-                        <DeleteModal songId={this.props.match.params.id}/>
-                    </Row>
-                    
-                </div>
-
-            </Container>
+                </Container>
+            </div>
         </div>
     );
   }

@@ -4,6 +4,23 @@
 
 .addEditPageJumbotron {
     border-radius: 0;
+    background-image: url('../../Images/pencil.jpg');
+    background-size: cover;
+    background-position: bottom;
+    margin: 0;
+}
+
+.editJumboText {
+    background-color: rgb(0, 0, 0, 0.8);
+    border-radius: 5px;
+    color: white;
+    padding: 20px;
+}
+
+.editPageBody {
+    /* background-color: black;
+    color: white; */
+    padding: 20px;
 }
 
 .textArea {
