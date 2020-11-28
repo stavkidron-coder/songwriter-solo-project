@@ -44,13 +44,11 @@ class HomePage extends Component {
               </p>
 
               <Button
-              className="btn-purple"
+              className="btn-purple-dark"
                 id="addSongBtn"
                 onClick={this.newSongBtn}>
                   New Song {plusIcon}
               </Button>
-
-              {/* <p>Your ID is: {this.props.store.user.id}</p> */}
 
             </Col>
           </Row>

@@ -117,7 +117,7 @@ class RegisterForm extends Component {
             </div>
 
             <div>
-              <Button className="btn-purple" onClick={this.registerUser}>Register</Button>
+              <Button className="btn-purple-dark" onClick={this.registerUser}>Register</Button>
             </div>
 
           </FormGroup>

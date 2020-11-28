@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import moment from 'moment';
 import './SongCard.css';
 import DropDownBtns from '../DropDownBtns/DropDownBtns';
 import {Row, Col} from 'reactstrap';
@@ -11,7 +12,7 @@ class SongCard extends Component {
 
                   <Col xs="8">
                     <h3>{this.props.song.title}</h3>
-                    <p>{this.props.song.date}</p>
+                    <p>{moment(this.props.song.date).format('MMMM Do YYYY, h:mm a')}</p>
                   </Col>
 
                   <Col xs="4" className="songCardButtonCol">

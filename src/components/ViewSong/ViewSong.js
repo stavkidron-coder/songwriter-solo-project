@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import moment from 'moment';
 import mapStoreToProps from '../../redux/mapStoreToProps';
 import {Jumbotron, Container, Row, Col, Button} from 'reactstrap';
 import './ViewSong.css';
@@ -34,7 +35,8 @@ class SongPage extends Component {
                         <Row>
                             <Col xs="6"> 
                                 <h1>{this.props.store.songsReducer.title}</h1>
-                                <p>Date Created: {this.props.store.songsReducer.date}</p>
+                                {/* <p>Date Created: {this.props.store.songsReducer.date}</p> */}
+                                <p>Date Created: {moment(this.props.store.songsReducer.date).format("MMM Do YYYY")}</p>
                                 <Button
                                     className="editBtn btn-purple-dark"
                                     color="outline-primary"
@@ -46,7 +48,7 @@ class SongPage extends Component {
                             </Col>
                             <Col xs="3" className="songInfoJumbo">
                                 <h5>Key: {this.props.store.songsReducer.key}</h5>
-                                <h5>Tempo: {this.props.store.songsReducer.tempo}</h5>
+                                <h5>Tempo: {this.props.store.songsReducer.tempo} BPM</h5>
                                 <h5>Time Signature: {this.props.store.songsReducer.time_signature}</h5>
                             </Col>
                         </Row>

@@ -72,9 +72,8 @@ class LoginForm extends Component {
             
             <div>
               <Button
-              className="btn-purple"
+              className="btn-purple-dark"
                 onClick={this.login}
-                // color="success"
               >
                 Login
               </Button>
