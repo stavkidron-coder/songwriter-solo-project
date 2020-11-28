@@ -3,6 +3,10 @@ import { connect } from 'react-redux';
 import mapStoreToProps from '../../redux/mapStoreToProps';
 import {Jumbotron, Container, Row, Col, Button} from 'reactstrap';
 import './ViewSong.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEdit } from '@fortawesome/free-solid-svg-icons';
+
+const editIcon = <FontAwesomeIcon icon={faEdit}/>
 
 // Basic class component structure for React with default state
 // value setup. When making a new component be sure to replace
@@ -32,12 +36,12 @@ class SongPage extends Component {
                                 <h1>{this.props.store.songsReducer.title}</h1>
                                 <p>Date Created: {this.props.store.songsReducer.date}</p>
                                 <Button
-                                    className="editBtn"
+                                    className="editBtn btn-purple-dark"
                                     color="outline-primary"
                                     onClick={this.editSongBtn}
                                     id={this.props.store.songsReducer.id}
                                 >
-                                    Edit Song
+                                    Edit Song {editIcon}
                                 </Button>
                             </Col>
                             <Col xs="6">

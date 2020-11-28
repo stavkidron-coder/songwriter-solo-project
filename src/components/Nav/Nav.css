@@ -2,13 +2,12 @@
   float: right;
 }
 
-
 .navbarBrand {
   color: black;
 }
 
 .navbarBrand:hover {
-  color: #606060;
+  color: rgb(160,118,177);
 }
 
 .nav-link {
@@ -24,16 +23,6 @@
   height: 50px;
 }
 
-.mySongsBtn {
-    color: #fff;
-    background-color: rgb(160,118,177);
-    background-color: cutom-color;
-    border-color: rgb(160,118,177);
-    border-color: cutom-cor;
+.dropdownItem:hover {
+  background-color: white;
 }
-
-.mySongsBtn:hover {
-  background-color: rgb(143, 110, 157);
-  border-color: rgb(143, 110, 157);
-}
-

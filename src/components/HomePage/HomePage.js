@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import mapStoreToProps from '../../redux/mapStoreToProps';
-import DropDownBtns from '../DropDownBtns/DropDownBtns';
 import SongCard from '../SongCard/SongCard';
 import {Jumbotron, Container, Row, Col, Button} from 'reactstrap';
 import './HomePage.css';
@@ -45,6 +44,7 @@ class HomePage extends Component {
               </p>
 
               <Button
+              className="btn-purple"
                 id="addSongBtn"
                 onClick={this.newSongBtn}>
                   New Song {plusIcon}

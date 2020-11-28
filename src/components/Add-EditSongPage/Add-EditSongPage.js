@@ -6,10 +6,12 @@ import SectionModal from '../SectionModal/SectionModal';
 import DeleteModal from '../DeleteModal/DeleteModal';
 import {Jumbotron, Container, Row, Col, Button, Form, FormGroup, Label, Input, Alert} from 'reactstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTools, faCheckSquare } from '@fortawesome/free-solid-svg-icons';
+import { faTools, faCheckSquare, faSave, faEye } from '@fortawesome/free-solid-svg-icons';
     
     const toolsIcon = <FontAwesomeIcon icon={faTools}/>
     const checkIcon = <FontAwesomeIcon icon={faCheckSquare}/>
+    const saveIcon = <FontAwesomeIcon icon={faSave}/>
+    const eyeIcon = <FontAwesomeIcon icon={faEye}/>
 
 class AddEditSongPage extends Component {
 
@@ -108,7 +110,7 @@ class AddEditSongPage extends Component {
                 <Container>
                     <Row>
                         <Col xs="6" className="editJumboText">
-                            <h2>{this.state.song.title}</h2>
+                            <h1>{this.state.song.title}</h1>
                             <hr/>
                             <p>
                                 Enter in the information for your song! When you're done,
@@ -116,10 +118,11 @@ class AddEditSongPage extends Component {
                                 complete song button at the bottom of the page.
                             </p>
                             <Button
+                                className="btn-purple-dark"
                                 onClick={() => this.props.history.push(`/view-song/${this.props.match.params.id}`)}
                                 color="outline-primary"
                             >
-                                View Song</Button>
+                                View Song {eyeIcon}</Button>
                         </Col>
                     </Row>
                 </Container>
@@ -229,7 +232,7 @@ class AddEditSongPage extends Component {
                                             Mark song as "In-The- Works" {toolsIcon}
                                         </Button>
                                         :
-                                        <Button color="outline-primary" onClick={this.completedToggle}>
+                                        <Button color="primary" onClick={this.completedToggle}>
                                             Mark song as "Completed" {checkIcon}
                                         </Button>
                                     }
@@ -238,7 +241,7 @@ class AddEditSongPage extends Component {
                                     {/* <Label for="completedStatus">Complete song</Label>
                                     <Input type="checkbox" id="completedStatus" name="completeStatus" defaultChecked={this.state.completed} onClick={this.checkboxToggle}/> */}
                                 
-                                <Button color="success" onClick={this.saveBtn}>Save</Button>
+                                <Button color="success" onClick={this.saveBtn}>Save {saveIcon}</Button>
                                 <Alert
                                     className="successAlert"
                                     isOpen={this.state.visibility}

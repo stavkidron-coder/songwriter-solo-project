@@ -26,19 +26,19 @@ class Dropdown extends Component {
         
         return(
             <>
-                <DropdownToggle className="mySongsBtn">
+                <DropdownToggle className="btn-purple">
                     My Songs {musicIcon}
                 </DropdownToggle>
 
                 <DropdownMenu>
 
-                    <DropdownItem>
+                    <DropdownItem className="dropdownItem">
                         <Link className="nav-link" to="/in-the-works">
                         {editIcon} In-The-Works
                         </Link>
                     </DropdownItem>
 
-                    <DropdownItem>
+                    <DropdownItem className="dropdownItem">
                         <Link className="nav-link" to="/completed">
                         {checkIcon} Completed
                     </Link>
@@ -46,7 +46,7 @@ class Dropdown extends Component {
 
                     <DropdownItem divider/>
 
-                    <DropdownItem className="nav-link" onClick={this.newSongBtn}>
+                    <DropdownItem className="nav-link dropdownItem" onClick={this.newSongBtn}>
                       {plusIcon}  New Song
                     </DropdownItem>
 

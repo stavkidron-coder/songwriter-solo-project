@@ -3,6 +3,11 @@ import { connect } from 'react-redux'
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Col, Label, FormGroup, Form, Input } from 'reactstrap';
 import './SectionModal.css';
 import ExistingSectionItem from './SectionItem/ExistingSectionItem';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPlus, faTimes } from '@fortawesome/free-solid-svg-icons';
+    
+    const plusIcon = <FontAwesomeIcon icon={faPlus}/>
+    const crossIcon = <FontAwesomeIcon icon={faTimes}/>
 
 const SectionModal = (props) => {  
   
@@ -57,16 +62,16 @@ const SectionModal = (props) => {
             })}
         </div>
       <Button
-        color="success"
+        // color="success"
         onClick={toggle}
-        className="addSectionBtn"
+        className="addSectionBtn btn-purple-dark"
       >
-        Add Section
+        Add Section {plusIcon}
       </Button>
       
       <Modal isOpen={modal} toggle={toggle} className={className}>
-        <ModalHeader toggle={toggle}>Add a section</ModalHeader>
-        <ModalBody>
+        <ModalHeader className="modalHeader" toggle={toggle}>Add a section</ModalHeader>
+        <ModalBody className="modalBody">
           Add a song section and it's corresponding chords.
           <br/>
           <br/>
@@ -82,8 +87,8 @@ const SectionModal = (props) => {
           </Form>
         </ModalBody>
         <ModalFooter>
-          <Button color="primary" onClick={submitBtn}>Add</Button>{' '}
-          <Button color="secondary" onClick={toggle}>Cancel</Button>
+          <Button className="btn-purple" onClick={submitBtn}>Add {plusIcon}</Button>{' '}
+          <Button className="btn-red-light" onClick={toggle}>Cancel {crossIcon}</Button>
         </ModalFooter>
       </Modal>
     </Col>

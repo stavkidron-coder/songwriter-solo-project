@@ -1,90 +1,72 @@
-/* @font-face {
-  font-family: 'Marie-regular';
-  src: url('../../Fonts/Marie-regular.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-} */
-
-
-/* html,
-body,
-#react-root {
-  height: 100%;
-  background-color: rgb(174, 145, 244);
-} */
-
 body {
-  /* font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; */
   margin: 0px;
   min-height: 100vh;
 }
 
-/* img {
-  display: inline-block;
-  max-width: 100%;
-} */
-
 /* --------------------------------------------------------------------------------
-Container
+Buttons
 -------------------------------------------------------------------------------- */
-/* 
-.container {
-  padding: 20px;
-} */
 
-/* --------------------------------------------------------------------------------
-Button
--------------------------------------------------------------------------------- */
-/* 
-.btn {
-  display: inline-block;
-  padding: 10px 20px;
-  border-color: #014041;
-  border-width: 1px 1px 3px;
-  border-radius: 4px;
-  background-color: #00acb0;
-  color: #f8f8f8;
-  font-size: 1.1rem;
-  outline: 0;
-  cursor: pointer;
-}
+  /* Purple button */
 
-.btn_sizeMin {
-  min-height: 50px;
-  min-width: 100px;
-}
+    /* light purple hover */
 
-.btn_sizeSm {
-  padding: 10px 15px;
-  font-size: 0.8rem;
-}
+      .btn-purple {
+        color: white;
+        background-color: rgb(160,118,177);
+        border: 2px solid rgb(160,118,177);
+      }
 
-.btn_sizeFull {
-  display: block;
-  width: 100%;
-}
+      .btn-purple:hover {
+        color: rgb(160,118,177);
+        border: 2px solid rgb(160,118,177);
+        background-color: rgb(255, 255, 255);
+        border-color: rgb(160,118,177);
+      }
 
-.btn:hover {
-  background-color: #008183;
-  text-decoration: none;
-} */
+    /* Outlined purple button */
 
-/* This line makes the "Register" and "Login" buttons look like links */
-/* .btn_asLink {
-  padding: 0;
-  border-width: 0;
-  border-bottom: 1px solid #444;
-  border-radius: 0;
-  background: none;
-  font: inherit;
-  color: #444;
-}
+      .btn-outline-purple {
+        color: rgb(160,118,177);
+        border: 2px solid rgb(160,118,177);
+      }
 
-.btn_asLink:hover {
-  background-color: transparent;
-  border-color: #008183;
-  color: #008183;
-} */
+      .btn-outline-purple:hover {
+        color: rgb(255, 255, 255);
+        background-color: rgb(160,118,177);
+        border: 2px solid rgb(160,118,177);
+      }
+
+    /* dark purple hover */
+
+      .btn-purple-dark {
+        color: white;
+        background-color: rgb(160,118,177);
+        border: 2px solid rgb(160,118,177);
+      }
+
+      .btn-purple-dark:hover {
+        color: white;
+        border: 2px solid rgb(160,118,177);
+        background-color: rgb(132, 98, 145);
+        border-color: rgb(132, 98, 145);
+      }
+
+  /* Red Buttons */
+
+      /* light red button */
+
+      .btn-red-light {
+        color: white;
+        background-color: rgb(220,53,69);
+        border: 2px solid rgb(220,53,69);
+      }
+
+      .btn-red-light:hover {
+        color: rgb(220,53,69);
+        background-color: white;
+        border: 2px solid rgb(220,53,69);
+      }
 
 /* --------------------------------------------------------------------------------
 Alert
@@ -101,14 +83,3 @@ Alert
   color: #e01616;
   font-size: 0.8rem;
 }
-
-/* --------------------------------------------------------------------------------
-Form Treatment
--------------------------------------------------------------------------------- */
-
-
-
-/* input {
-  margin: 5px;
-  margin-bottom: 10px;
-} */

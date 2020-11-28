@@ -2,6 +2,10 @@ import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTrashAlt } from '@fortawesome/free-solid-svg-icons';
+
+    const trashIcon = <FontAwesomeIcon icon={faTrashAlt}/>
 
 const DeleteModal = (props) => {
   const {
@@ -21,7 +25,7 @@ const DeleteModal = (props) => {
 
   return (
     <div>
-      <Button color="danger" onClick={toggle}>Delete Song</Button>
+      <Button color="danger" onClick={toggle}>Delete Song {trashIcon}</Button>
       <Modal isOpen={modal} toggle={toggle} className={className}>
         <ModalHeader toggle={toggle}>Delete Song</ModalHeader>
         <ModalBody>

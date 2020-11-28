@@ -28,7 +28,7 @@ const DropDownBtns = (props) => {
 
   return (
     <Dropdown isOpen={dropdownOpen} toggle={toggle}>
-      <DropdownToggle color="light" className="dropdownOptions">
+      <DropdownToggle color="light" className="dropdownHeader">
         {dots}
       </DropdownToggle>
 
