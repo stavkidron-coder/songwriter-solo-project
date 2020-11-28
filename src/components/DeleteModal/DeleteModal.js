@@ -3,9 +3,10 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTrashAlt } from '@fortawesome/free-solid-svg-icons';
+import { faTrashAlt, faTimes } from '@fortawesome/free-solid-svg-icons';
 
     const trashIcon = <FontAwesomeIcon icon={faTrashAlt}/>
+    const crossIcon = <FontAwesomeIcon icon={faTimes}/>
 
 const DeleteModal = (props) => {
   const {
@@ -27,14 +28,14 @@ const DeleteModal = (props) => {
     <div>
       <Button color="danger" onClick={toggle}>Delete Song {trashIcon}</Button>
       <Modal isOpen={modal} toggle={toggle} className={className}>
-        <ModalHeader toggle={toggle}>Delete Song</ModalHeader>
-        <ModalBody>
+        <ModalHeader className="modalHeader" toggle={toggle}>Delete Song</ModalHeader>
+        <ModalBody className="modalBody">
             Are you sure you want to delete this song?
             this action is permanent and cannot be undone.
         </ModalBody>
         <ModalFooter>
-          <Button color="primary" onClick={deleteBtn}>Delete Song</Button>{' '}
-          <Button color="secondary" onClick={toggle}>Cancel</Button>
+          <Button className="btn-red-light" onClick={deleteBtn}>Delete Song {trashIcon}</Button>{' '}
+          <Button className="btn-purple" onClick={toggle}>Cancel {crossIcon}</Button>
         </ModalFooter>
       </Modal>
     </div>

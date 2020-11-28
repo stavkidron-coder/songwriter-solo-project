@@ -44,10 +44,10 @@ class SongPage extends Component {
                                     Edit Song {editIcon}
                                 </Button>
                             </Col>
-                            <Col xs="6">
-                                <p>Key: {this.props.store.songsReducer.key}</p>
-                                <p>Tempo: {this.props.store.songsReducer.tempo}</p>
-                                <p>Time Signature: {this.props.store.songsReducer.time_signature}</p>
+                            <Col xs="3" className="songInfoJumbo">
+                                <h5>Key: {this.props.store.songsReducer.key}</h5>
+                                <h5>Tempo: {this.props.store.songsReducer.tempo}</h5>
+                                <h5>Time Signature: {this.props.store.songsReducer.time_signature}</h5>
                             </Col>
                         </Row>
                     </div>  
