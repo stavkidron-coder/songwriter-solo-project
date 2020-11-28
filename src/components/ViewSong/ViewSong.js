@@ -69,6 +69,11 @@ class SongPage extends Component {
                         <div className="vsContentBoxes">
                             <p>{this.props.store.songsReducer.instruments}</p>
                         </div>
+
+                        <h3 className="vsHeadings">References</h3>
+                        <div className="vsContentBoxes">
+                            <p>{this.props.store.songsReducer.reference_songs}</p>
+                        </div>
                     </Col>
                     <Col xs="6">
 
@@ -82,11 +87,6 @@ class SongPage extends Component {
                                         </div> 
                                     )
                                 })}
-                        </div>
-
-                        <h3 className="vsHeadings">Reference Songs</h3>
-                        <div className="vsContentBoxes">
-                            <p>{this.props.store.songsReducer.reference_songs}</p>
                         </div>
 
                         <h3 className="vsHeadings">Notes</h3>

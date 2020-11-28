@@ -110,7 +110,7 @@ class App extends Component {
             />
 
             <ProtectedRoute
-              // logged in shows In-The-Works page else shows LoginPage
+              // logged in shows Completed page else shows LoginPage
               exact
               path="/completed"
               component={CompletedPage}
@@ -118,7 +118,7 @@ class App extends Component {
             />
 
             <ProtectedRoute
-              // logged in shows In-The-Works page else shows LoginPage
+              // logged in shows View-Song page else shows LoginPage
               exact
               path="/view-song/:id"
               component={ViewSongPage}

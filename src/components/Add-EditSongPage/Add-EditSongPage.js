@@ -198,7 +198,7 @@ class AddEditSongPage extends Component {
                                 </Col>
 
                                 <Col xs="4" className="r2c1">
-                                    <Label for="refSongs"><h4>Reference Songs:</h4></Label>
+                                    <Label for="refSongs"><h4>References:</h4></Label>
                                     <Input
                                         value={this.state.song.reference_songs}
                                         id="refSongs"
