@@ -28,7 +28,7 @@ class LandingPage extends Component {
               <h5>
                 SONGWRITER is the place your songs can call home. Edit and store
                 the songs you've worked so hard to write so that you won't ever need 
-                to worry about losing your ideas ever again.
+                to worry about losing your ideas again.
               </h5>
 
               <hr/>
