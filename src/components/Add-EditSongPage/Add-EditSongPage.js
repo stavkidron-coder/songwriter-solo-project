@@ -51,6 +51,23 @@ class AddEditSongPage extends Component {
         visibility: false
     };
 
+    secretBtn = () => {
+        this.setState({
+            ...this.state.song,
+            song: {
+                title: "Yesterday",
+                key: "F Major",
+                tempo: 96,
+                time_signature: "4/4",
+                lyrics: `Yesterday all my troubles seemed so far away ${"\n"}Now it looks as though they're here to stay${"\n"}Oh, I believe in yesterday${"\n"}${"\n"}Suddenly, I'm not half the man I used to be${"\n"}There's a shadow hanging over me${"\n"}Oh, yesterday came suddenly${"\n"}${"\n"}Why she had to go?${"\n"}I don't know, she wouldn't say${"\n"}I said something wrong${"\n"}Now I long for yesterday${"\n"}${"\n"}Yesterday love was such an easy game to play${"\n"}Now I need a place to hide away${"\n"}Oh, I believe in yesterday${"\n"}${"\n"}Why she had to go?${"\n"}I don't know, she wouldn't say${"\n"}I said something wrong${"\n"}Now I long for yesterday${"\n"}${"\n"}Yesterday love was such an easy game to play${"\n"}Now I need a place to hide away${"\n"}Oh, I believe in yesterday`,
+                instruments: "Vocals, Acoustic Guitar, Violin, Viola, Cello",
+                reference_songs: "Elvis, Chuck Berry, Little Richard, Carl Perkins, Buddy Holly, the Everly Brothers, Fats Domino",
+                notes: "Composed the melody in a dream while staying at the family home of Jane Asher in Wimpole Street, London.",
+                completed_status: false
+            }
+        });
+    }
+
   // redirects all inputed info to the correct key value pair in state
   handleChange = (event, typeParam) => {
         this.setState({
@@ -65,8 +82,7 @@ class AddEditSongPage extends Component {
 
   // toggles completed checkbox between true and false
   completedToggle = () => {
-    // console.log('completedStatus:', this.state.song.completed_status);
-    
+    // console.log('completedStatus:', this.state.song.completed_status); 
     if (this.state.song.completed_status === true) {
         this.setState({
             song: {
@@ -113,7 +129,7 @@ class AddEditSongPage extends Component {
                         <Col xs="6" className="editJumboText">
                             <h1>{this.state.song.title}</h1>
                             <hr/>
-                            <p>
+                            <p onClick={this.secretBtn}>
                                 Enter in the information for your song! When you're done,
                                 you can decide if your song is complete by clicking the
                                 complete song button at the bottom of the page.
