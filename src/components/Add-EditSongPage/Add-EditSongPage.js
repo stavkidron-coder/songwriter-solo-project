@@ -68,15 +68,6 @@ class AddEditSongPage extends Component {
         });
     }
 
-    secretBtn2 = () => {
-        this.setState({
-            ...this.state.song,
-            song: {
-                instruments: `- Vocals${"\n"}- Background Vocals${"\n"}- Piano${"\n"}- Bass${"\n"}- Maracas${"\n"}- Electric Guitar${"\n"}- Drums${"\n"}- Organ${"\n"}- Electric Piano${"\n"}- Trumpets${"\n"}- Trombone${"\n"}- Saxophone${"\n"}- Cello`,
-            }
-        });
-    }
-
   // redirects all inputed info to the correct key value pair in state
   handleChange = (event, typeParam) => {
         this.setState({
@@ -213,7 +204,7 @@ class AddEditSongPage extends Component {
                             <Row>
 
                                 <Col xs="4" className="r2c1">
-                                    <Label for="instruments"><h4 onClick={this.secretBtn2}>Instruments:</h4></Label>
+                                    <Label for="instruments"><h4>Instruments:</h4></Label>
                                     <Input
                                         value={this.state.song.instruments}
                                         id="instruments"
@@ -246,6 +237,34 @@ class AddEditSongPage extends Component {
                                 </Col>
 
                             </Row>
+
+                            {/* <Row>
+                                <Col xs="4" className="r3c1">
+                                    <Form
+                                        ref='uploadForm'
+                                        id='uploadForm'
+                                        // action='http://localhost:5000/upload'
+                                        method='post'
+                                        encType="multipart/form-data"
+                                    >
+                                        <FormGroup>
+                                            <Label for="fileUpload"><h4>File Upload</h4></Label>
+                                            <Input
+                                                id="fileUpload"
+                                                name="songFile"
+                                                type="file"
+                                            />
+
+                                            <Input
+                                                type='submit'
+                                                value='Upload File'
+                                            />
+                                        </FormGroup>
+                                    </Form>
+                                    
+                                    
+                                </Col>
+                            </Row> */}
                             
                         </FormGroup>
                     </Form>

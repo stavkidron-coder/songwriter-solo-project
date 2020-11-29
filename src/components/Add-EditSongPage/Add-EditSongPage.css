@@ -45,6 +45,10 @@
     margin-bottom: 40px;
 }
 
+.r3c1 {
+    margin-top: 20px;
+}
+
 .songStructure {
     border: 1px solid rgb(136, 136, 136);
     border-radius: 3px;
@@ -77,6 +81,7 @@
 }
 
 .successAlert {
+    padding: 10px !important;
     border-color: rgb(40,167,69) !important;
     color: rgb(40,167,69) !important;
     background-color: white !important;
