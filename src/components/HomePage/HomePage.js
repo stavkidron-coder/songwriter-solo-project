@@ -40,7 +40,8 @@ class HomePage extends Component {
 
               <p>
                 Get started by clicking "New Song" or check out your saved songs
-                by navigating to the "In-The-Works" or the "Completed" pages in the nav bar.
+                by navigating to the "In Progress" or the "Completed" pages in the nav bar
+                by clicking the "My Songs" button.
               </p>
 
               <Button

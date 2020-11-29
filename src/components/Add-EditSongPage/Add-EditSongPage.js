@@ -68,6 +68,15 @@ class AddEditSongPage extends Component {
         });
     }
 
+    secretBtn2 = () => {
+        this.setState({
+            ...this.state.song,
+            song: {
+                instruments: `- Vocals${"\n"}- Background Vocals${"\n"}- Piano${"\n"}- Bass${"\n"}- Maracas${"\n"}- Electric Guitar${"\n"}- Drums${"\n"}- Organ${"\n"}- Electric Piano${"\n"}- Trumpets${"\n"}- Trombone${"\n"}- Saxophone${"\n"}- Cello`,
+            }
+        });
+    }
+
   // redirects all inputed info to the correct key value pair in state
   handleChange = (event, typeParam) => {
         this.setState({
@@ -204,7 +213,7 @@ class AddEditSongPage extends Component {
                             <Row>
 
                                 <Col xs="4" className="r2c1">
-                                    <Label for="instruments"><h4>Instruments:</h4></Label>
+                                    <Label for="instruments"><h4 onClick={this.secretBtn2}>Instruments:</h4></Label>
                                     <Input
                                         value={this.state.song.instruments}
                                         id="instruments"
