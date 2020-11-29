@@ -5,20 +5,15 @@ import SongCard from '../SongCard/SongCard';
 import './InTheWorks.css';
 import {Jumbotron, Container} from 'reactstrap';
 
-// Basic class component structure for React with default state
-// value setup. When making a new component be sure to replace
-// the component name TemplateClass with the name for the new
-// component.
+
 class InTheWorks extends Component {
 
   componentDidMount = () => {
-    this.getSongs();
-     
+    this.getSongs();    
   }
 
   getSongs = () => {
-    this.props.dispatch({type: 'GET_ITW_SONGS'});
-    
+    this.props.dispatch({type: 'GET_ITW_SONGS'});   
   }
 
   render() {
