@@ -44,3 +44,15 @@
     background-color: rgb(255, 255, 255);
     border-color: rgb(160,118,177);
 }
+
+.completedDot {
+    color: rgb(40,167,69);
+}
+
+.itwDot {
+    color: rgb(255,192,8);
+}
+
+.completedStatus {
+    margin-top: 25px;
+}

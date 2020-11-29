@@ -3,6 +3,10 @@ import moment from 'moment';
 import './SongCard.css';
 import DropDownBtns from '../DropDownBtns/DropDownBtns';
 import {Row, Col} from 'reactstrap';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCircle } from '@fortawesome/free-solid-svg-icons';
+    
+    const dotIcon = <FontAwesomeIcon icon={faCircle}/>
 
 class SongCard extends Component {
     render(){
@@ -10,9 +14,17 @@ class SongCard extends Component {
             <div key={this.props.song.id} className="songCardContainer">
                 <Row>
 
-                  <Col xs="8">
+                  <Col xs="4">
                     <h3>{this.props.song.title}</h3>
                     <p>{moment(this.props.song.date).format('MMMM Do YYYY, h:mm a')}</p>
+                  </Col>
+
+                  <Col xs="4">
+                    {this.props.song.completed_status ?
+                      <p className="completedStatus"><span className="completedDot">{dotIcon}</span> Completed</p>
+                      :
+                      <p className="completedStatus"><span className="itwDot">{dotIcon}</span> In Progress...</p>
+                    }
                   </Col>
 
                   <Col xs="4" className="songCardButtonCol">
