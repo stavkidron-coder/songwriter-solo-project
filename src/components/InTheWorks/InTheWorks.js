@@ -22,7 +22,7 @@ class InTheWorks extends Component {
         <Jumbotron className="itwJumbotron">
           <Container>
             <div className="itwTitle">
-              <h1>"IN-THE-WORKS"</h1>
+              <h1>In Progress...</h1>
               <hr className="itwHr"/>
               <p>This is where your unfinished songs live</p>
             </div>

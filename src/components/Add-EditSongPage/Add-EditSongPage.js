@@ -246,7 +246,7 @@ class AddEditSongPage extends Component {
                             <Col>
                                     {this.state.song.completed_status ?
                                         <Button color="warning" onClick={this.completedToggle}>
-                                            Mark song as "In-The- Works" {toolsIcon}
+                                            Mark song as "In Progress" {toolsIcon}
                                         </Button>
                                         :
                                         <Button color="primary" onClick={this.completedToggle}>

@@ -34,7 +34,7 @@ class Dropdown extends Component {
 
                     <DropdownItem className="dropdownItem">
                         <Link className="nav-link" to="/in-the-works">
-                        {editIcon} In-The-Works
+                        {editIcon} In Progress
                         </Link>
                     </DropdownItem>
 
