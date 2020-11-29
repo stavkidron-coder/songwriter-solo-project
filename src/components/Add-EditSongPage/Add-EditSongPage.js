@@ -237,6 +237,34 @@ class AddEditSongPage extends Component {
                                 </Col>
 
                             </Row>
+
+                            {/* <Row>
+                                <Col xs="4" className="r3c1">
+                                    <Form
+                                        ref='uploadForm'
+                                        id='uploadForm'
+                                        // action='http://localhost:5000/upload'
+                                        method='post'
+                                        encType="multipart/form-data"
+                                    >
+                                        <FormGroup>
+                                            <Label for="fileUpload"><h4>File Upload</h4></Label>
+                                            <Input
+                                                id="fileUpload"
+                                                name="songFile"
+                                                type="file"
+                                            />
+
+                                            <Input
+                                                type='submit'
+                                                value='Upload File'
+                                            />
+                                        </FormGroup>
+                                    </Form>
+                                    
+                                    
+                                </Col>
+                            </Row> */}
                             
                         </FormGroup>
                     </Form>
