@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import mapStoreToProps from '../../redux/mapStoreToProps';
 import SongCard from '../SongCard/SongCard';
 import './InTheWorks.css';
-import {Jumbotron, Container, Col, Row, Button} from 'reactstrap';
+import {Jumbotron, Container} from 'reactstrap';
 
 // Basic class component structure for React with default state
 // value setup. When making a new component be sure to replace

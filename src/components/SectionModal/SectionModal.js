@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { connect } from 'react-redux'
+import { connect } from 'react-redux';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter, Col, Label, FormGroup, Form, Input } from 'reactstrap';
 import './SectionModal.css';
 import ExistingSectionItem from './SectionItem/ExistingSectionItem';
@@ -61,6 +61,7 @@ const SectionModal = (props) => {
               )
             })}
         </div>
+
       <Button
         // color="success"
         onClick={toggle}
