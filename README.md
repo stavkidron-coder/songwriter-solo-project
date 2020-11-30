@@ -126,6 +126,8 @@ Customize this ReadMe and the code comments in this project to read less like a 
 
 ## Technologies used
   - Moment.js
+  - Express
+  - Redux
   - Node
   - postgreSQL
   - React

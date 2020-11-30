@@ -66,7 +66,6 @@ function* getSongDataById(action) {
         // console.log('getResponseById', getSongResponse.data);
         yield put({type: 'GET_SECTIONS_BY_ID', payload: action.payload});
         yield put({type: 'SET_SONG', payload: getSongResponse.data});
-        
     }
     catch (error) {
         console.log('ERROR in getSongById saga', error);

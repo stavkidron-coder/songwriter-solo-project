@@ -16,11 +16,12 @@ import { faTools, faCheckSquare, faSave, faEye } from '@fortawesome/free-solid-s
 class AddEditSongPage extends Component {
 
     componentDidMount() {
+        // Gets specific song information from DB to display in the text fields
+        this.props.dispatch({type: 'GET_SONG_BY_ID', payload: this.props.match.params.id});
         // post a new blank song to DB
         // returns id
         this.props.dispatch({type: 'GET_SONG_ID', payload: this.props.match.params.id});
-        // Gets specific song information from DB to display in the text fields
-        this.props.dispatch({type: 'GET_SONG_BY_ID', payload: this.props.match.params.id});
+        
         
         // console.log('RETURNING SONG ID', this.props.store.songIdReducer);
     }

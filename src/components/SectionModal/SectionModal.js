@@ -52,7 +52,7 @@ const SectionModal = (props) => {
   return (
     
     <Col xs="4" className="r1c3">
-    <Label for="chords"><h4>Chords/Song Structure:</h4></Label>
+    <Label for="chords"><h4>Song Sections & Chords:</h4></Label>
     {/* this is where the saved sections get displayed ||||| They get displayed before getting added */}
         <div className="songStructure" id="chords">
             {props.reduxState.sectionsReducer.map((section) => {
