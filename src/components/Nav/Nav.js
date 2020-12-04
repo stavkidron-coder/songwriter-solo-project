@@ -27,7 +27,7 @@ const NavBar = (props) => {
   };
 
   if (props.store.user.id != null) {
-    loginLinkData.path = '/home';
+    loginLinkData.path = '/#/home';
     loginLinkData.text = 'Home';
   }
 
