@@ -3,8 +3,7 @@ import {
   HashRouter as Router,
   Route,
   Redirect,
-  Switch,
-  withRouter
+  Switch
 } from 'react-router-dom';
 
 import { connect } from 'react-redux';
@@ -139,4 +138,4 @@ class App extends Component {
   }
 }
 
-export default withRouter(connect()(App));
+export default connect()(App);

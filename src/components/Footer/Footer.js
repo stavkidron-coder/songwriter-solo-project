@@ -1,6 +1,5 @@
 import React from 'react';
 import './Footer.css';
-import { withRouter } from 'react-router-dom';
 import {Navbar, Nav, NavItem, NavbarBrand} from 'reactstrap';
 
 // This is one of our simplest components
@@ -24,4 +23,4 @@ const Footer = () =>
         </Navbar>
     </div>
 
-export default withRouter(Footer);
+export default (Footer);

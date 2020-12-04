@@ -64,4 +64,4 @@ const NavBar = (props) => {
   );
 };
 
-export default withRouter(connect(mapStoreToProps)(NavBar));
+export default connect(mapStoreToProps)(NavBar);
