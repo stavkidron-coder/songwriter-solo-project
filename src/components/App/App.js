@@ -4,6 +4,7 @@ import {
   Route,
   Redirect,
   Switch,
+  withRouter
 } from 'react-router-dom';
 
 import { connect } from 'react-redux';
@@ -138,4 +139,4 @@ class App extends Component {
   }
 }
 
-export default connect()(App);
+export default withRouter(connect()(App));
