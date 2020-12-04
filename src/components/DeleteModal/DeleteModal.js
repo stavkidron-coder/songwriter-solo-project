@@ -21,7 +21,7 @@ const DeleteModal = (props) => {
     let songId = props.songId;
     console.log('songId for delete', songId);
     props.dispatch({type: 'DELETE_SONG', payload: songId});
-    props.history.push('/home');
+    props.history.push('/landing-page');
 }
 
   return (
