@@ -54,7 +54,7 @@ class App extends Component {
             <ProtectedRoute
               // logged in shows HomePage else shows LoginPage
               exact
-              path="/home"
+              path="/landing-page"
               component={HomePage}
             />
 
