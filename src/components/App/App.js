@@ -48,13 +48,13 @@ class App extends Component {
             // /> */}
 
             {/* For protected routes, the view could show one of several things on the same route.
-            Visiting localhost:3000/home will show the HomePage if the user is logged in.
+            Visiting localhost:3000/landing-page will show the HomePage if the user is logged in.
             If the user is not logged in, the ProtectedRoute will show the LoginPage (component).
             Even though it seems like they are different pages, the user is always on localhost:3000/user */}
             <ProtectedRoute
               // logged in shows HomePage else shows LoginPage
               exact
-              path="/landing-page"
+              path="/home"
               component={HomePage}
             />
 
@@ -70,7 +70,7 @@ class App extends Component {
               exact
               path="/login"
               component={LoginPage}
-              authRedirect="/landing-page"
+              authRedirect="/home"
             />
             <ProtectedRoute
               // with authRedirect:
@@ -79,7 +79,7 @@ class App extends Component {
               exact
               path="/registration"
               component={RegisterPage}
-              authRedirect="/landing-page"
+              authRedirect="/home"
             />
             <ProtectedRoute
               // with authRedirect:
@@ -88,7 +88,7 @@ class App extends Component {
               exact
               path="/landing-page"
               component={LandingPage}
-              authRedirect="/landing-page"
+              authRedirect="/home"
             />
 
             <ProtectedRoute

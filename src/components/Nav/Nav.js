@@ -32,7 +32,7 @@ const NavBar = (props) => {
 
   return (
     <Navbar color="light" className="nav">
-      <NavbarBrand href="/landing-page" className="navbarBrand">
+      <NavbarBrand href="/home" className="navbarBrand">
         <img src={Logo} className="logo" alt="logo"/>
       </NavbarBrand>
       

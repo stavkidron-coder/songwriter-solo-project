@@ -10,7 +10,7 @@ import {Navbar, Nav, NavItem, NavbarBrand} from 'reactstrap';
 const Footer = () =>
     <div className = "footerContainer">
         <Navbar color="light" className="footer">
-            <NavbarBrand href='/landing-page' className="navbarBrand">
+            <NavbarBrand href='/home' className="navbarBrand">
                 <h4 className="nav-title">SONGWRITER</h4>
             </NavbarBrand>
 
