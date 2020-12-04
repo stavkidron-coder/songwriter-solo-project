@@ -22,7 +22,7 @@ class LoginForm extends Component {
           password: this.state.password,
         },
       });
-      this.props.history.push('/home');
+      this.props.history.push('/landing-page');
     } else {
       this.props.dispatch({ type: 'LOGIN_INPUT_ERROR' });
     }

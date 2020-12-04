@@ -89,7 +89,7 @@ function* deleteSong(action) {
         console.log('delete song saga', action.payload);
         yield axios.delete(`/songs/delete/${action.payload}`);
         yield put({type: 'GET_RECENT_SONGS', payload: action.user.id});
-        yield action.payload.nav.props.history.push(`/home`);
+        yield action.payload.nav.props.history.push(`/landing-page`);
     }
     catch (error) {
         console.log('error in delete saga', error); 
