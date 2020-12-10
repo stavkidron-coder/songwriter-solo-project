@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
-import { withRouter } from 'react-router-dom';
 import LogOutButton from '../LogOutButton/LogOutButton';
 import './Nav.css';
 import mapStoreToProps from '../../redux/mapStoreToProps';
@@ -27,7 +26,7 @@ const NavBar = (props) => {
   };
 
   if (props.store.user.id != null) {
-    loginLinkData.path = '/#/home';
+    loginLinkData.path = '/home';
     loginLinkData.text = 'Home';
   }
 
