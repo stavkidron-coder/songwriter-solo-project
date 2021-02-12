@@ -21,7 +21,6 @@ class AddEditSongPage extends Component {
         // post a new blank song to DB
         // returns id
         this.props.dispatch({type: 'GET_SONG_ID', payload: this.props.match.params.id});
-        // console.log('RETURNING SONG ID', this.props.store.songIdReducer);
     }
 
     componentDidUpdate() {
@@ -75,7 +74,6 @@ class AddEditSongPage extends Component {
                 [typeParam]: event.target.value
             }
         });
-        console.log(this.state.song.time_signature);
         
   }
 
@@ -98,7 +96,6 @@ class AddEditSongPage extends Component {
             }
         });
     }
-    // console.log('completed status:', this.state.song);
   }
 
     // updates DB with new information for song
@@ -234,37 +231,7 @@ class AddEditSongPage extends Component {
                                         onChange={(event) => this.handleChange(event, 'notes')}     
                                     />
                                 </Col>
-
-                            </Row>
-
-                            {/* <Row>
-                                <Col xs="4" className="r3c1">
-                                    <Form
-                                        ref='uploadForm'
-                                        id='uploadForm'
-                                        // action='http://localhost:5000/upload'
-                                        method='post'
-                                        encType="multipart/form-data"
-                                    >
-                                        <FormGroup>
-                                            <Label for="fileUpload"><h4>File Upload</h4></Label>
-                                            <Input
-                                                id="fileUpload"
-                                                name="songFile"
-                                                type="file"
-                                            />
-
-                                            <Input
-                                                type='submit'
-                                                value='Upload File'
-                                            />
-                                        </FormGroup>
-                                    </Form>
-                                    
-                                    
-                                </Col>
-                            </Row> */}
-                            
+                            </Row>   
                         </FormGroup>
                     </Form>
 
@@ -280,10 +247,6 @@ class AddEditSongPage extends Component {
                                             Mark song as "Completed" {checkIcon}
                                         </Button>
                                     }
-
-
-                                    {/* <Label for="completedStatus">Complete song</Label>
-                                    <Input type="checkbox" id="completedStatus" name="completeStatus" defaultChecked={this.state.completed} onClick={this.checkboxToggle}/> */}
                                 
                                 <Button color="success" onClick={this.saveBtn}>Save {saveIcon}</Button>
                                 <Alert

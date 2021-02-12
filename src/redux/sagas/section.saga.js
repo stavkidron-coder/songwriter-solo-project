@@ -2,7 +2,6 @@ import axios from 'axios';
 import { put, takeEvery } from 'redux-saga/effects';
 
 function* postSection(action) {
-    console.log('section object in saga', action.payload);
     
     try {
         yield axios.post('/sections', action.payload);       

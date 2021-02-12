@@ -22,7 +22,7 @@ const NavBar = (props) => {
 
   let loginLinkData = {
     path: '/login',
-    text: 'Login / Register',
+    text: 'Login/Register',
   };
 
   if (props.store.user.id != null) {

@@ -1,17 +1,22 @@
 .landingDescription {
-  margin: auto;
-  padding: 75px;
-  height: 500px;
-  /* border: 1px solid black; */
   border-radius: 3px;
   background-color: rgba(230, 230, 230, 0.81) !important;
   color: black;
+  margin-top: 20px;
+  padding: 20px;
 }
 
-.landingJumbotron {
-  height: 86.4vh;
-  margin: 0;
+.landingDescription h1 {
+  display: flex;
+  align-items: center;
+}
+
+.landingDescription p {
+  display: flex;
+  align-items: center;
+}
+
+.landingPageContainer {
   background-image: url('../../Images/guitar.jpg');
   background-size: cover;
-  border-radius: 0; 
 }

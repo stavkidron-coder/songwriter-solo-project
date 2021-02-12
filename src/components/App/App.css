@@ -83,3 +83,15 @@ Alert
   color: #e01616;
   font-size: 0.8rem;
 }
+
+/* --------------------------------------------------------------------------------
+Layout
+-------------------------------------------------------------------------------- */
+
+.pageContainer {
+  display: flex;
+  flex-wrap: wrap;
+  /* justify-content: center; */
+  align-items: center;
+  min-height: 86.4vh;
+}
