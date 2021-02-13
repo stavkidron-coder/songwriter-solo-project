@@ -1,10 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import {Button} from 'reactstrap';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSignOutAlt } from '@fortawesome/free-solid-svg-icons'
-
-const logoutIcon = <FontAwesomeIcon icon={faSignOutAlt}/>
 
 const LogOutButton = (props) => (
   <Button
@@ -15,7 +11,7 @@ const LogOutButton = (props) => (
     className={props.className}
     onClick={() => props.dispatch({ type: 'LOGOUT' })}
   >
-    Log Out {logoutIcon}
+    Log Out
   </Button>
 );
 

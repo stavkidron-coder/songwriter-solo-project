@@ -1,5 +1,6 @@
 import React from 'react';
 import './Footer.css';
+import { Link } from 'react-router-dom';
 import {Navbar, Nav, NavItem, NavbarBrand} from 'reactstrap';
 
 // This is one of our simplest components
@@ -10,8 +11,10 @@ import {Navbar, Nav, NavItem, NavbarBrand} from 'reactstrap';
 const Footer = () =>
     <div className = "footerContainer">
         <Navbar color="light" className="footer">
-            <NavbarBrand href='/home' className="navbarBrand">
-                <h4 className="nav-title">SONGWRITER</h4>
+            <NavbarBrand className="navbarBrand">
+                <Link to="/home" className="nav-link link">
+                    <h4 className="nav-title">SONGWRITER</h4>
+                </Link>
             </NavbarBrand>
 
             <Nav>

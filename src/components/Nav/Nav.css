@@ -1,5 +1,16 @@
+.link {
+  color: black;
+  transition: 0.2s;
+}
+
+.link:hover {
+  color: rgb(160,118,177) !important;
+  text-decoration: none;
+}
+
 .nav-right {
   float: right;
+  list-style: none;
 }
 
 .navbarBrand {
@@ -11,8 +22,8 @@
 }
 
 .nav-link {
-  color: black;
-  text-align: left;
+  color: black !important;
+  text-align: right;
 }
 
 .nav-link:hover {
@@ -20,7 +31,7 @@
 }
 
 .logo {
-  height: 50px;
+  max-height: 50px;
 }
 
 .dropdownItem:hover {

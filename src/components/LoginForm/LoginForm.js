@@ -36,68 +36,67 @@ class LoginForm extends Component {
 
   render() {
     return (
-      <Container className="loginPage">
-        <Form className="formPanel">
-          <FormGroup>
-            <h2>Login</h2>
-            {this.props.store.errors.loginMessage && (
-              <h3 className="alert" role="alert">
-                {this.props.store.errors.loginMessage}
-              </h3>
-            )}
-            <div>
-              <Label htmlFor="username">
-                Username:
-                <Input
-                  type="text"
-                  name="username"
-                  required
-                  value={this.state.username}
-                  onChange={this.handleInputChangeFor('username')}
-                />
-              </Label>
-            </div>
-            <div>
-              <Label htmlFor="password">
-                Password:
-                <Input
-                  type="password"
-                  name="password"
-                  required
-                  value={this.state.password}
-                  onChange={this.handleInputChangeFor('password')}
-                />
-              </Label>
-            </div>
-            
-            <div>
+      <div className="loginPage">
+        <Container className="loginPage">
+          <Form className="formPanel">
+            <FormGroup>
+              <h2>Login</h2>
+              {this.props.store.errors.loginMessage && (
+                <h3 className="alert" role="alert">
+                  {this.props.store.errors.loginMessage}
+                </h3>
+              )}
+              <div>
+                <Label htmlFor="username">
+                  Username:
+                  <Input
+                    type="text"
+                    name="username"
+                    required
+                    value={this.state.username}
+                    onChange={this.handleInputChangeFor('username')}
+                  />
+                </Label>
+              </div>
+              <div>
+                <Label htmlFor="password">
+                  Password:
+                  <Input
+                    type="password"
+                    name="password"
+                    required
+                    value={this.state.password}
+                    onChange={this.handleInputChangeFor('password')}
+                  />
+                </Label>
+              </div>
+              
+              <div>
+                <Button
+                className="btn-purple-dark"
+                  onClick={this.login}
+                >
+                  Login
+                </Button>
+              </div>
+            </FormGroup>
+            <center>
+              <h5>New user?</h5>
               <Button
-              className="btn-purple-dark"
-                onClick={this.login}
+                className="registerBtn"
+                size="small"
+                color="link"
+                onClick={() => {
+                  this.props.history.push('/registration');
+                }}
               >
-                Login
+                Register
               </Button>
-            </div>
-          </FormGroup>
-          <center>
-            <h5>New user?</h5>
-            <Button
-              className="registerBtn"
-              size="small"
-              color="link"
-              onClick={() => {
-                this.props.history.push('/registration');
-              }}
-            >
-              Register
-            </Button>
-          </center>
+            </center>
 
-        </Form>
-
-          
-
-      </Container>
+          </Form>
+        </Container>
+     </div>
     );
   }
 }

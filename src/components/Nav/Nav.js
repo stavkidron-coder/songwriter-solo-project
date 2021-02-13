@@ -1,24 +1,20 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import LogOutButton from '../LogOutButton/LogOutButton';
 import './Nav.css';
 import mapStoreToProps from '../../redux/mapStoreToProps';
 import Logo from '../../Images/logo.png';
-import DropDown from './DropDown/DropDown';
-import { Navbar, NavbarBrand, Nav, NavItem, NavLink, Dropdown } from 'reactstrap';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHome } from '@fortawesome/free-solid-svg-icons'
-
-const homeIcon = <FontAwesomeIcon icon={faHome}/>
-
-
-
+// import DropDown from './DropDown/DropDown';
+import { Navbar, NavbarBrand, Nav, NavItem, NavLink, NavbarToggler, Collapse } from 'reactstrap';
 
 const NavBar = (props) => {
 
-  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
 
-  const toggle = () => setDropdownOpen(prevState => !prevState);
+  const toggle = () => setIsOpen(!isOpen); 
+
+  // const [dropdownOpen, setOpen] = useState(false);
 
   let loginLinkData = {
     path: '/login',
@@ -31,35 +27,59 @@ const NavBar = (props) => {
   }
 
   return (
-    <Navbar color="light" className="nav">
-      <NavbarBrand href="/home" className="navbarBrand">
-        <img src={Logo} className="logo" alt="logo"/>
-      </NavbarBrand>
-      
-      <Nav className="nav-right">
-        <NavItem>
-          <NavLink className="nav-link" href={loginLinkData.path}>
-            {/* Show this link if they are logged in or not,
-            but call this link 'Home' if they are logged in,
-            and call this link 'Login / Register' if they are not */}
-            {loginLinkData.text} {homeIcon}
-          </NavLink>
-        </NavItem>
-        
-        {/* Show the link to the info page and the logout button if the user is logged in */}
-        {props.store.user.id && (
-          <>
-            <Dropdown isOpen={dropdownOpen} toggle={toggle}>
-                <DropDown/> {/* dropdown items in DropDown component */}
-            </Dropdown>
-
+    <>
+    <div className="navBar">
+      <Navbar color="light" light expand="md">
+        <NavbarBrand>
+          <Link to={loginLinkData.path}>
+            <img src={Logo} className="logo" alt="logo"/>
+          </Link>  
+        </NavbarBrand>
+        <NavbarToggler onClick={toggle} />
+        <Collapse isOpen={isOpen} navbar>
+          <Nav className="mr-auto" navbar>
             <NavItem>
-              <LogOutButton className="nav-link"/>
+              <NavLink>
+                <Link className="link" to={loginLinkData.path}>
+                  {loginLinkData.text}
+                </Link>
+              </NavLink>
             </NavItem>
-          </>
+          
+          {/* Show the link to the info page and the logout button if the user is logged in */}
+          {props.store.user.id && (
+            <>
+            <NavItem>
+              <NavLink className="nav-link">
+                <Link className="link" to="/in-the-works">
+                  In Progress
+                </Link>
+              </NavLink>
+            </NavItem>
+                  
+            <NavItem>
+              <NavLink className="nav-link">
+                <Link className="link" to="/completed">
+                  Completed
+                </Link>
+              </NavLink>
+            </NavItem>
+            </>
+          )}
+        
+
+        {props.store.user.id && (
+        <Nav className="ml-auto">
+          <NavItem>
+            <LogOutButton className="nav-link link"/>
+          </NavItem>
+        </Nav>
         )}
-      </Nav>
-    </Navbar>
+        </Nav>
+        </Collapse>
+      </Navbar>
+    </div>
+</>
   );
 };
 

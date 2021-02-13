@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import mapStoreToProps from '../../redux/mapStoreToProps';
-import {Jumbotron, Col, Row, Container} from 'reactstrap';
+import { Col, Row, Container } from 'reactstrap';
 
 import './LandingPage.css';
 
