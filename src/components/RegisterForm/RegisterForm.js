@@ -66,16 +66,16 @@ class RegisterForm extends Component {
 
             <div>
               <Label htmlFor="firstName">
-                  First Name:
-                  <Input
-                    type="text"
-                    name="firstName"
-                    value={this.state.first_name}
-                    required
-                    onChange={this.handleInputChangeFor('first_name')}
-                  />
-                </Label>
-              </div>
+                First Name:
+                <Input
+                  type="text"
+                  name="firstName"
+                  value={this.state.first_name}
+                  required
+                  onChange={this.handleInputChangeFor('first_name')}
+                />
+              </Label>
+            </div>
 
               <div>
                 <Label htmlFor="lastName">

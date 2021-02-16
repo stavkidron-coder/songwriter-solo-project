@@ -24,7 +24,6 @@ function* getCompletedSongs() {
 }
 
 function* postSong(action){
-    console.log('post saga action.payload', action.payload);
     
     try {
         const songResponse = yield axios.post('/songs');
@@ -54,7 +53,7 @@ function* updateSong(action) {
         yield put({type: 'GET_SONG_BY_ID', payload: action.payload.songId});
     }
     catch(error) {
-        console.log('ERROR inUPDATE saga', error);
+        console.log('ERROR in UPDATE saga', error);
     }
 }
 
@@ -73,7 +72,6 @@ function* getSongDataById(action) {
 }
 
 function* getRecentSongs(action) {
-    console.log('getRecentSongs action', action);
     
     try{
         const recentResponse = yield axios.get(`/songs/recent/${action.payload}`);
@@ -86,7 +84,6 @@ function* getRecentSongs(action) {
 
 function* deleteSong(action) {
     try {
-        console.log('delete song saga', action.payload);
         yield axios.delete(`/songs/delete/${action.payload}`);
         // yield put({type: 'GET_RECENT_SONGS', payload: action.user.id});
         // yield action.payload.nav.props.history.push('/home');

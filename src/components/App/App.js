@@ -39,14 +39,6 @@ class App extends Component {
             {/* Visiting localhost:3000 will redirect to localhost:3000/landing-page */}
             <Redirect exact from="/" to="/landing-page" />
 
-            {/* Visiting localhost:3000/about will show the about page. */}
-            {/* <Route */}
-              {/* // shows AboutPage at all times (logged in or not)
-              // exact
-              // path="/about"
-              // component={AboutPage}
-            // /> */}
-
             {/* For protected routes, the view could show one of several things on the same route.
             Visiting localhost:3000/landing-page will show the HomePage if the user is logged in.
             If the user is not logged in, the ProtectedRoute will show the LoginPage (component).

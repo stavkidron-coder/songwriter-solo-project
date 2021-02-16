@@ -21,7 +21,6 @@ class AddEditSongPage extends Component {
         // post a new blank song to DB
         // returns id
         this.props.dispatch({type: 'GET_SONG_ID', payload: this.props.match.params.id});
-        // console.log('RETURNING SONG ID', this.props.store.songIdReducer);
     }
 
     componentDidUpdate() {
@@ -75,7 +74,6 @@ class AddEditSongPage extends Component {
                 [typeParam]: event.target.value
             }
         });
-        console.log(this.state.song.time_signature);
         
   }
 
@@ -98,7 +96,6 @@ class AddEditSongPage extends Component {
             }
         });
     }
-    // console.log('completed status:', this.state.song);
   }
 
     // updates DB with new information for song
@@ -125,7 +122,7 @@ class AddEditSongPage extends Component {
             <Jumbotron className="addEditPageJumbotron">
                 <Container>
                     <Row>
-                        <Col xs="6" className="editJumboText">
+                        <Col xs="12" lg="6" className="editJumboText">
                             <h1>{this.state.song.title}</h1>
                             <hr/>
                             <p onClick={this.secretBtn}>
@@ -150,7 +147,7 @@ class AddEditSongPage extends Component {
                         <FormGroup>
                             <Row>
 
-                                <Col xs="4" className="r1c1">
+                                <Col xs="12" lg="4" className="r1c1">
                                     <Label for="title"><h4>*Song Title:</h4></Label>
                                     <Input
                                         value={this.state.song.title}
@@ -185,7 +182,7 @@ class AddEditSongPage extends Component {
                                     />
                                 </Col>
 
-                                <Col xs="4" className="r1c2">
+                                <Col xs="12" lg="4" className="r1c2">
                                     <Label for="lyrics"><h4>Lyrics:</h4></Label>
                                     <Input
                                         value={this.state.song.lyrics}
@@ -202,7 +199,7 @@ class AddEditSongPage extends Component {
 
                             <Row>
 
-                                <Col xs="4" className="r2c1">
+                                <Col xs="12" lg="4" className="r2c1">
                                     <Label for="instruments"><h4>Instruments:</h4></Label>
                                     <Input
                                         value={this.state.song.instruments}
@@ -213,7 +210,7 @@ class AddEditSongPage extends Component {
                                     />
                                 </Col>
 
-                                <Col xs="4" className="r2c1">
+                                <Col xs="12" lg="4" className="r2c1">
                                     <Label for="refSongs"><h4>References:</h4></Label>
                                     <Input
                                         value={this.state.song.reference_songs}
@@ -224,7 +221,7 @@ class AddEditSongPage extends Component {
                                     />
                                 </Col>
 
-                                <Col xs="4" className="r2c1">
+                                <Col xs="12" lg="4" className="r2c1">
                                     <Label for="notes"><h4>Other Notes:</h4></Label>
                                     <Input
                                         value={this.state.song.notes}
@@ -234,72 +231,34 @@ class AddEditSongPage extends Component {
                                         onChange={(event) => this.handleChange(event, 'notes')}     
                                     />
                                 </Col>
-
-                            </Row>
-
-                            {/* <Row>
-                                <Col xs="4" className="r3c1">
-                                    <Form
-                                        ref='uploadForm'
-                                        id='uploadForm'
-                                        // action='http://localhost:5000/upload'
-                                        method='post'
-                                        encType="multipart/form-data"
-                                    >
-                                        <FormGroup>
-                                            <Label for="fileUpload"><h4>File Upload</h4></Label>
-                                            <Input
-                                                id="fileUpload"
-                                                name="songFile"
-                                                type="file"
-                                            />
-
-                                            <Input
-                                                type='submit'
-                                                value='Upload File'
-                                            />
-                                        </FormGroup>
-                                    </Form>
-                                    
-                                    
-                                </Col>
-                            </Row> */}
-                            
+                            </Row>   
                         </FormGroup>
                     </Form>
 
                     <div className="btnRow">
-                        <Row>
-                            <Col>
-                                    {this.state.song.completed_status ?
-                                        <Button color="warning" onClick={this.completedToggle}>
-                                            Mark song as "In Progress" {toolsIcon}
-                                        </Button>
-                                        :
-                                        <Button color="primary" onClick={this.completedToggle}>
-                                            Mark song as "Completed" {checkIcon}
-                                        </Button>
-                                    }
 
+                        {this.state.song.completed_status ?
+                            <Button color="warning" onClick={this.completedToggle}>
+                                Mark song as "In Progress" {toolsIcon}
+                            </Button>
+                            :
+                            <Button color="primary" onClick={this.completedToggle}>
+                                Mark song as "Completed" {checkIcon}
+                            </Button>
+                        }
 
-                                    {/* <Label for="completedStatus">Complete song</Label>
-                                    <Input type="checkbox" id="completedStatus" name="completeStatus" defaultChecked={this.state.completed} onClick={this.checkboxToggle}/> */}
-                                
-                                <Button color="success" onClick={this.saveBtn}>Save {saveIcon}</Button>
-                                <Alert
-                                    className="successAlert"
-                                    isOpen={this.state.visibility}
-                                    toggle={this.toggle.bind(this)}
-                                >
-                                    <h5>Song successfully saved!</h5>
-                                </Alert>
-                                
-                            </Col>
-                            <DeleteModal songId={this.props.match.params.id}/>
-                        </Row>
-                        
+                        <Button color="success" onClick={this.saveBtn}>Save {saveIcon}</Button>
+                        <DeleteModal songId={this.props.match.params.id}/>
+
                     </div>
 
+                    <Alert
+                        className="successAlert"
+                        isOpen={this.state.visibility}
+                        toggle={this.toggle.bind(this)}>
+                            <h5>Song successfully saved!</h5>
+                    </Alert>
+                    
                 </Container>
             </div>
         </div>

@@ -30,28 +30,30 @@ class HomePage extends Component {
         
         <Container>
           <Row>
-            <Col xs="4" className="leftJumbotron">
+            
+              <Col xs="12" lg="6">
+                <div className="leftJumbotron">
+                  <h1 id="welcome">
+                    Welcome, {this.props.store.user.first_name}!
+                  </h1>
 
-              <h1 id="welcome">
-                Welcome, {this.props.store.user.first_name}!
-              </h1>
+                  <hr className="homeHr"/>
 
-              <hr className="homeHr"/>
+                  <p>
+                    Get started by clicking "New Song" or check out your saved songs
+                    by navigating to the "In Progress" or the "Completed" pages in the nav bar
+                    by clicking the "My Songs" button.
+                  </p>
 
-              <p>
-                Get started by clicking "New Song" or check out your saved songs
-                by navigating to the "In Progress" or the "Completed" pages in the nav bar
-                by clicking the "My Songs" button.
-              </p>
-
-              <Button
-              className="btn-purple-dark"
-                id="addSongBtn"
-                onClick={this.newSongBtn}>
-                  New Song {plusIcon}
-              </Button>
-
-            </Col>
+                  <Button
+                  className="btn-purple-dark"
+                    id="addSongBtn"
+                    onClick={this.newSongBtn}>
+                      New Song {plusIcon}
+                  </Button>
+                </div>
+              </Col>
+            
           </Row>
           
         </Container>
@@ -69,7 +71,7 @@ class HomePage extends Component {
 
           {this.props.store.recentSongsReducer.map((song) => {
             return(
-              <SongCard song={song}/>
+              <SongCard song={song} key={song.id}/>
             )
           })}
           

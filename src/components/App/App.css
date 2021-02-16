@@ -83,3 +83,29 @@ Alert
   color: #e01616;
   font-size: 0.8rem;
 }
+
+/* --------------------------------------------------------------------------------
+Layout
+-------------------------------------------------------------------------------- */
+
+.pageContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  min-height: 88.4vh;
+}
+
+.formPanel {
+  box-sizing: border-box;
+  max-width: 400px;
+  padding: 25px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 3px;
+  background-color: rgba(0, 0, 0, 0.899) !important;
+  color: white;
+  justify-self: center;
+}

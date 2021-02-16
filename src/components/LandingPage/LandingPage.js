@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import mapStoreToProps from '../../redux/mapStoreToProps';
-import {Jumbotron, Col, Row, Container} from 'reactstrap';
+import { Col, Row, Container } from 'reactstrap';
 
 import './LandingPage.css';
 
@@ -9,9 +9,6 @@ import './LandingPage.css';
 import RegisterForm from '../RegisterForm/RegisterForm';
 
 class LandingPage extends Component {
-  state = {
-    heading: 'Welcome',
-  };
 
   onLogin = (event) => {
     this.props.history.push('/login');
@@ -19,31 +16,35 @@ class LandingPage extends Component {
 
   render() {
     return (
-      <Jumbotron className="landingJumbotron">
+      // <Jumbotron className="landingJumbotron">
+      <div className="pageContainer landingPageContainer">
         <Container>
           <Row>
-            <Col xs="8" className="landingDescription">
-              <h1>{this.state.heading}</h1>
+            <Col xs="12" lg="8">
+              <div className="landingDescription">
+                <h1>Welcome</h1>
 
-              <h5>
-                SONGWRITER is the place your songs can call home. Edit and store
-                the songs you've worked so hard to write so that you won't ever need 
-                to worry about losing your ideas again.
-              </h5>
+                <h5>
+                  SONGWRITER is the place your songs can call home. Edit and store
+                  the songs you've worked so hard to write so that you won't ever need 
+                  to worry about losing your ideas again.
+                </h5>
 
-              <hr/>
-              
-              <p>
-                Simply login to your account or create a new one and start plugging away!
-              </p>
+                <hr/>
+                
+                <p>
+                  Simply login to your account or create a new one and start plugging away!
+                </p>
+              </div>
 
             </Col>
-            <Col xs="4">
+            <Col xs="12" lg="4">
               <RegisterForm />
             </Col>
           </Row>
         </Container>
-      </Jumbotron>
+      {/* </Jumbotron> */}
+      </div>
     );
   }
 }

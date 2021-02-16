@@ -51,7 +51,7 @@ const SectionModal = (props) => {
 
   return (
     
-    <Col xs="4" className="r1c3">
+    <Col xs="12" lg="4" className="r1c3">
     <Label for="chords"><h4>Song Sections & Chords:</h4></Label>
     {/* this is where the saved sections get displayed ||||| They get displayed before getting added */}
         <div className="songStructure" id="chords">

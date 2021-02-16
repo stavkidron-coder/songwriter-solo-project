@@ -26,7 +26,7 @@ const DeleteModal = (props) => {
 
   return (
     <div>
-      <Button color="danger" onClick={toggle}>Delete Song {trashIcon}</Button>
+      <Button color="danger" onClick={toggle}>Delete {trashIcon}</Button>
       <Modal isOpen={modal} toggle={toggle} className={className}>
         <ModalHeader className="modalHeader" toggle={toggle}>Delete Song</ModalHeader>
         <ModalBody className="modalBody">
