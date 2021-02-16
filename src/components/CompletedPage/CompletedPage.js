@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import mapStoreToProps from '../../redux/mapStoreToProps';
 import './Completed.css';
 import SongCard from '../SongCard/SongCard';
-import {Jumbotron, Container} from 'reactstrap';
+import {Jumbotron, Container, Col} from 'reactstrap';
 
 class Completed extends Component {
 
@@ -23,11 +23,13 @@ class Completed extends Component {
 
         <Jumbotron className="completedJumbotron">
           <Container>
-            <div className="completedJumbotronTitle">
-              <h1>Completed Songs</h1>
-              <hr/>
-              <p>This is where your completed songs live</p>
-            </div>
+            <Col xs="12">
+              <div className="completedJumbotronTitle">
+                <h1>Completed Songs</h1>
+                <hr className="itwHr"/>
+                <p>This is where your completed songs live</p>
+              </div>
+            </Col>
           </Container> 
         </Jumbotron>
 

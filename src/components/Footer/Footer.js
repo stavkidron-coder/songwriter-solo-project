@@ -9,7 +9,7 @@ import {Navbar, Nav, NavItem, NavbarBrand} from 'reactstrap';
 // or even care what the redux state is, so it doesn't need 'connect()'
 
 const Footer = () =>
-    <div className = "footerContainer">
+    <div>
         <Navbar color="light" className="footer">
             <NavbarBrand className="navbarBrand">
                 <Link to="/home" className="nav-link link">

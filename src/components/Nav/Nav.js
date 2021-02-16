@@ -14,8 +14,6 @@ const NavBar = (props) => {
 
   const toggle = () => setIsOpen(!isOpen); 
 
-  // const [dropdownOpen, setOpen] = useState(false);
-
   let loginLinkData = {
     path: '/login',
     text: 'Login/Register',
@@ -29,7 +27,7 @@ const NavBar = (props) => {
   return (
     <>
     <div className="navBar">
-      <Navbar color="light" light expand="md">
+      <Navbar color="light" light expand="md" fixed="top">
         <NavbarBrand>
           <Link to={loginLinkData.path}>
             <img src={Logo} className="logo" alt="logo"/>
@@ -40,8 +38,11 @@ const NavBar = (props) => {
           <Nav className="mr-auto" navbar>
             <NavItem>
               <NavLink>
-                <Link className="link" to={loginLinkData.path}>
-                  {loginLinkData.text}
+                <Link
+                  className="link"
+                  to={loginLinkData.path}
+                  onClick={toggle}>
+                    {loginLinkData.text}
                 </Link>
               </NavLink>
             </NavItem>
@@ -51,7 +52,10 @@ const NavBar = (props) => {
             <>
             <NavItem>
               <NavLink className="nav-link">
-                <Link className="link" to="/in-the-works">
+                <Link
+                  className="link"
+                  to="/in-the-works"
+                  onClick={toggle}>
                   In Progress
                 </Link>
               </NavLink>
@@ -59,8 +63,11 @@ const NavBar = (props) => {
                   
             <NavItem>
               <NavLink className="nav-link">
-                <Link className="link" to="/completed">
-                  Completed
+                <Link
+                  className="link"
+                  to="/completed"
+                  onClick={toggle}>
+                    Completed
                 </Link>
               </NavLink>
             </NavItem>
@@ -71,7 +78,9 @@ const NavBar = (props) => {
         {props.store.user.id && (
         <Nav className="ml-auto">
           <NavItem>
-            <LogOutButton className="nav-link link"/>
+            <LogOutButton
+              className="nav-link link"
+              onClick={toggle}/>
           </NavItem>
         </Nav>
         )}

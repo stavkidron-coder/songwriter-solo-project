@@ -122,7 +122,7 @@ class AddEditSongPage extends Component {
             <Jumbotron className="addEditPageJumbotron">
                 <Container>
                     <Row>
-                        <Col xs="6" className="editJumboText">
+                        <Col xs="12" lg="6" className="editJumboText">
                             <h1>{this.state.song.title}</h1>
                             <hr/>
                             <p onClick={this.secretBtn}>
@@ -147,7 +147,7 @@ class AddEditSongPage extends Component {
                         <FormGroup>
                             <Row>
 
-                                <Col xs="4" className="r1c1">
+                                <Col xs="12" lg="4" className="r1c1">
                                     <Label for="title"><h4>*Song Title:</h4></Label>
                                     <Input
                                         value={this.state.song.title}
@@ -182,7 +182,7 @@ class AddEditSongPage extends Component {
                                     />
                                 </Col>
 
-                                <Col xs="4" className="r1c2">
+                                <Col xs="12" lg="4" className="r1c2">
                                     <Label for="lyrics"><h4>Lyrics:</h4></Label>
                                     <Input
                                         value={this.state.song.lyrics}
@@ -199,7 +199,7 @@ class AddEditSongPage extends Component {
 
                             <Row>
 
-                                <Col xs="4" className="r2c1">
+                                <Col xs="12" lg="4" className="r2c1">
                                     <Label for="instruments"><h4>Instruments:</h4></Label>
                                     <Input
                                         value={this.state.song.instruments}
@@ -210,7 +210,7 @@ class AddEditSongPage extends Component {
                                     />
                                 </Col>
 
-                                <Col xs="4" className="r2c1">
+                                <Col xs="12" lg="4" className="r2c1">
                                     <Label for="refSongs"><h4>References:</h4></Label>
                                     <Input
                                         value={this.state.song.reference_songs}
@@ -221,7 +221,7 @@ class AddEditSongPage extends Component {
                                     />
                                 </Col>
 
-                                <Col xs="4" className="r2c1">
+                                <Col xs="12" lg="4" className="r2c1">
                                     <Label for="notes"><h4>Other Notes:</h4></Label>
                                     <Input
                                         value={this.state.song.notes}
@@ -236,33 +236,29 @@ class AddEditSongPage extends Component {
                     </Form>
 
                     <div className="btnRow">
-                        <Row>
-                            <Col>
-                                    {this.state.song.completed_status ?
-                                        <Button color="warning" onClick={this.completedToggle}>
-                                            Mark song as "In Progress" {toolsIcon}
-                                        </Button>
-                                        :
-                                        <Button color="primary" onClick={this.completedToggle}>
-                                            Mark song as "Completed" {checkIcon}
-                                        </Button>
-                                    }
-                                
-                                <Button color="success" onClick={this.saveBtn}>Save {saveIcon}</Button>
-                                <Alert
-                                    className="successAlert"
-                                    isOpen={this.state.visibility}
-                                    toggle={this.toggle.bind(this)}
-                                >
-                                    <h5>Song successfully saved!</h5>
-                                </Alert>
-                                
-                            </Col>
-                            <DeleteModal songId={this.props.match.params.id}/>
-                        </Row>
-                        
+
+                        {this.state.song.completed_status ?
+                            <Button color="warning" onClick={this.completedToggle}>
+                                Mark song as "In Progress" {toolsIcon}
+                            </Button>
+                            :
+                            <Button color="primary" onClick={this.completedToggle}>
+                                Mark song as "Completed" {checkIcon}
+                            </Button>
+                        }
+
+                        <Button color="success" onClick={this.saveBtn}>Save {saveIcon}</Button>
+                        <DeleteModal songId={this.props.match.params.id}/>
+
                     </div>
 
+                    <Alert
+                        className="successAlert"
+                        isOpen={this.state.visibility}
+                        toggle={this.toggle.bind(this)}>
+                            <h5>Song successfully saved!</h5>
+                    </Alert>
+                    
                 </Container>
             </div>
         </div>

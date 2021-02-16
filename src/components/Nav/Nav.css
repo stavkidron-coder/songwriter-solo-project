@@ -1,3 +1,7 @@
+.navBar {
+  margin-bottom: 80px;
+}
+
 .link {
   color: black;
   transition: 0.2s;

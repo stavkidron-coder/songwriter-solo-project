@@ -31,11 +31,13 @@
 .r1c1 {
     width: 100% !important;
     height: 310px !important;
+    margin-bottom: 120px;
 }
 
 .r1c2 {
     width: 100% !important;
     height: 310px !important;
+    margin-bottom: 80px;
 }
 
 .r2c1 {
@@ -59,6 +61,12 @@
 .addSectionBtn {
     float: right;
     margin-top: 10px;
+}
+
+.btnRow {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .btnRow Button{

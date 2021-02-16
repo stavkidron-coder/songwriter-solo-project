@@ -14,12 +14,12 @@ class SongCard extends Component {
             <div key={this.props.song.id} className="songCardContainer">
                 <Row>
 
-                  <Col xs="6">
+                  <Col lg="6">
                     <h3>{this.props.song.title}</h3>
                     <p>{moment(this.props.song.date).format('MMMM Do YYYY, h:mm a')}</p>
                   </Col>
 
-                  <Col xs="3">
+                  <Col lg="3">
                     {this.props.song.completed_status ?
                       <p className="completedStatus"><span className="completedDot">{dotIcon}</span> Completed</p>
                       :
@@ -27,7 +27,7 @@ class SongCard extends Component {
                     }
                   </Col>
 
-                  <Col xs="3" className="songCardButtonCol">
+                  <Col lg="3" className="songCardButtonCol">
                     <DropDownBtns song={this.props.song}/> 
                   </Col>
 
